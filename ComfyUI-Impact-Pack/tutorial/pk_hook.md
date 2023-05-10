@@ -22,5 +22,5 @@
 
 
 * If you increase the strength of denoise, initially the image may become distorted, but gradually it can be reconstructed into a new image.
-<img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK2-steps.png"/>
-<img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-DecDenoise-result.png"/>
+<img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK2-steps.jpg"/>
+<img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK2-result.png"/>
