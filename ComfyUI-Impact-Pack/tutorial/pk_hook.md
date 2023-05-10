@@ -17,5 +17,4 @@
 
 
 * The left one is the original, the middle one has denoise increased/cfg decreased applied, and the right one has denoise decreased/cfg increased applied.
-![original](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/upscale-original.png)
-![IncDenoise-DecCFG](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-IncDenoise-DecCFG.png) ![DecDenoise-IncCFG](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-DecDenoise-IncCFG.png)
+<img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/upscale-original.png" width="300"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-IncDenoise-DecCFG.png" width="400"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-DecDenoise-IncCFG.png" width="400"/>
