@@ -25,6 +25,6 @@
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-original.png" width="300"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-IncDenoise-DecCFG.png" width="300"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-DecDenoise-IncCFG.png" width="300"/>
 
 
-* If you increase the strength of denoise, initially the image may become distorted, but gradually it can be reconstructed into a new image.
+* If you decrease the strength of denoise from high level denoise, initially the image may become distorted, but gradually it can be reconstructed into a new image.
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK2-steps.jpg"/>
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK2-result.png"/>
