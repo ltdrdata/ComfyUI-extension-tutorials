@@ -12,7 +12,7 @@
     * One decreases denoise from 0.7 to 0.4 and increases cfg from 3 to 15 at the beginning.
     * The other increases denoise from 0.1 to 0.6 and decreases cfg from 25 to 3 at the beginning.
 ![workflow](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PK_HOOK-workflow.png)
-**Due to a bug in the PK_HOOK, the workflow in the current screenshot is reversed. This issue has been patched and the documentation will be updated accordingly.**
+**NOTE: Due to a bug in the PK_HOOK, the workflow in the current screenshot is reversed. This issue has been patched and the documentation will be updated accordingly.**
 
 
 
