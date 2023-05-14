@@ -1016,64 +1016,6 @@
       "bgcolor": "#335"
     },
     {
-      "id": 49,
-      "type": "PixelKSampleUpscalerProviderPipe",
-      "pos": [
-        1560,
-        940
-      ],
-      "size": {
-        "0": 330,
-        "1": 266
-      },
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "basic_pipe",
-          "type": "BASIC_PIPE",
-          "link": 120
-        },
-        {
-          "name": "upscale_model_opt",
-          "type": "UPSCALE_MODEL",
-          "link": null
-        },
-        {
-          "name": "pk_hook_opt",
-          "type": "PK_HOOK",
-          "link": 170,
-          "slot_index": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "UPSCALER",
-          "type": "UPSCALER",
-          "links": [
-            140
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PixelKSampleUpscalerProviderPipe"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        180735103488546,
-        "fixed",
-        25,
-        15,
-        "euler",
-        "karras",
-        0.4
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
       "id": 37,
       "type": "FromBasicPipe",
       "pos": [
@@ -1145,7 +1087,7 @@
       ],
       "size": {
         "0": 330,
-        "1": 266
+        "1": 290
       },
       "flags": {},
       "order": 38,
@@ -1188,7 +1130,8 @@
         25,
         "euler",
         "karras",
-        0.4
+        0.4,
+        "disabled"
       ],
       "color": "#2a363b",
       "bgcolor": "#3f5159"
@@ -1351,10 +1294,10 @@
         2540,
         -90
       ],
-      "size": [
-        650,
-        1120
-      ],
+      "size": {
+        "0": 650,
+        "1": 1120
+      },
       "flags": {},
       "order": 35,
       "mode": 0,
@@ -1414,72 +1357,6 @@
       },
       "color": "#232",
       "bgcolor": "#353"
-    },
-    {
-      "id": 76,
-      "type": "DenoiseScheduleHookProvider",
-      "pos": [
-        900,
-        1360
-      ],
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "PK_HOOK",
-          "type": "PK_HOOK",
-          "links": [
-            176
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DenoiseScheduleHookProvider"
-      },
-      "widgets_values": [
-        "simple",
-        0.1
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 71,
-      "type": "DenoiseScheduleHookProvider",
-      "pos": [
-        900,
-        970
-      ],
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "PK_HOOK",
-          "type": "PK_HOOK",
-          "links": [
-            171
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DenoiseScheduleHookProvider"
-      },
-      "widgets_values": [
-        "simple",
-        0.7
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
     },
     {
       "id": 42,
@@ -1610,10 +1487,10 @@
         3244,
         -86
       ],
-      "size": [
-        700,
-        1120
-      ],
+      "size": {
+        "0": 700,
+        "1": 1120
+      },
       "flags": {},
       "order": 36,
       "mode": 0,
@@ -1628,97 +1505,6 @@
       "properties": {
         "Node name for S&R": "PreviewImage"
       },
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 72,
-      "type": "CfgScheduleHookProvider",
-      "pos": [
-        900,
-        1110
-      ],
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "PK_HOOK",
-          "type": "PK_HOOK",
-          "links": [
-            172
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CfgScheduleHookProvider"
-      },
-      "widgets_values": [
-        "simple",
-        3
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 74,
-      "type": "PixelKSampleUpscalerProviderPipe",
-      "pos": [
-        1560,
-        1340
-      ],
-      "size": {
-        "0": 330,
-        "1": 266
-      },
-      "flags": {},
-      "order": 21,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "basic_pipe",
-          "type": "BASIC_PIPE",
-          "link": 183
-        },
-        {
-          "name": "upscale_model_opt",
-          "type": "UPSCALE_MODEL",
-          "link": null
-        },
-        {
-          "name": "pk_hook_opt",
-          "type": "PK_HOOK",
-          "link": 175,
-          "slot_index": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "UPSCALER",
-          "type": "UPSCALER",
-          "links": [
-            178
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PixelKSampleUpscalerProviderPipe"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        180735103488546,
-        "fixed",
-        25,
-        3,
-        "euler",
-        "karras",
-        0.6
-      ],
       "color": "#232",
       "bgcolor": "#353"
     },
@@ -1762,39 +1548,6 @@
       },
       "color": "#2a363b",
       "bgcolor": "#3f5159"
-    },
-    {
-      "id": 77,
-      "type": "CfgScheduleHookProvider",
-      "pos": [
-        900,
-        1510
-      ],
-      "size": [
-        310,
-        80
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "PK_HOOK",
-          "type": "PK_HOOK",
-          "links": [
-            177
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CfgScheduleHookProvider"
-      },
-      "widgets_values": [
-        "simple",
-        20
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 56,
@@ -1926,6 +1679,256 @@
       },
       "color": "#2a363b",
       "bgcolor": "#3f5159"
+    },
+    {
+      "id": 49,
+      "type": "PixelKSampleUpscalerProviderPipe",
+      "pos": [
+        1560,
+        940
+      ],
+      "size": {
+        "0": 330,
+        "1": 290
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 120
+        },
+        {
+          "name": "upscale_model_opt",
+          "type": "UPSCALE_MODEL",
+          "link": null
+        },
+        {
+          "name": "pk_hook_opt",
+          "type": "PK_HOOK",
+          "link": 170,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "UPSCALER",
+          "type": "UPSCALER",
+          "links": [
+            140
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixelKSampleUpscalerProviderPipe"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        180735103488546,
+        "fixed",
+        25,
+        3,
+        "euler",
+        "karras",
+        0.7,
+        "disabled"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 71,
+      "type": "DenoiseScheduleHookProvider",
+      "pos": [
+        900,
+        970
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "PK_HOOK",
+          "type": "PK_HOOK",
+          "links": [
+            171
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DenoiseScheduleHookProvider"
+      },
+      "widgets_values": [
+        "simple",
+        0.4
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 72,
+      "type": "CfgScheduleHookProvider",
+      "pos": [
+        900,
+        1110
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "PK_HOOK",
+          "type": "PK_HOOK",
+          "links": [
+            172
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CfgScheduleHookProvider"
+      },
+      "widgets_values": [
+        "simple",
+        15
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 76,
+      "type": "DenoiseScheduleHookProvider",
+      "pos": [
+        900,
+        1360
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "PK_HOOK",
+          "type": "PK_HOOK",
+          "links": [
+            176
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DenoiseScheduleHookProvider"
+      },
+      "widgets_values": [
+        "simple",
+        0.6
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 77,
+      "type": "CfgScheduleHookProvider",
+      "pos": [
+        900,
+        1510
+      ],
+      "size": {
+        "0": 310,
+        "1": 82
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "PK_HOOK",
+          "type": "PK_HOOK",
+          "links": [
+            177
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CfgScheduleHookProvider"
+      },
+      "widgets_values": [
+        "simple",
+        3
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 74,
+      "type": "PixelKSampleUpscalerProviderPipe",
+      "pos": [
+        1560,
+        1340
+      ],
+      "size": {
+        "0": 330,
+        "1": 290
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 183
+        },
+        {
+          "name": "upscale_model_opt",
+          "type": "UPSCALE_MODEL",
+          "link": null
+        },
+        {
+          "name": "pk_hook_opt",
+          "type": "PK_HOOK",
+          "link": 175,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "UPSCALER",
+          "type": "UPSCALER",
+          "links": [
+            178
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixelKSampleUpscalerProviderPipe"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        180735103488546,
+        "fixed",
+        25,
+        20,
+        "euler",
+        "karras",
+        0.1,
+        "disabled"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
