@@ -3,6 +3,6 @@
 
 * [In a future update of ComfyUI](https://github.com/comfyanonymous/ComfyUI/pull/649), it will be possible to edit and save changes directly in the MaskEditor by using the "Open in MaskEditor" option. This will allow for immediate reflection of changes in PreviewBridge.
 
-[ContextMenu](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-ContextMenu.png)
-[Editor](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-Editor.png)
-[Result](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-Editor.png)
+![ContextMenu](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-ContextMenu.png)
+![Editor](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-Editor.png)
+![Result](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-Result.png)
