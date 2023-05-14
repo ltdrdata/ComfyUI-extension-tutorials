@@ -6,7 +6,7 @@
 
 ![workflow](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-workflow.png)
 
-* You can see that TwoSamplersForMask has been extended with full_sample_opt and pk_hook_full options. These options are provided to alleviate artifacts by applying a unified sample instead of separated sample operations during the iterative upscale process. full_sample_opt provides the KSAMPLE to use for the unified sample, or base_sample if it is omitted. pk_hook_full is a hook applied to the unified sample.
+* You can see that TwoSamplersForMask has been extended with **full_sample_opt** and **pk_hook_full** options. These options are provided to alleviate artifacts by applying a unified sample instead of separated sample operations during the iterative upscale process. full_sample_opt provides the KSAMPLE to use for the unified sample, or base_sample if it is omitted. pk_hook_full is a hook applied to the unified sample.
 
 
 ![schedule](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-schedule.png)
@@ -30,3 +30,8 @@
 * It can be observed that the results differ slightly for the masked area.
 
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-single.png" width="350"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-none-schedule.png" width="350"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-i2l1-schedule.png" width="350"/>
+
+* To perform high-resolution processing, you can use the **TiledKSamplerProvider**.
+
+![tiled](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-tiled.png)
+
