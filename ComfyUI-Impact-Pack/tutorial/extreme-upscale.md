@@ -1,4 +1,4 @@
-#### Extreme Highresolution Upscale
+## Extreme Highresolution Upscale
 
 ![example](extreme-upscale-full.png)
 ![workflow](extreme-upscale-workflow.png)
