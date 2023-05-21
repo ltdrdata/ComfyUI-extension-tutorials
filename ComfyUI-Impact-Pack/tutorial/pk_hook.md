@@ -2,9 +2,9 @@
 
 * PK_HOOK is used with PixelKSampleUpscaler for adjusting the settings according to the progress of the step during Iterative Upscale.
 * Currently, the following three nodes are provided related to PK_HOOK.
-    * DenoiseScheduleHookProvider - IterativeUpscale provides a hook that gradually changes the denoise to target_denoise as the step progresses.
-    * CfgScheduleHookProvider - IterativeUpscale provides a hook that gradually changes the cfg to target_cfg as the step progresses.
-    * PixelKSampleHookCombine - This is used to connect two PK_HOOKs. hook1 is executed first and then hook2 is executed.
+    * **DenoiseScheduleHookProvider**: IterativeUpscale provides a hook that gradually changes the denoise to target_denoise as the step progresses.
+    * **CfgScheduleHookProvider**: IterativeUpscale provides a hook that gradually changes the cfg to target_cfg as the step progresses.
+    * **PixelKSampleHookCombine**: This is used to connect two PK_HOOKs. hook1 is executed first and then hook2 is executed.
 
 
 * The workflow can be configured as follows:

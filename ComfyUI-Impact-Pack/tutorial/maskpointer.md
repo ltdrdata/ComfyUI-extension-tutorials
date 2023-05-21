@@ -1,4 +1,7 @@
-# Mask Pointer [**need to update image**]
+# Mask Pointer: Using the position prompt of SAM to mask
+
+* **```Mask Pointer``` is an approach to using small masks indicated by mask points in the ```detection_hint``` as prompts for SAM. However, it is recommended to use the PreviewBridge and Open in ```SAM Detector``` approach instead.**
+
 ![maskpointer](maskpointer.png)
 * When setting the detection-hint as **mask-points** in SAMDetector, multiple mask fragments are provided as SAM prompts. If using **mask-area**, only some of the points within the float mask's inner area are provided as SAM prompts. When detection_hint_use_negative is set to True, very small dots are interpreted as negative prompts in mask-points, and some areas with a mask value of 0 are interpreted as negative prompts in **mask-area**. The **detection_hint_threshold** interprets cases where the mask value in **mask-area** is equal to or higher than the threshold as positive prompts. However, values greater than 0 but less than the **detection_hint_threshold** are not used as negative prompts.
 * When using **mask-points**, please note that you should set "combined" parameter as **False** in MaskToSegs.
