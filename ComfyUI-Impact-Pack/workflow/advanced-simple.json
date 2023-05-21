@@ -79,7 +79,7 @@
       "id": 86,
       "type": "Reroute",
       "pos": [
-        1520,
+        1440,
         280
       ],
       "size": [
@@ -116,13 +116,13 @@
       "id": 41,
       "type": "PreviewImage",
       "pos": [
-        1500,
+        1420,
         830
       ],
-      "size": [
-        310,
-        390
-      ],
+      "size": {
+        "0": 310,
+        "1": 390
+      },
       "flags": {},
       "order": 15,
       "mode": 0,
@@ -144,7 +144,7 @@
       "id": 93,
       "type": "Reroute",
       "pos": [
-        920,
+        840,
         700
       ],
       "size": [
@@ -180,7 +180,7 @@
       "id": 84,
       "type": "Reroute",
       "pos": [
-        1520,
+        1440,
         700
       ],
       "size": [
@@ -216,13 +216,13 @@
       "id": 85,
       "type": "FromBasicPipe",
       "pos": [
-        1940,
+        1860,
         420
       ],
-      "size": [
-        161.1999969482422,
-        106
-      ],
+      "size": {
+        "0": 161.1999969482422,
+        "1": 106
+      },
       "flags": {},
       "order": 14,
       "mode": 0,
@@ -284,52 +284,16 @@
       "bgcolor": "#353"
     },
     {
-      "id": 87,
-      "type": "Reroute",
-      "pos": [
-        2010,
-        270
-      ],
-      "size": [
-        82,
-        26
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 207
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            208
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": true,
-        "horizontal": false
-      }
-    },
-    {
       "id": 42,
       "type": "KSampler",
       "pos": [
-        1020,
+        940,
         400
       ],
-      "size": [
-        247.85997900390657,
-        262
-      ],
+      "size": {
+        "0": 247.8599853515625,
+        "1": 262
+      },
       "flags": {},
       "order": 11,
       "mode": 0,
@@ -381,53 +345,16 @@
       "bgcolor": "#533"
     },
     {
-      "id": 44,
-      "type": "EmptyLatentImage",
-      "pos": [
-        760,
-        550
-      ],
-      "size": [
-        210,
-        106
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            73
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        256,
-        320,
-        1
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
       "id": 90,
       "type": "FromBasicPipe",
       "pos": [
-        760,
+        680,
         360
       ],
-      "size": [
-        210,
-        110
-      ],
+      "size": {
+        "0": 210,
+        "1": 110
+      },
       "flags": {},
       "order": 8,
       "mode": 0,
@@ -490,10 +417,10 @@
         -390,
         880
       ],
-      "size": [
-        260,
-        100
-      ],
+      "size": {
+        "0": 260,
+        "1": 100
+      },
       "flags": {},
       "order": 1,
       "mode": 0,
@@ -542,10 +469,10 @@
         50,
         1020
       ],
-      "size": [
-        300,
-        120
-      ],
+      "size": {
+        "0": 302.3999938964844,
+        "1": 120
+      },
       "flags": {},
       "order": 3,
       "mode": 0,
@@ -583,10 +510,10 @@
         50,
         730
       ],
-      "size": [
-        300,
-        120
-      ],
+      "size": {
+        "0": 302.3999938964844,
+        "1": 120
+      },
       "flags": {},
       "order": 4,
       "mode": 0,
@@ -624,10 +551,10 @@
         440,
         880
       ],
-      "size": [
-        161.1999969482422,
-        106
-      ],
+      "size": {
+        "0": 161.1999969482422,
+        "1": 106
+      },
       "flags": {},
       "order": 6,
       "mode": 0,
@@ -678,13 +605,13 @@
       "id": 71,
       "type": "SaveImage",
       "pos": [
-        1840,
+        1760,
         830
       ],
-      "size": [
-        300,
-        390
-      ],
+      "size": {
+        "0": 300,
+        "1": 390
+      },
       "flags": {},
       "order": 20,
       "mode": 0,
@@ -704,56 +631,16 @@
       "bgcolor": "#353"
     },
     {
-      "id": 79,
-      "type": "MMDetDetectorProvider",
-      "pos": [
-        1480,
-        80
-      ],
-      "size": {
-        "0": 315,
-        "1": 78
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "BBOX_DETECTOR",
-          "type": "BBOX_DETECTOR",
-          "links": [
-            186
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "SEGM_DETECTOR",
-          "type": "SEGM_DETECTOR",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MMDetDetectorProvider"
-      },
-      "widgets_values": [
-        "bbox/mmdet_anime-face_yolov3.pth"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 81,
       "type": "BboxDetectorSEGS",
       "pos": [
-        1890,
+        1810,
         80
       ],
-      "size": [
-        210,
-        126
-      ],
+      "size": {
+        "0": 210,
+        "1": 150
+      },
       "flags": {},
       "order": 17,
       "mode": 0,
@@ -786,7 +673,8 @@
       "widgets_values": [
         0.5,
         10,
-        3
+        3,
+        10
       ],
       "color": "#232",
       "bgcolor": "#353"
@@ -795,13 +683,13 @@
       "id": 40,
       "type": "VAEDecode",
       "pos": [
-        1310,
+        1230,
         400
       ],
-      "size": [
-        140,
-        50
-      ],
+      "size": {
+        "0": 140,
+        "1": 50
+      },
       "flags": {
         "collapsed": false
       },
@@ -840,7 +728,7 @@
       "id": 88,
       "type": "Reroute",
       "pos": [
-        1190,
+        1110,
         280
       ],
       "size": [
@@ -876,13 +764,13 @@
       "id": 70,
       "type": "DetailerForEach",
       "pos": [
-        2190,
+        2110,
         400
       ],
-      "size": [
-        269.68295678711,
-        422
-      ],
+      "size": {
+        "0": 269.6829528808594,
+        "1": 422
+      },
       "flags": {},
       "order": 19,
       "mode": 0,
@@ -944,6 +832,119 @@
         5,
         "enabled",
         "disabled"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 44,
+      "type": "EmptyLatentImage",
+      "pos": [
+        680,
+        550
+      ],
+      "size": {
+        "0": 210,
+        "1": 106
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            73
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        256,
+        320,
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 87,
+      "type": "Reroute",
+      "pos": [
+        1930,
+        280
+      ],
+      "size": [
+        82,
+        26
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 207
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            208
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 79,
+      "type": "MMDetDetectorProvider",
+      "pos": [
+        1410,
+        80
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            186
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MMDetDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/mmdet_anime-face_yolov3.pth"
       ],
       "color": "#232",
       "bgcolor": "#353"

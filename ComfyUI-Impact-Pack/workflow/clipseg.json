@@ -101,7 +101,7 @@
       ],
       "size": {
         "0": 350,
-        "1": 600
+        "1": 622
       },
       "flags": {},
       "order": 13,
@@ -167,7 +167,8 @@
         0.93,
         0,
         0.7,
-        "False"
+        "False",
+        10
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -184,7 +185,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -204,49 +205,6 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 8,
-      "type": "VAEDecode",
-      "pos": [
-        1330,
-        540
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 7
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 107
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            9,
-            84
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 49,
@@ -397,39 +355,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 14,
-      "type": "VAELoader",
-      "pos": [
-        440,
-        430
-      ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            100
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "vae-ft-mse-840000-ema-pruned.safetensors"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 47,
       "type": "CLIPSegDetectorProvider",
       "pos": [
@@ -464,54 +389,6 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
-    },
-    {
-      "id": 44,
-      "type": "BasicPipeToDetailerPipe",
-      "pos": [
-        1270,
-        960
-      ],
-      "size": {
-        "0": 342.5999755859375,
-        "1": 66
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "basic_pipe",
-          "type": "BASIC_PIPE",
-          "link": 102,
-          "slot_index": 0
-        },
-        {
-          "name": "bbox_detector",
-          "type": "BBOX_DETECTOR",
-          "link": 93
-        },
-        {
-          "name": "sam_model_opt",
-          "type": "SAM_MODEL",
-          "link": 81
-        }
-      ],
-      "outputs": [
-        {
-          "name": "detailer_pipe",
-          "type": "DETAILER_PIPE",
-          "links": [
-            83
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicPipeToDetailerPipe"
-      },
-      "color": "#223",
-      "bgcolor": "#335"
     },
     {
       "id": 42,
@@ -611,7 +488,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 0,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -639,14 +516,14 @@
       "type": "CheckpointLoaderSimple",
       "pos": [
         20,
-        480
+        450
       ],
       "size": {
         "0": 315,
         "1": 98
       },
       "flags": {},
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "outputs": [
         {
@@ -682,6 +559,130 @@
       ],
       "color": "#222",
       "bgcolor": "#000"
+    },
+    {
+      "id": 14,
+      "type": "VAELoader",
+      "pos": [
+        490,
+        390
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            100
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "vae-ft-mse-840000-ema-pruned.safetensors"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1430,
+        560
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 107
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            84
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 44,
+      "type": "BasicPipeToDetailerPipe",
+      "pos": [
+        1290,
+        960
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 66
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 102,
+          "slot_index": 0
+        },
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 93
+        },
+        {
+          "name": "sam_model_opt",
+          "type": "SAM_MODEL",
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": [
+            83
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicPipeToDetailerPipe"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
