@@ -1,6 +1,6 @@
 {
   "last_node_id": 83,
-  "last_link_id": 189,
+  "last_link_id": 191,
   "nodes": [
     {
       "id": 8,
@@ -119,10 +119,10 @@
         1065,
         184
       ],
-      "size": {
-        "0": 315,
-        "1": 262
-      },
+      "size": [
+        315,
+        474
+      ],
       "flags": {},
       "order": 18,
       "mode": 0,
@@ -1078,77 +1078,16 @@
       "bgcolor": "#3f5159"
     },
     {
-      "id": 45,
-      "type": "PixelTiledKSampleUpscalerProviderPipe",
-      "pos": [
-        2110,
-        2360
-      ],
-      "size": {
-        "0": 317.44354248046875,
-        "1": 338
-      },
-      "flags": {},
-      "order": 41,
-      "mode": 2,
-      "inputs": [
-        {
-          "name": "basic_pipe",
-          "type": "BASIC_PIPE",
-          "link": 157
-        },
-        {
-          "name": "upscale_model_opt",
-          "type": "UPSCALE_MODEL",
-          "link": 165,
-          "slot_index": 1
-        },
-        {
-          "name": "pk_hook_opt",
-          "type": "PK_HOOK",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "UPSCALER",
-          "type": "UPSCALER",
-          "links": [
-            145
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PixelTiledKSampleUpscalerProviderPipe"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        180735103488546,
-        "fixed",
-        25,
-        40,
-        "euler",
-        "karras",
-        0.35,
-        768,
-        768,
-        1
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
       "id": 59,
       "type": "IterativeLatentUpscale",
       "pos": [
         2160,
         2010
       ],
-      "size": {
-        "0": 315,
-        "1": 126
-      },
+      "size": [
+        315,
+        338
+      ],
       "flags": {},
       "order": 42,
       "mode": 0,
@@ -1156,7 +1095,7 @@
         {
           "name": "samples",
           "type": "LATENT",
-          "link": null
+          "link": 191
         },
         {
           "name": "upscaler",
@@ -1251,53 +1190,6 @@
       }
     },
     {
-      "id": 78,
-      "type": "IterativeLatentUpscale",
-      "pos": [
-        1930,
-        1360
-      ],
-      "size": {
-        "0": 315,
-        "1": 126
-      },
-      "flags": {},
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 179
-        },
-        {
-          "name": "upscaler",
-          "type": "UPSCALER",
-          "link": 178
-        }
-      ],
-      "outputs": [
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "links": [
-            180
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "IterativeLatentUpscale"
-      },
-      "widgets_values": [
-        2,
-        5,
-        "iter-1pass"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 35,
       "type": "Reroute",
       "pos": [
@@ -1334,53 +1226,6 @@
         "showOutputText": true,
         "horizontal": false
       }
-    },
-    {
-      "id": 56,
-      "type": "IterativeLatentUpscale",
-      "pos": [
-        1930,
-        940
-      ],
-      "size": {
-        "0": 315,
-        "1": 126
-      },
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 139
-        },
-        {
-          "name": "upscaler",
-          "type": "UPSCALER",
-          "link": 140
-        }
-      ],
-      "outputs": [
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "links": [
-            173
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "IterativeLatentUpscale"
-      },
-      "widgets_values": [
-        2,
-        5,
-        "iter-1pass"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
     },
     {
       "id": 79,
@@ -2005,6 +1850,162 @@
       },
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 78,
+      "type": "IterativeLatentUpscale",
+      "pos": [
+        1930,
+        1360
+      ],
+      "size": [
+        315,
+        338
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 179
+        },
+        {
+          "name": "upscaler",
+          "type": "UPSCALER",
+          "link": 178
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            180
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IterativeLatentUpscale"
+      },
+      "widgets_values": [
+        2,
+        5,
+        "iter-1pass"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 56,
+      "type": "IterativeLatentUpscale",
+      "pos": [
+        1930,
+        940
+      ],
+      "size": [
+        315,
+        338
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 139
+        },
+        {
+          "name": "upscaler",
+          "type": "UPSCALER",
+          "link": 140
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            173,
+            191
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IterativeLatentUpscale"
+      },
+      "widgets_values": [
+        2,
+        5,
+        "iter-1pass"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 45,
+      "type": "PixelTiledKSampleUpscalerProviderPipe",
+      "pos": [
+        2157,
+        2426
+      ],
+      "size": {
+        "0": 317.44354248046875,
+        "1": 338
+      },
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 157
+        },
+        {
+          "name": "upscale_model_opt",
+          "type": "UPSCALE_MODEL",
+          "link": 165,
+          "slot_index": 1
+        },
+        {
+          "name": "pk_hook_opt",
+          "type": "PK_HOOK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "UPSCALER",
+          "type": "UPSCALER",
+          "links": [
+            145
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixelTiledKSampleUpscalerProviderPipe"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        180735103488546,
+        "fixed",
+        25,
+        40,
+        "euler",
+        "karras",
+        0.35,
+        768,
+        768,
+        "random"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
@@ -2487,6 +2488,14 @@
       74,
       0,
       "BASIC_PIPE"
+    ],
+    [
+      191,
+      56,
+      0,
+      59,
+      0,
+      "LATENT"
     ]
   ],
   "groups": [
