@@ -4,10 +4,10 @@
 
 ![workflow](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-workflow.png)
 
-* If the mask is not used, you can see that only the base_sampler is applied.
+* The base sampler is set with a prompt that generates the same image as the left one, while the mask sampler is configured to apply a specific LORA.
 
-![orignal](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSampler-original.png)
-![result](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSampler-result.png)
+<img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-original.png" width=500px/>
+<img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-result.png" width=500px/>
 
 * If you watch this video, you can see the difference in the operation methods between TwoSamplersForMask and TwoAdvancedSamplersForMask.
 ![video](https://www.youtube.com/watch?v=S1ksTNs5VX0)
