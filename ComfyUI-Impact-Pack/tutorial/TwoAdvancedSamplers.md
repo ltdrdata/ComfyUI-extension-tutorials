@@ -9,5 +9,4 @@
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-original.png" width=500px/>
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-result.png" width=500px/>
 
-* If you watch this video, you can see the difference in the operation methods between TwoSamplersForMask and TwoAdvancedSamplersForMask.
-![video](https://www.youtube.com/watch?v=S1ksTNs5VX0)
+* If you watch this [video](https://www.youtube.com/watch?v=S1ksTNs5VX0), you can see the difference in the operation methods between TwoSamplersForMask and TwoAdvancedSamplersForMask.
