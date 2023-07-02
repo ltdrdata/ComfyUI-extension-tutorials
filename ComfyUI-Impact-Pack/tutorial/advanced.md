@@ -1,4 +1,5 @@
-#### Basic auto face detection and refine exapmle.
+# Basic auto face detection and refine exapmle.
+
 ![workflow](advanced-simple-workflow.png)
 ![original](advanced-simple-original.png) ![refined](advanced-simple-refined.png)
 * You can load models for **BBOX\_MODEL** or **SEGM\_MODEL** using ```MMDetDetectorProvider```. If you load a bbox model, only **BBOX_MODEL** is valid in the output, and if you load a segm model, only **SEGM_MODEL** is valid.
@@ -17,6 +18,7 @@
 * Detailer Node
     * **guide_size**: This feature attempt detail recovery only when the size of the detected mask is smaller than this value. If the size is larger, this feature increase the resolution and attempt detail recovery.
     * **guide_size_for**: This parameter determines whether guide_size is used based on the size of the detected face (bbox) or the size of the crop area that includes the face and is broadly cropped by crop_factor.
+    * **max_size**: The guide_size increases the scale so that the shorter side reaches the guide_size. For masks with elongated shapes, this can cause a significant scale up. The max_size limits the maximum size of one side.
     * **feather**: When compositing the recovered details onto the original image, this feature use a gradient to composite it so that the boundaries are not visible. The thickness of this gradient is determined.
     * **force_inpaint**: force_inpaint will try to force regeneration even if it is smaller than guide_size . This function is useful when you simply want to change to another type of prompt other than the function to save details. However, in this case, upscale is forcibly fixed to 1.
     * **noise_mask**: The decision to limit the area to be regenerated using KSampler with a mask depends on whether the noise_mask is enabled or disabled. When noise_mask is enabled, only the masked area of the image is regenerated, whereas when it is disabled, the image generation occurs for the entire cropped area, with only the mask area being cut and pasted.

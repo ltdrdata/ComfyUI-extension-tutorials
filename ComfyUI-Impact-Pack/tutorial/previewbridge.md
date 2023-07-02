@@ -7,3 +7,5 @@
 ![ContextMenu](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-ContextMenu.png)
 ![Editor](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-Editor.png)
 ![Result](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/PreviewBridge-Result.png)
+
+* Here is tutorial [video](https://www.youtube.com/watch?v=O3EjONCS-rU).
