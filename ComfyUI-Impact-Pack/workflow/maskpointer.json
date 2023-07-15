@@ -1,6 +1,6 @@
 {
-  "last_node_id": 63,
-  "last_link_id": 204,
+  "last_node_id": 65,
+  "last_link_id": 213,
   "nodes": [
     {
       "id": 19,
@@ -289,72 +289,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 49,
-      "type": "FromBasicPipe",
-      "pos": [
-        230,
-        110
-      ],
-      "size": {
-        "0": 241.79998779296875,
-        "1": 106
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "basic_pipe",
-          "type": "BASIC_PIPE",
-          "link": 161
-        }
-      ],
-      "outputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "links": [
-            162
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "links": null
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "links": [
-            169
-          ],
-          "slot_index": 2
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "links": [
-            165
-          ],
-          "slot_index": 3
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [
-            166
-          ],
-          "slot_index": 4
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "FromBasicPipe"
-      },
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 18,
       "type": "CheckpointLoaderSimple",
       "pos": [
@@ -444,50 +378,11 @@
       }
     },
     {
-      "id": 60,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1049.8346937004394,
-        1026.5175210625
-      ],
-      "size": {
-        "0": 310.22662353515625,
-        "1": 119.74945831298828
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 192
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [],
-          "slot_index": 0
-        }
-      ],
-      "title": "Inpaint (Positive)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
       "id": 38,
       "type": "CLIPTextEncode",
       "pos": [
-        1049.8346937004394,
-        866.5175210625001
+        882.3283903864142,
+        881.6513999369571
       ],
       "size": {
         "0": 310.22662353515625,
@@ -614,42 +509,6 @@
       "bgcolor": "#355"
     },
     {
-      "id": 40,
-      "type": "Reroute",
-      "pos": [
-        1880,
-        170
-      ],
-      "size": [
-        82,
-        26
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 195
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            124
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": true,
-        "horizontal": false
-      }
-    },
-    {
       "id": 57,
       "type": "MaskToSEGS",
       "pos": [
@@ -675,7 +534,7 @@
           "name": "SEGS",
           "type": "SEGS",
           "links": [
-            197
+            208
           ],
           "slot_index": 0
         }
@@ -738,7 +597,7 @@
       "type": "VAEDecode",
       "pos": [
         890,
-        170
+        160
       ],
       "size": {
         "0": 210,
@@ -766,8 +625,8 @@
           "links": [
             60,
             195,
-            196,
-            202
+            202,
+            206
           ],
           "slot_index": 0
         }
@@ -779,71 +638,44 @@
       "bgcolor": "#533"
     },
     {
-      "id": 63,
-      "type": "PreviewBridge",
+      "id": 35,
+      "type": "SaveImage",
       "pos": [
         1210,
-        -320
+        220
       ],
-      "size": [
-        270,
-        340
-      ],
+      "size": {
+        "0": 270,
+        "1": 410
+      },
       "flags": {},
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 202
+          "link": 60
         }
       ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": null,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [
-            203,
-            204
-          ],
-          "shape": 3,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewBridge"
-      },
+      "title": "Original",
+      "properties": {},
       "widgets_values": [
-        {
-          "filename": "clipspace-mask-8225042.9.png",
-          "subfolder": "clipspace",
-          "type": "input",
-          "image_hash": 1795387169542599200,
-          "forward_filename": "ComfyUI_00062_.png",
-          "forward_subfolder": "",
-          "forward_type": "temp"
-        }
+        "original"
       ],
-      "color": "#233",
-      "bgcolor": "#355"
+      "color": "#322",
+      "bgcolor": "#533"
     },
     {
       "id": 37,
       "type": "KSampler",
       "pos": [
         580,
-        170
+        160
       ],
       "size": [
         210,
-        474
+        474.00000762939453
       ],
       "flags": {},
       "order": 11,
@@ -896,43 +728,117 @@
       "bgcolor": "#533"
     },
     {
-      "id": 21,
-      "type": "PreviewImage",
+      "id": 49,
+      "type": "FromBasicPipe",
       "pos": [
-        2251.8346937004394,
-        741.5175210625001
+        230,
+        120
       ],
-      "size": [
-        210,
-        250
-      ],
+      "size": {
+        "0": 241.79998779296875,
+        "1": 106
+      },
       "flags": {},
-      "order": 26,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 200
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 161
         }
       ],
-      "title": "Cropped",
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            162
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            169
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            165
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            166
+          ],
+          "slot_index": 4
+        }
+      ],
       "properties": {
-        "Node name for S&R": "PreviewImage"
+        "Node name for S&R": "FromBasicPipe"
       },
-      "color": "#223",
-      "bgcolor": "#335"
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 40,
+      "type": "Reroute",
+      "pos": [
+        1880,
+        160
+      ],
+      "size": [
+        82,
+        26
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 195
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            124
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
     },
     {
       "id": 23,
       "type": "SaveImage",
       "pos": [
-        1871.8346937004394,
-        741.5175210625001
+        1800,
+        760
       ],
       "size": [
-        360,
-        600
+        520,
+        820
       ],
       "flags": {},
       "order": 25,
@@ -941,7 +847,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 199
+          "link": 209
         }
       ],
       "title": "Result",
@@ -956,11 +862,11 @@
       "id": 22,
       "type": "PreviewImage",
       "pos": [
-        2261.8346937004394,
-        1091.5175210624996
+        2360,
+        1050
       ],
       "size": [
-        200,
+        180,
         250
       ],
       "flags": {},
@@ -970,7 +876,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 201
+          "link": 211
         }
       ],
       "title": "Refined Crop",
@@ -984,8 +890,8 @@
       "id": 48,
       "type": "EditBasicPipe",
       "pos": [
-        1401.8346937004394,
-        781.5175210625001
+        1210,
+        800
       ],
       "size": {
         "0": 178,
@@ -1023,7 +929,7 @@
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": null
+          "link": 213
         }
       ],
       "outputs": [
@@ -1031,7 +937,7 @@
           "name": "basic_pipe",
           "type": "BASIC_PIPE",
           "links": [
-            198
+            207
           ],
           "slot_index": 0
         }
@@ -1047,7 +953,7 @@
       "type": "ToBasicPipe",
       "pos": [
         580,
-        780
+        800
       ],
       "size": {
         "0": 241.79998779296875,
@@ -1101,44 +1007,15 @@
       "bgcolor": "#000"
     },
     {
-      "id": 35,
-      "type": "SaveImage",
-      "pos": [
-        1210,
-        230
-      ],
-      "size": [
-        270,
-        410
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 60
-        }
-      ],
-      "title": "Original",
-      "properties": {},
-      "widgets_values": [
-        "original"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 62,
+      "id": 65,
       "type": "DetailerForEachDebugPipe",
       "pos": [
-        1611.8346937004394,
-        741.5175210625001
+        1420,
+        760
       ],
       "size": [
-        240,
-        600
+        340,
+        810
       ],
       "flags": {},
       "order": 24,
@@ -1147,17 +1024,17 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 196
+          "link": 206
         },
         {
           "name": "segs",
           "type": "SEGS",
-          "link": 197
+          "link": 208
         },
         {
           "name": "basic_pipe",
           "type": "BASIC_PIPE",
-          "link": 198
+          "link": 207
         }
       ],
       "outputs": [
@@ -1165,7 +1042,7 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            199
+            209
           ],
           "shape": 3,
           "slot_index": 0
@@ -1174,7 +1051,7 @@
           "name": "cropped",
           "type": "IMAGE",
           "links": [
-            200
+            210
           ],
           "shape": 6,
           "slot_index": 1
@@ -1183,10 +1060,19 @@
           "name": "cropped_refined",
           "type": "IMAGE",
           "links": [
-            201
+            211
           ],
           "shape": 6,
           "slot_index": 2
+        },
+        {
+          "name": "cropped_refined_alpha",
+          "type": "IMAGE",
+          "links": [
+            212
+          ],
+          "shape": 6,
+          "slot_index": 3
         }
       ],
       "properties": {
@@ -1209,6 +1095,159 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 21,
+      "type": "PreviewImage",
+      "pos": [
+        2360,
+        760
+      ],
+      "size": [
+        180,
+        250
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 210
+        }
+      ],
+      "title": "Cropped",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 60,
+      "type": "CLIPTextEncode",
+      "pos": [
+        882.3283903864142,
+        1041.6513999369568
+      ],
+      "size": {
+        "0": 310.22662353515625,
+        "1": 119.74945831298828
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 192
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            213
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Inpaint (Positive)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 64,
+      "type": "PreviewImage",
+      "pos": [
+        2360,
+        1340
+      ],
+      "size": [
+        180,
+        246
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 212
+        }
+      ],
+      "title": "Refined Crop (Alpha)",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 63,
+      "type": "PreviewBridge",
+      "pos": [
+        1210,
+        -320
+      ],
+      "size": {
+        "0": 270,
+        "1": 340
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 202
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            203,
+            204
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewBridge"
+      },
+      "widgets_values": [
+        {
+          "filename": "clipspace-mask-1432880.png",
+          "subfolder": "",
+          "type": "temp",
+          "image_hash": -989575569884828400,
+          "forward_filename": "ComfyUI_temp_ekhso_00002_.png",
+          "forward_subfolder": "",
+          "forward_type": "temp"
+        }
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
     }
   ],
   "links": [
@@ -1445,54 +1484,6 @@
       "*"
     ],
     [
-      196,
-      34,
-      0,
-      62,
-      0,
-      "IMAGE"
-    ],
-    [
-      197,
-      57,
-      0,
-      62,
-      1,
-      "SEGS"
-    ],
-    [
-      198,
-      48,
-      0,
-      62,
-      2,
-      "BASIC_PIPE"
-    ],
-    [
-      199,
-      62,
-      0,
-      23,
-      0,
-      "IMAGE"
-    ],
-    [
-      200,
-      62,
-      1,
-      21,
-      0,
-      "IMAGE"
-    ],
-    [
-      201,
-      62,
-      2,
-      22,
-      0,
-      "IMAGE"
-    ],
-    [
       202,
       34,
       0,
@@ -1515,6 +1506,70 @@
       54,
       0,
       "MASK"
+    ],
+    [
+      206,
+      34,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      207,
+      48,
+      0,
+      65,
+      2,
+      "BASIC_PIPE"
+    ],
+    [
+      208,
+      57,
+      0,
+      65,
+      1,
+      "SEGS"
+    ],
+    [
+      209,
+      65,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      210,
+      65,
+      1,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      211,
+      65,
+      2,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      212,
+      65,
+      3,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      213,
+      60,
+      0,
+      48,
+      5,
+      "CONDITIONING"
     ]
   ],
   "groups": [
@@ -1532,19 +1587,19 @@
       "title": "Prompt",
       "bounding": [
         565,
-        106,
-        934,
-        551
+        86,
+        933,
+        561
       ],
       "color": "#3f789e"
     },
     {
       "title": "Change Object",
       "bounding": [
-        1003,
-        664,
-        1488,
-        696
+        875,
+        686,
+        1695,
+        909
       ],
       "color": "#3f789e"
     }
