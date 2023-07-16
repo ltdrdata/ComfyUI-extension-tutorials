@@ -1,4 +1,4 @@
-# Basic auto face detection and refine exapmle.
+# Basic auto face detection and refine example.
 
 ![workflow](advanced-simple-workflow.png)
 ![original](advanced-simple-original.png) ![refined](advanced-simple-refined.png)

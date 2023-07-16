@@ -1,4 +1,4 @@
-## PreviewBridge: Nodes for supporting 'Clipspace' utilization
+# PreviewBridge: Nodes for supporting 'Clipspace' utilization
 
 * The ```PreviewBridge``` node is a node designed to utilize the Clipspace feature. By right-clicking on the node, you can access a context menu where you can choose the ```Copy (Clipspace)``` option to copy to **Clipspace**. You can then edit the copied data using the **MaskEditor** in **Clipspace** and use ```Paste (Clipspace)``` to apply the changes back to the node.
 

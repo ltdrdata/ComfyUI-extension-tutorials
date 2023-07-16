@@ -1,4 +1,5 @@
-#### 1. CLIPSeg application
+# Combination with CLIPSeg
+
 ![example](clipseg.png)
 ![example](refine-original.png) ![example](refine-refined.png)
 

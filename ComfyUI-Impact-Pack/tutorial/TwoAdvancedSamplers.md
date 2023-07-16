@@ -1,4 +1,4 @@
-## TwoAdvancedSamplersForMask
+# TwoAdvancedSamplersForMask
 
 * Similar to the existing TwoSamplersForMask, you can apply separate KSamplers to the masked area and the area outside the mask. However, TwoSamplersForMask applies the sampling process for the mask area only after the sampling process for the background is complete. On the other hand, TwoAdvancedSamplersForMask applies alternately at each step, allowing for smooth blending even if the denoise is set to 1.0. With this node, you can apply separate Lora to each area.
 

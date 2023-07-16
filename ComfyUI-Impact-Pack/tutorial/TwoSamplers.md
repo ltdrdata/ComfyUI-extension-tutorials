@@ -1,4 +1,4 @@
-## TwoSamplersForMask
+# TwoSamplersForMask
 
 * Using TwoSamplersForMask, it is possible to apply different levels of denoising or cfg to different parts of an image. Particularly, it can be applied to specific areas such as hands with low denoising and cfg using the mask of CLIPSeg.
 
