@@ -23,6 +23,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [PK_HOOK (Pixel KSample Hook)](ComfyUI-Impact-Pack/tutorial/pk_hook.md)
   * [TwoAdvancedSamplersForMask](ComfyUI-Impact-Pack/tutorial/TwoAdvancedSamplers.md)
   * [Extreme Highresolution Upscale](ComfyUI-Impact-Pack/tutorial/extreme-upscale.md)
+  * [ImpactWildcardProcessor](ComfyUI-Impact-Pack/tutorial/ImpactWildcardProcessor.md)
 
 
 
