@@ -24,6 +24,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [TwoAdvancedSamplersForMask](ComfyUI-Impact-Pack/tutorial/TwoAdvancedSamplers.md)
   * [Extreme Highresolution Upscale](ComfyUI-Impact-Pack/tutorial/extreme-upscale.md)
   * [ImpactWildcardProcessor](ComfyUI-Impact-Pack/tutorial/ImpactWildcardProcessor.md)
+  * [Batching images with detailer example](ComfyUI-Impact-Pack/tutorial/batching-detailer.md)
 
 
 
