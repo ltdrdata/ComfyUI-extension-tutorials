@@ -1,6 +1,6 @@
 # SDXL Experimental
 
-Workflows are available for download [here](reencode-workflow.json). Alternatively, workflows are also included within the images, so you can download the images as well.
+Workflows are available for download [here](reencode-workflow.json). And you can download [compact version](reencode-compact.json). Alternatively, workflows are also included within the images, so you can download the images as well.
 
 ## 1pass: SDXL Base only
 ![img](1pass-sdxl_base_only.png)
