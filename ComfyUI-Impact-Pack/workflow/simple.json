@@ -1,6 +1,6 @@
 {
-  "last_node_id": 52,
-  "last_link_id": 146,
+  "last_node_id": 53,
+  "last_link_id": 147,
   "nodes": [
     {
       "id": 34,
@@ -215,42 +215,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 44,
-      "type": "Reroute",
-      "pos": [
-        858,
-        227
-      ],
-      "size": [
-        149.2,
-        26
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 111
-        }
-      ],
-      "outputs": [
-        {
-          "name": "BBOX_DETECTOR",
-          "type": "BBOX_DETECTOR",
-          "links": [
-            139
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": true,
-        "horizontal": false
-      }
-    },
-    {
       "id": 46,
       "type": "Reroute",
       "pos": [
@@ -359,44 +323,6 @@
       "widgets_values": [
         "sam_vit_b_01ec64.pth",
         "AUTO"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 41,
-      "type": "MMDetDetectorProvider",
-      "pos": [
-        500,
-        230
-      ],
-      "size": {
-        "0": 320,
-        "1": 80
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "BBOX_DETECTOR",
-          "type": "BBOX_DETECTOR",
-          "links": [
-            111
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "SEGM_DETECTOR",
-          "type": "SEGM_DETECTOR",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MMDetDetectorProvider"
-      },
-      "widgets_values": [
-        "bbox/mmdet_anime-face_yolov3.pth"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -553,10 +479,10 @@
         860,
         361
       ],
-      "size": [
-        300,
-        810
-      ],
+      "size": {
+        "0": 300,
+        "1": 810
+      },
       "flags": {},
       "order": 15,
       "mode": 0,
@@ -616,10 +542,10 @@
         1910,
         220
       ],
-      "size": [
-        250,
-        310
-      ],
+      "size": {
+        "0": 250,
+        "1": 310
+      },
       "flags": {},
       "order": 19,
       "mode": 0,
@@ -644,10 +570,10 @@
         1920,
         850
       ],
-      "size": [
-        250,
-        310
-      ],
+      "size": {
+        "0": 250,
+        "1": 310
+      },
       "flags": {},
       "order": 23,
       "mode": 0,
@@ -672,10 +598,10 @@
         1920,
         670
       ],
-      "size": [
-        250,
-        30
-      ],
+      "size": {
+        "0": 250,
+        "1": 30
+      },
       "flags": {},
       "order": 22,
       "mode": 0,
@@ -709,10 +635,10 @@
         1570,
         210
       ],
-      "size": [
-        320,
-        960
-      ],
+      "size": {
+        "0": 320,
+        "1": 960
+      },
       "flags": {},
       "order": 18,
       "mode": 0,
@@ -727,6 +653,109 @@
       "properties": {
         "Node name for S&R": "PreviewImage"
       },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 52,
+      "type": "PreviewImage",
+      "pos": [
+        2180,
+        220
+      ],
+      "size": {
+        "0": 230,
+        "1": 310
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 146
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 44,
+      "type": "Reroute",
+      "pos": [
+        860,
+        230
+      ],
+      "size": [
+        149.2,
+        26
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 147
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            139
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 53,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        500,
+        230
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            147
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt"
+      ],
       "color": "#223",
       "bgcolor": "#335"
     },
@@ -757,97 +786,8 @@
         "Node name for S&R": "EmptyLatentImage"
       },
       "widgets_values": [
-        408,
-        616,
-        1
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 52,
-      "type": "PreviewImage",
-      "pos": [
-        2180,
-        220
-      ],
-      "size": [
-        230,
-        310
-      ],
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 146
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 28,
-      "type": "KSampler",
-      "pos": [
-        500,
-        570
-      ],
-      "size": [
-        320,
-        600
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 65
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 57
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 58
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 59,
-          "slot_index": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            60
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        431433362471151,
-        "fixed",
-        20,
-        8,
-        "euler",
-        "normal",
+        296,
+        512,
         1
       ],
       "color": "#322",
@@ -860,10 +800,10 @@
         1200,
         210
       ],
-      "size": [
-        350,
-        960
-      ],
+      "size": {
+        "0": 350,
+        "1": 960
+      },
       "flags": {},
       "order": 17,
       "mode": 0,
@@ -907,6 +847,11 @@
           "name": "sam_model_opt",
           "type": "SAM_MODEL",
           "link": 140
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "link": null
         }
       ],
       "outputs": [
@@ -960,8 +905,8 @@
         360,
         "bbox",
         768,
-        177127242974079,
-        "randomize",
+        0,
+        "fixed",
         20,
         8,
         "euler",
@@ -984,6 +929,68 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 28,
+      "type": "KSampler",
+      "pos": [
+        500,
+        570
+      ],
+      "size": {
+        "0": 320,
+        "1": 600
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 65
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 57
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 58
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 59,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            60
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        431433362471142,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     }
   ],
   "links": [
@@ -1108,14 +1115,6 @@
       "IMAGE"
     ],
     [
-      111,
-      41,
-      0,
-      44,
-      0,
-      "*"
-    ],
-    [
       116,
       16,
       0,
@@ -1234,6 +1233,14 @@
       52,
       0,
       "IMAGE"
+    ],
+    [
+      147,
+      53,
+      0,
+      44,
+      0,
+      "*"
     ]
   ],
   "groups": [],

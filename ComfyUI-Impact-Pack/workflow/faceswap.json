@@ -1,6 +1,6 @@
 {
-  "last_node_id": 150,
-  "last_link_id": 406,
+  "last_node_id": 151,
+  "last_link_id": 407,
   "nodes": [
     {
       "id": 120,
@@ -235,44 +235,6 @@
       }
     },
     {
-      "id": 133,
-      "type": "MMDetDetectorProvider",
-      "pos": [
-        730,
-        110
-      ],
-      "size": {
-        "0": 315,
-        "1": 78
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "BBOX_DETECTOR",
-          "type": "BBOX_DETECTOR",
-          "links": [
-            367
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "SEGM_DETECTOR",
-          "type": "SEGM_DETECTOR",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MMDetDetectorProvider"
-      },
-      "widgets_values": [
-        "bbox/mmdet_anime-face_yolov3.pth"
-      ]
-    },
-    {
       "id": 110,
       "type": "CLIPTextEncode",
       "pos": [
@@ -324,7 +286,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -473,7 +435,7 @@
         "1": 96.49998474121094
       },
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -977,7 +939,7 @@
         "1": 95.9917221069336
       },
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "title": "crop_factor #2",
       "properties": {
@@ -996,12 +958,12 @@
         322,
         303
       ],
-      "size": [
-        356.1919587842508,
-        95.99171874363725
-      ],
+      "size": {
+        "0": 356.19195556640625,
+        "1": 95.9917221069336
+      },
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "title": "crop_factor #1",
       "properties": {
@@ -1025,7 +987,7 @@
         "1": 95.9917221069336
       },
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "title": "guide_size_for",
       "properties": {
@@ -1049,7 +1011,7 @@
         "1": 95.9917221069336
       },
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "title": "guide_size",
       "properties": {
@@ -1079,7 +1041,7 @@
         {
           "name": "bbox_detector",
           "type": "BBOX_DETECTOR",
-          "link": 367
+          "link": 407
         },
         {
           "name": "image",
@@ -1116,12 +1078,12 @@
         2662,
         1333
       ],
-      "size": [
-        345.7502807617184,
-        113.13225708007803
-      ],
+      "size": {
+        "0": 345.7502746582031,
+        "1": 113.13225555419922
+      },
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "title": "force_inpaint",
       "properties": {
@@ -1239,6 +1201,44 @@
         5,
         "enabled",
         "enabled"
+      ]
+    },
+    {
+      "id": 151,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        730,
+        110
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            407
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt"
       ]
     }
   ],
@@ -1412,14 +1412,6 @@
       "IMAGE"
     ],
     [
-      367,
-      133,
-      0,
-      132,
-      0,
-      "BBOX_DETECTOR"
-    ],
-    [
       371,
       103,
       0,
@@ -1554,6 +1546,14 @@
       143,
       0,
       "IMAGE"
+    ],
+    [
+      407,
+      151,
+      0,
+      132,
+      0,
+      "BBOX_DETECTOR"
     ]
   ],
   "groups": [

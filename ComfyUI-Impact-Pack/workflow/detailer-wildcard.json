@@ -1,6 +1,6 @@
 {
-  "last_node_id": 55,
-  "last_link_id": 113,
+  "last_node_id": 56,
+  "last_link_id": 114,
   "nodes": [
     {
       "id": 38,
@@ -32,44 +32,6 @@
       "widgets_values": [
         "sam_vit_b_01ec64.pth",
         "AUTO"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 37,
-      "type": "MMDetDetectorProvider",
-      "pos": [
-        870,
-        970
-      ],
-      "size": {
-        "0": 315,
-        "1": 78
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "BBOX_DETECTOR",
-          "type": "BBOX_DETECTOR",
-          "links": [
-            80
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "SEGM_DETECTOR",
-          "type": "SEGM_DETECTOR",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MMDetDetectorProvider"
-      },
-      "widgets_values": [
-        "bbox/mmdet_anime-face_yolov3.pth"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -164,7 +126,7 @@
         "1": 98
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -211,7 +173,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -398,7 +360,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -499,12 +461,17 @@
         {
           "name": "bbox_detector",
           "type": "BBOX_DETECTOR",
-          "link": 80
+          "link": 114
         },
         {
           "name": "sam_model_opt",
           "type": "SAM_MODEL",
           "link": 81
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "link": null
         }
       ],
       "outputs": [
@@ -539,7 +506,7 @@
         "1": 85.09833526611328
       },
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "properties": {
         "text": ""
@@ -643,7 +610,7 @@
         "1": 240
       },
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -660,6 +627,11 @@
         {
           "name": "sam_model_opt",
           "type": "SAM_MODEL",
+          "link": null
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
           "link": null
         }
       ],
@@ -743,6 +715,46 @@
       "bgcolor": "#653"
     },
     {
+      "id": 56,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        870,
+        970
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            114
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
       "id": 49,
       "type": "FaceDetailerPipe",
       "pos": [
@@ -810,7 +822,7 @@
         256,
         "bbox",
         768,
-        307405256705888,
+        307405256705890,
         "fixed",
         20,
         8,
@@ -867,14 +879,6 @@
       8,
       0,
       "LATENT"
-    ],
-    [
-      80,
-      37,
-      0,
-      44,
-      1,
-      "BBOX_DETECTOR"
     ],
     [
       81,
@@ -1019,6 +1023,14 @@
       52,
       0,
       "IMAGE"
+    ],
+    [
+      114,
+      56,
+      0,
+      44,
+      1,
+      "BBOX_DETECTOR"
     ]
   ],
   "groups": [],
