@@ -27,6 +27,9 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Batching images with detailer example](ComfyUI-Impact-Pack/tutorial/batching-detailer.md)
 
 
+* Workflows
+  * [Hair restyling](ComfyUI-Impact-Pack/workflow/hair-restyle.json) [[Demo video](https://www.youtube.com/watch?v=fsNBASZYDuA)]
+
 
 ## [ComfyUI-Workflow-Component](https://github.com/ltdrdata/ComfyUI-Workflow-Component)
 
