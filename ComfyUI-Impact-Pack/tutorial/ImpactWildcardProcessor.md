@@ -25,7 +25,7 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * Dynamic prompts in ImpactWildcardProcessor allow nesting, such as `{a|{d|e|f}|c}`, where items separated by | are randomly selected, including nested options.
 * If you use a dynamic prompt like `{blue apple|red {cherry|berry}|green melon}`, one option will be randomly selected from the following choices: `blue apple, red cherry, red berry,` or `green melon`.
 * If there is a file named `person.txt` inside the wildcards directory, using the wildcard `__person__` will randomly select one item from within that file.
-* You can also use compound grammar like `1{girl is holding {blue pencil|red __fruit__|colorful __flower__}|boy is riding __vehicle__}`.
+* You can also use compound grammar like `1{girl is holding {blue pencil|red __safruit__|colorful __flower__}|boy is riding __vehicle__}`.
 
 
 ### Application
@@ -37,8 +37,9 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 
 ![folder](wildcard-folder.png)
 
-* The wildcard file management reads all the files, even if they are located in subfolders, and ignores the subfolder names.
-* For example, if there is a wildcard file named `custom_wildcards/obj/person.txt``, it should be used as `__person__` instead of `__obj/person__`.
+* The wildcard supports subfolder feature.
+* For example, if there is a wildcard file named `custom_wildcards/obj/person.txt``, it should be used as `__obj/person__` instead of `__person__`.
+  * NOTICE: The subfolder feature was not supported in older versions. The subfolder feature is a newly updated functionality.
 
 ![file](wildcard-file.png)
 
