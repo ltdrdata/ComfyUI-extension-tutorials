@@ -38,7 +38,7 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 ![folder](wildcard-folder.png)
 
 * The wildcard supports subfolder feature.
-* For example, if there is a wildcard file named `custom_wildcards/obj/person.txt``, it should be used as `__obj/person__` instead of `__person__`.
+* For example, if there is a wildcard file named `custom_wildcards/obj/person.txt`, it should be used as `__obj/person__` instead of `__person__`.
   * NOTICE: The subfolder feature was not supported in older versions. The subfolder feature is a newly updated functionality.
 
 ![file](wildcard-file.png)
