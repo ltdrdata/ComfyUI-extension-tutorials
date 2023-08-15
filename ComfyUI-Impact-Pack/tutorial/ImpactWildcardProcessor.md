@@ -27,8 +27,8 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * If you use a dynamic prompt like `{blue apple|red {cherry|berry}|green melon}`, one option will be randomly selected from the following choices: `blue apple, red cherry, red berry,` or `green melon`.
 * If there is a file named `person.txt` inside the wildcards directory, using the wildcard `__person__` will randomly select one item from within that file.
 * You can also use compound grammar like `1{girl is holding {blue pencil|red __safruit__|colorful __flower__}|boy is riding __vehicle__}`.
-* You can set the selection probability by prefixing a number as in `{5:red|4:green|7:blue|black}`. Each item's selection probability is normalized to 100% based on the sum of all items within the {} brackets, distributing the probabilities evenly.
-
+* You can set the selection probability by prefixing a number as in `{5::red|4::green|7::blue|black}`. Each item's selection probability is normalized to 100% based on the sum of all items within the {} brackets, distributing the probabilities evenly.
+  - **NOTICE: The selection weight syntax has been updated. Now you should use `{5::red|4::green|7::blue|black}` instead of the previous `{5:red|4:green|7:blue|black}` syntax.**
 
 ### Application
 * If you use wildcards with files, you can save frequently used prompts in a file and load them for usage. For example, if you have a line composed of `photorealistic:1.4, best quality:1.4` and save it as `ppos.txt` in the custom_wildcards directory, you can create prompts in a concise form like `__ppos__`, beautiful nature.
