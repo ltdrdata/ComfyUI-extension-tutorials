@@ -15,7 +15,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Combination with CLIPSeg](ComfyUI-Impact-Pack/tutorial/clipseg.md)
   * [Mask Pointer: Using the position prompt of SAM to mask](ComfyUI-Impact-Pack/tutorial/maskpointer.md)
   * [PreviewBridge: Nodes for supporting 'Clipspace' utilization](ComfyUI-Impact-Pack/tutorial/previewbridge.md)
-  * [SAMDetection Application](ComfyUI-Impact-Pack/tutorial/SAM.md)
+  * [SAMDetection Application](ComfyUI-Impact-Pack/tutorial/sam.md)
   * [Interactive SAM + PreviewBridge](ComfyUI-Impact-Pack/tutorial/sam_with_preview_bridge.md)
   * [Image Sender, Image Receiver, Latent Sender Latent Receiver](ComfyUI-Impact-Pack/tutorial/sender_receiver.md)
   * [TwoSamplersForMask](ComfyUI-Impact-Pack/tutorial/TwoSamplers.md)
