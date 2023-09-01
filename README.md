@@ -6,7 +6,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 
 ![Image](ComfyUI-Impact-Pack/images/faceswap.png)
 
-* [Images](ComfyUI-Impact-Pack/workflow) contains workflows for ComfyUI.
+* [workflow](ComfyUI-Impact-Pack/workflow) contains workflows for ComfyUI.
 * You can download various [workflows](ComfyUI-Impact-Pack/workflow) for ComfyUI-Impact-Pack.
 * Various tutorial videos are available on the [youtube playlist](https://www.youtube.com/playlist?list=PL_Ej2RDzjQLGfEeizq4GISeY3FtVyFmGP).  
 
@@ -29,6 +29,16 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 
 * Workflows
   * [Hair restyling](ComfyUI-Impact-Pack/workflow/hair-restyle.json) [[Demo video](https://www.youtube.com/watch?v=fsNBASZYDuA)]
+
+## [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack)
+
+![Image](ComfyUI-Inspire-Pack/images/lora-block-weight-xyplot.jpg)
+
+* [workflow](ComfyUI-Inspire-Pack/workflow) contains workflows for ComfyUI.
+
+* Tutorials
+  * [Lora Block Weight](ComfyUI-Inspire-Pack/LoraBlockWeight.md)
+  * [SEGS ControlNet](ComfyUI-Inspire-Pack/SEGSControlNet.md)
 
 
 ## [ComfyUI-Workflow-Component](https://github.com/ltdrdata/ComfyUI-Workflow-Component)

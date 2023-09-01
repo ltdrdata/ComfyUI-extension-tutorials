@@ -1,0 +1,768 @@
+{
+  "last_node_id": 36,
+  "last_link_id": 46,
+  "nodes": [
+    {
+      "id": 29,
+      "type": "ShowText|pysssss",
+      "pos": [
+        370,
+        1770
+      ],
+      "size": {
+        "0": 313.8182373046875,
+        "1": 145.90306091308594
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "title": "Populated Vector Value",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "1,0,0,0,0,0,0,0,1,0.8,1,1,0.69,1,1,0.5,0.4"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "XY Plot",
+      "pos": [
+        480,
+        470
+      ],
+      "size": {
+        "0": 315,
+        "1": 194
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "dependencies",
+          "type": "DEPENDENCIES",
+          "link": 5,
+          "slot_index": 0
+        },
+        {
+          "name": "X",
+          "type": "XY",
+          "link": 41
+        },
+        {
+          "name": "Y",
+          "type": "XY",
+          "link": 42,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SCRIPT",
+          "type": "SCRIPT",
+          "links": [
+            6
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Plot"
+      },
+      "widgets_values": [
+        0,
+        "False",
+        "Horizontal",
+        "True",
+        "Plot"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 13,
+      "type": "PreviewImage",
+      "pos": [
+        1280,
+        350
+      ],
+      "size": {
+        "0": 1032.2158203125,
+        "1": 1207.5794677734375
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 27,
+      "type": "VAEDecode",
+      "pos": [
+        710,
+        1230
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 31
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 32,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            33
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 28,
+      "type": "PreviewImage",
+      "pos": [
+        710,
+        1330
+      ],
+      "size": {
+        "0": 450,
+        "1": 580
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 33
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 34,
+      "type": "XY Input: Lora Block Weight //Inspire",
+      "pos": [
+        -16,
+        669
+      ],
+      "size": {
+        "0": 469.95281982421875,
+        "1": 374.8125915527344
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "X (vectors)",
+          "type": "XY",
+          "links": [
+            41
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "Y (effect_compares)",
+          "type": "XY",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: Lora Block Weight //Inspire"
+      },
+      "widgets_values": [
+        "SD1.5/cloth/balletDanceDress_v10.safetensors",
+        1,
+        1,
+        false,
+        740097491603894,
+        "fixed",
+        1,
+        0.8,
+        "SD-ALL0.5:0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5",
+        "SD-ALL0.5:0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5/SD-ALL\nSD-MIDD0.2:1,0,0,0,0,0,0.2,0.4,0.4,0.2,0,0,0,0,0,0,0/SD-MIDD\nSD-MIDD0.8:1,0,0,0,0,0.5,0.8,0.8,0.4,0,0,0,0,0,0,0,0/SD-MIDD\nSD-AB-custom:A,B,B,B,B,B,B,B,B,B,B,b,A,A,A,A,a/SD-AB\n"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 10,
+      "type": "Efficient Loader",
+      "pos": [
+        -450,
+        350
+      ],
+      "size": {
+        "0": 400,
+        "1": 414
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        },
+        {
+          "name": "cnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10,
+            44
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [
+            7,
+            27
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [
+            8,
+            28
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            11,
+            29
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            17,
+            32
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            45
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "DEPENDENCIES",
+          "type": "DEPENDENCIES",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "slot_index": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Efficient Loader"
+      },
+      "widgets_values": [
+        "SD1.5/V07_v07.safetensors",
+        "Baked VAE",
+        -1,
+        "None",
+        1,
+        1,
+        "high quality:1.4, 1girl, upper body, (dynamic pose:0.3)",
+        "low quality:1.4, nsfw, full body",
+        512,
+        768,
+        1
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 35,
+      "type": "LoraLoaderBlockWeight //Inspire",
+      "pos": [
+        -190,
+        1230
+      ],
+      "size": {
+        "0": 400,
+        "1": 332
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 44
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "populated_vector",
+          "type": "STRING",
+          "links": [
+            46
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderBlockWeight //Inspire"
+      },
+      "widgets_values": [
+        "SD1.5/cloth/balletDanceDress_v10.safetensors",
+        1,
+        1,
+        false,
+        907154426680530,
+        "randomize",
+        1,
+        0.8,
+        "Preset",
+        "1,0,0,0,0,0,0,0,A,B,1,1,R,1,1,a,b"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 25,
+      "type": "KSampler",
+      "pos": [
+        370,
+        1230
+      ],
+      "size": {
+        "0": 315,
+        "1": 474
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 43
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 27
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 28
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 29,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        3,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "KSampler (Efficient)",
+      "pos": [
+        910,
+        350
+      ],
+      "size": {
+        "0": 356.6051025390625,
+        "1": 802.6689453125
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 7
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 8,
+          "slot_index": 2
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 11,
+          "slot_index": 3
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 17,
+          "slot_index": 4
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ],
+          "shape": 3,
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "widgets_values": [
+        "Script",
+        11,
+        "randomize",
+        20,
+        7,
+        "euler",
+        "normal",
+        1,
+        "auto",
+        "true"
+      ],
+      "color": "#223322",
+      "bgcolor": "#335533",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      5,
+      10,
+      6,
+      11,
+      0,
+      "DEPENDENCIES"
+    ],
+    [
+      6,
+      11,
+      0,
+      12,
+      5,
+      "SCRIPT"
+    ],
+    [
+      7,
+      10,
+      1,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      10,
+      2,
+      12,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      9,
+      12,
+      5,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      10,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      11,
+      10,
+      3,
+      12,
+      3,
+      "LATENT"
+    ],
+    [
+      17,
+      10,
+      4,
+      12,
+      4,
+      "VAE"
+    ],
+    [
+      27,
+      10,
+      1,
+      25,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      28,
+      10,
+      2,
+      25,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      29,
+      10,
+      3,
+      25,
+      3,
+      "LATENT"
+    ],
+    [
+      31,
+      25,
+      0,
+      27,
+      0,
+      "LATENT"
+    ],
+    [
+      32,
+      10,
+      4,
+      27,
+      1,
+      "VAE"
+    ],
+    [
+      33,
+      27,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      34,
+      0,
+      11,
+      1,
+      "XY"
+    ],
+    [
+      42,
+      34,
+      1,
+      11,
+      2,
+      "XY"
+    ],
+    [
+      43,
+      35,
+      0,
+      25,
+      0,
+      "MODEL"
+    ],
+    [
+      44,
+      10,
+      0,
+      35,
+      0,
+      "MODEL"
+    ],
+    [
+      45,
+      10,
+      5,
+      35,
+      1,
+      "CLIP"
+    ],
+    [
+      46,
+      35,
+      2,
+      29,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
