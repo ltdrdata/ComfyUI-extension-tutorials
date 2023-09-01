@@ -37,8 +37,8 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 * [workflow](ComfyUI-Inspire-Pack/workflow) contains workflows for ComfyUI.
 
 * Tutorials
-  * [Lora Block Weight](ComfyUI-Inspire-Pack/LoraBlockWeight.md)
-  * [SEGS ControlNet](ComfyUI-Inspire-Pack/SEGSControlNet.md)
+  * [Lora Block Weight](ComfyUI-Inspire-Pack/tutorial/LoraBlockWeight.md)
+  * [SEGS ControlNet](ComfyUI-Inspire-Pack/tutorial/SEGSControlNet.md)
 
 
 ## [ComfyUI-Workflow-Component](https://github.com/ltdrdata/ComfyUI-Workflow-Component)
