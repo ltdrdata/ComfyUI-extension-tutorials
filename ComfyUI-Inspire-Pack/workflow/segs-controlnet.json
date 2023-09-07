@@ -1,6 +1,6 @@
 {
-  "last_node_id": 24,
-  "last_link_id": 32,
+  "last_node_id": 25,
+  "last_link_id": 52,
   "nodes": [
     {
       "id": 12,
@@ -46,7 +46,7 @@
         "1": 76
       },
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -85,7 +85,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -116,285 +116,6 @@
       ]
     },
     {
-      "id": 10,
-      "type": "ImpactSimpleDetectorSEGS",
-      "pos": [
-        880,
-        190
-      ],
-      "size": {
-        "0": 315,
-        "1": 286
-      },
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "bbox_detector",
-          "type": "BBOX_DETECTOR",
-          "link": 6,
-          "slot_index": 0
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 24,
-          "slot_index": 1
-        },
-        {
-          "name": "sam_model_opt",
-          "type": "SAM_MODEL",
-          "link": 7,
-          "slot_index": 2
-        },
-        {
-          "name": "segm_detector_opt",
-          "type": "SEGM_DETECTOR",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEGS",
-          "type": "SEGS",
-          "links": [
-            8
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImpactSimpleDetectorSEGS"
-      },
-      "widgets_values": [
-        0.5,
-        0,
-        3,
-        10,
-        0.5,
-        0,
-        0,
-        0.7
-      ]
-    },
-    {
-      "id": 4,
-      "type": "OpenPose_Preprocessor_Provider_for_SEGS //Inspire",
-      "pos": [
-        540,
-        790
-      ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "SEGS_PREPROCESSOR",
-          "type": "SEGS_PREPROCESSOR",
-          "links": [
-            30
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "OpenPose_Preprocessor_Provider_for_SEGS //Inspire"
-      },
-      "widgets_values": [
-        false,
-        false,
-        true
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 23,
-      "type": "ImpactSwitch",
-      "pos": [
-        940,
-        870
-      ],
-      "size": {
-        "0": 241.59815979003906,
-        "1": 98
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input1",
-          "type": "SEGS_PREPROCESSOR",
-          "link": 30,
-          "label": "input1"
-        },
-        {
-          "name": "input2",
-          "type": "SEGS_PREPROCESSOR",
-          "link": 32,
-          "label": "input2"
-        },
-        {
-          "name": "input3",
-          "type": "SEGS_PREPROCESSOR",
-          "link": null,
-          "label": "input3"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEGS_PREPROCESSOR",
-          "type": "SEGS_PREPROCESSOR",
-          "links": [
-            31
-          ],
-          "shape": 3,
-          "label": "SEGS_PREPROCESSOR",
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImpactSwitch"
-      },
-      "widgets_values": [
-        2
-      ]
-    },
-    {
-      "id": 6,
-      "type": "ControlNetLoader",
-      "pos": [
-        540,
-        610
-      ],
-      "size": {
-        "0": 498.18817138671875,
-        "1": 58
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "CONTROL_NET",
-          "type": "CONTROL_NET",
-          "links": [
-            3
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ControlNetLoader"
-      },
-      "widgets_values": [
-        "SD1.5/control_v11p_sd15_canny_fp16.safetensors"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 7,
-      "type": "ImpactControlNetApplySEGS",
-      "pos": [
-        1230,
-        590
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "segs",
-          "type": "SEGS",
-          "link": 8
-        },
-        {
-          "name": "control_net",
-          "type": "CONTROL_NET",
-          "link": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "segs_preprocessor",
-          "type": "SEGS_PREPROCESSOR",
-          "link": 31,
-          "slot_index": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEGS",
-          "type": "SEGS",
-          "links": [
-            9
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImpactControlNetApplySEGS"
-      },
-      "widgets_values": [
-        1
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 8,
-      "type": "LoadImage",
-      "pos": [
-        -160,
-        580
-      ],
-      "size": {
-        "0": 551.2763061523438,
-        "1": 641.7651977539062
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            23
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_temp_qpmzj_00023_.png",
-        "image"
-      ]
-    },
-    {
       "id": 16,
       "type": "SEGSPreview",
       "pos": [
@@ -406,7 +127,7 @@
         "1": 692.8681640625
       },
       "flags": {},
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -437,7 +158,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -493,7 +214,7 @@
         "1": 76
       },
       "flags": {},
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -517,43 +238,136 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "detailed face, (clean:1.2)"
+        "detailed face, (clean:1.2), clear skin,"
       ]
     },
     {
-      "id": 21,
-      "type": "Canny_Preprocessor_Provider_for_SEGS //Inspire",
+      "id": 11,
+      "type": "UltralyticsDetectorProvider",
       "pos": [
-        540,
-        970
+        420,
+        10
       ],
       "size": {
         "0": 315,
-        "1": 82
+        "1": 78
       },
       "flags": {},
-      "order": 4,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
-          "name": "SEGS_PREPROCESSOR",
-          "type": "SEGS_PREPROCESSOR",
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
           "links": [
-            32
+            6
           ],
           "shape": 3,
           "slot_index": 0
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null,
+          "shape": 3
         }
       ],
       "properties": {
-        "Node name for S&R": "Canny_Preprocessor_Provider_for_SEGS //Inspire"
+        "Node name for S&R": "UltralyticsDetectorProvider"
       },
       "widgets_values": [
-        0.7,
-        0.8
+        "bbox/face_yolov8m.pt"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "LoadImage",
+      "pos": [
+        -160,
+        580
       ],
-      "color": "#322",
-      "bgcolor": "#533"
+      "size": {
+        "0": 551.2763061523438,
+        "1": 641.7651977539062
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "lllite_output_00014_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        540,
+        1150
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            12
+          ],
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            13,
+            16,
+            18
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SD1.5/darkSushi25D25D_v40.safetensors"
+      ]
     },
     {
       "id": 13,
@@ -564,10 +378,10 @@
       ],
       "size": {
         "0": 342.5999755859375,
-        "1": 406
+        "1": 618
       },
       "flags": {},
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -579,7 +393,7 @@
         {
           "name": "segs",
           "type": "SEGS",
-          "link": 9
+          "link": 52
         },
         {
           "name": "basic_pipe",
@@ -624,146 +438,279 @@
       ]
     },
     {
-      "id": 11,
-      "type": "UltralyticsDetectorProvider",
+      "id": 21,
+      "type": "Canny_Preprocessor_Provider_for_SEGS //Inspire",
       "pos": [
-        420,
-        10
+        540,
+        970
       ],
       "size": {
         "0": 315,
-        "1": 78
+        "1": 82
       },
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "outputs": [
         {
-          "name": "BBOX_DETECTOR",
-          "type": "BBOX_DETECTOR",
+          "name": "SEGS_PREPROCESSOR",
+          "type": "SEGS_PREPROCESSOR",
           "links": [
-            6
+            32
           ],
           "shape": 3,
           "slot_index": 0
-        },
-        {
-          "name": "SEGM_DETECTOR",
-          "type": "SEGM_DETECTOR",
-          "links": null,
-          "shape": 3
         }
       ],
       "properties": {
-        "Node name for S&R": "UltralyticsDetectorProvider"
+        "Node name for S&R": "Canny_Preprocessor_Provider_for_SEGS //Inspire"
       },
       "widgets_values": [
-        "bbox/face_yolov8m.pt"
+        0.7,
+        0.8
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 10,
+      "type": "ImpactSimpleDetectorSEGS",
+      "pos": [
+        850,
+        150
+      ],
+      "size": {
+        "0": 315,
+        "1": 286
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 6,
+          "slot_index": 0
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 24,
+          "slot_index": 1
+        },
+        {
+          "name": "sam_model_opt",
+          "type": "SAM_MODEL",
+          "link": 7,
+          "slot_index": 2
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            8
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSimpleDetectorSEGS"
+      },
+      "widgets_values": [
+        0.5,
+        0,
+        3,
+        10,
+        0.5,
+        0,
+        0,
+        0.7
       ]
     },
     {
-      "id": 15,
-      "type": "CheckpointLoaderSimple",
+      "id": 7,
+      "type": "ImpactControlNetApplySEGS",
       "pos": [
-        540,
-        1150
+        1240,
+        590
       ],
       "size": {
         "0": 315,
         "1": 98
       },
       "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 8
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "segs_preprocessor",
+          "type": "SEGS_PREPROCESSOR",
+          "link": 31,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            52
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactControlNetApplySEGS"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 4,
+      "type": "OpenPose_Preprocessor_Provider_for_SEGS //Inspire",
+      "pos": [
+        541,
+        792
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SEGS_PREPROCESSOR",
+          "type": "SEGS_PREPROCESSOR",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OpenPose_Preprocessor_Provider_for_SEGS //Inspire"
+      },
+      "widgets_values": [
+        false,
+        false,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 23,
+      "type": "ImpactSwitch",
+      "pos": [
+        940,
+        870
+      ],
+      "size": {
+        "0": 241.59815979003906,
+        "1": 98
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "SEGS_PREPROCESSOR",
+          "link": 30,
+          "label": "input1"
+        },
+        {
+          "name": "input2",
+          "type": "SEGS_PREPROCESSOR",
+          "link": 32,
+          "label": "input2"
+        },
+        {
+          "name": "input3",
+          "type": "SEGS_PREPROCESSOR",
+          "link": null,
+          "label": "input3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS_PREPROCESSOR",
+          "type": "SEGS_PREPROCESSOR",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "label": "SEGS_PREPROCESSOR",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "widgets_values": [
+        2
+      ]
+    },
+    {
+      "id": 6,
+      "type": "ControlNetLoader",
+      "pos": [
+        540,
+        610
+      ],
+      "size": {
+        "0": 498.18817138671875,
+        "1": 58
+      },
+      "flags": {},
       "order": 6,
       "mode": 0,
       "outputs": [
         {
-          "name": "MODEL",
-          "type": "MODEL",
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
           "links": [
-            12
-          ],
-          "shape": 3
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            13,
-            16,
-            18
+            3
           ],
           "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            14
-          ],
-          "shape": 3,
-          "slot_index": 2
+          "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
+        "Node name for S&R": "ControlNetLoader"
       },
       "widgets_values": [
-        "SD1.5/majicmixRealistic_v6.safetensors"
-      ]
-    },
-    {
-      "id": 24,
-      "type": "XY Plot",
-      "pos": [
-        1655.6053552246087,
-        51.332194213867126
+        "SD1.5/control_v11p_sd15_canny_fp16.safetensors"
       ],
-      "size": {
-        "0": 315,
-        "1": 194
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "dependencies",
-          "type": "DEPENDENCIES",
-          "link": null
-        },
-        {
-          "name": "X",
-          "type": "XY",
-          "link": null
-        },
-        {
-          "name": "Y",
-          "type": "XY",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SCRIPT",
-          "type": "SCRIPT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "XY Plot"
-      },
-      "widgets_values": [
-        0,
-        "False",
-        "Horizontal",
-        "True",
-        "Images"
-      ],
-      "color": "#332233",
-      "bgcolor": "#553355",
-      "shape": 1
+      "color": "#322",
+      "bgcolor": "#533"
     }
   ],
   "links": [
@@ -797,14 +744,6 @@
       0,
       7,
       0,
-      "SEGS"
-    ],
-    [
-      9,
-      7,
-      0,
-      13,
-      1,
       "SEGS"
     ],
     [
@@ -934,6 +873,14 @@
       23,
       1,
       "SEGS_PREPROCESSOR"
+    ],
+    [
+      52,
+      7,
+      0,
+      13,
+      1,
+      "SEGS"
     ]
   ],
   "groups": [],
