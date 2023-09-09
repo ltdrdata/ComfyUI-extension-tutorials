@@ -1,6 +1,6 @@
 {
-  "last_node_id": 65,
-  "last_link_id": 213,
+  "last_node_id": 67,
+  "last_link_id": 222,
   "nodes": [
     {
       "id": 19,
@@ -207,9 +207,9 @@
         "Node name for S&R": "MaskToSEGS"
       },
       "widgets_values": [
-        "True",
+        true,
         2,
-        "disabled",
+        false,
         10
       ],
       "color": "#233",
@@ -284,58 +284,6 @@
         704,
         1024,
         1
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 18,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        80,
-        490
-      ],
-      "size": {
-        "0": 248,
-        "1": 98
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            138
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            24,
-            25,
-            142,
-            189
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            139
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "V07_v07.safetensors"
       ],
       "color": "#222",
       "bgcolor": "#000"
@@ -486,7 +434,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -534,7 +482,7 @@
           "name": "SEGS",
           "type": "SEGS",
           "links": [
-            208
+            215
           ],
           "slot_index": 0
         }
@@ -543,9 +491,9 @@
         "Node name for S&R": "MaskToSEGS"
       },
       "widgets_values": [
-        "False",
+        false,
         2,
-        "disabled",
+        false,
         10
       ],
       "color": "#233",
@@ -626,7 +574,7 @@
             60,
             195,
             202,
-            206
+            214
           ],
           "slot_index": 0
         }
@@ -673,10 +621,10 @@
         580,
         160
       ],
-      "size": [
-        210,
-        474.00000762939453
-      ],
+      "size": {
+        "0": 210,
+        "1": 474
+      },
       "flags": {},
       "order": 11,
       "mode": 0,
@@ -830,45 +778,16 @@
       }
     },
     {
-      "id": 23,
-      "type": "SaveImage",
-      "pos": [
-        1800,
-        760
-      ],
-      "size": [
-        520,
-        820
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 209
-        }
-      ],
-      "title": "Result",
-      "properties": {},
-      "widgets_values": [
-        "Result"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
       "id": 22,
       "type": "PreviewImage",
       "pos": [
         2360,
         1050
       ],
-      "size": [
-        180,
-        250
-      ],
+      "size": {
+        "0": 180,
+        "1": 250
+      },
       "flags": {},
       "order": 27,
       "mode": 0,
@@ -876,7 +795,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 211
+          "link": 219
         }
       ],
       "title": "Refined Crop",
@@ -937,7 +856,7 @@
           "name": "basic_pipe",
           "type": "BASIC_PIPE",
           "links": [
-            207
+            216
           ],
           "slot_index": 0
         }
@@ -1007,124 +926,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 65,
-      "type": "DetailerForEachDebugPipe",
-      "pos": [
-        1420,
-        760
-      ],
-      "size": [
-        340,
-        810
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 206
-        },
-        {
-          "name": "segs",
-          "type": "SEGS",
-          "link": 208
-        },
-        {
-          "name": "basic_pipe",
-          "type": "BASIC_PIPE",
-          "link": 207
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            209
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "cropped",
-          "type": "IMAGE",
-          "links": [
-            210
-          ],
-          "shape": 6,
-          "slot_index": 1
-        },
-        {
-          "name": "cropped_refined",
-          "type": "IMAGE",
-          "links": [
-            211
-          ],
-          "shape": 6,
-          "slot_index": 2
-        },
-        {
-          "name": "cropped_refined_alpha",
-          "type": "IMAGE",
-          "links": [
-            212
-          ],
-          "shape": 6,
-          "slot_index": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DetailerForEachDebugPipe"
-      },
-      "widgets_values": [
-        384,
-        "bbox",
-        768,
-        1039530304738894,
-        "fixed",
-        20,
-        8,
-        "euler",
-        "normal",
-        0.63,
-        5,
-        "enabled",
-        "disabled"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 21,
-      "type": "PreviewImage",
-      "pos": [
-        2360,
-        760
-      ],
-      "size": [
-        180,
-        250
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 210
-        }
-      ],
-      "title": "Cropped",
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
       "id": 60,
       "type": "CLIPTextEncode",
       "pos": [
@@ -1172,10 +973,10 @@
         2360,
         1340
       ],
-      "size": [
-        180,
-        246
-      ],
+      "size": {
+        "0": 180,
+        "1": 246
+      },
       "flags": {},
       "order": 28,
       "mode": 0,
@@ -1183,7 +984,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 212
+          "link": 220
         }
       ],
       "title": "Refined Crop (Alpha)",
@@ -1237,17 +1038,246 @@
       },
       "widgets_values": [
         {
-          "filename": "clipspace-mask-1432880.png",
-          "subfolder": "",
-          "type": "temp",
-          "image_hash": -989575569884828400,
-          "forward_filename": "ComfyUI_temp_ekhso_00002_.png",
+          "filename": "clipspace-mask-470361.200000003.png",
+          "subfolder": "clipspace",
+          "type": "input",
+          "image_hash": -9057483542318295000,
+          "forward_filename": "ComfyUI_temp_oimqn_00002_.png",
           "forward_subfolder": "",
           "forward_type": "temp"
         }
       ],
       "color": "#233",
       "bgcolor": "#355"
+    },
+    {
+      "id": 21,
+      "type": "PreviewImage",
+      "pos": [
+        2360,
+        760
+      ],
+      "size": {
+        "0": 180,
+        "1": 250
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 222
+        }
+      ],
+      "title": "Cropped",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 18,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        80,
+        490
+      ],
+      "size": {
+        "0": 248,
+        "1": 98
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            138
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            24,
+            25,
+            142,
+            189
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            139
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SD1.5/V07_v07.safetensors"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        1800,
+        760
+      ],
+      "size": {
+        "0": 520,
+        "1": 820
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 221
+        }
+      ],
+      "title": "Result",
+      "properties": {},
+      "widgets_values": [
+        "Result"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 67,
+      "type": "DetailerForEachDebugPipe",
+      "pos": [
+        1410,
+        760
+      ],
+      "size": [
+        370,
+        820
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 214
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 215
+        },
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 216
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null
+        },
+        {
+          "name": "refiner_basic_pipe_opt",
+          "type": "BASIC_PIPE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            221
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "cropped",
+          "type": "IMAGE",
+          "links": [
+            222
+          ],
+          "shape": 6,
+          "slot_index": 3
+        },
+        {
+          "name": "cropped_refined",
+          "type": "IMAGE",
+          "links": [
+            219
+          ],
+          "shape": 6,
+          "slot_index": 4
+        },
+        {
+          "name": "cropped_refined_alpha",
+          "type": "IMAGE",
+          "links": [
+            220
+          ],
+          "shape": 6,
+          "slot_index": 5
+        },
+        {
+          "name": "cnet_images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DetailerForEachDebugPipe"
+      },
+      "widgets_values": [
+        384,
+        true,
+        768,
+        1039530304738894,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        0.63,
+        5,
+        true,
+        true,
+        "",
+        0.2
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
@@ -1508,68 +1538,68 @@
       "MASK"
     ],
     [
-      206,
-      34,
-      0,
-      65,
-      0,
-      "IMAGE"
-    ],
-    [
-      207,
-      48,
-      0,
-      65,
-      2,
-      "BASIC_PIPE"
-    ],
-    [
-      208,
-      57,
-      0,
-      65,
-      1,
-      "SEGS"
-    ],
-    [
-      209,
-      65,
-      0,
-      23,
-      0,
-      "IMAGE"
-    ],
-    [
-      210,
-      65,
-      1,
-      21,
-      0,
-      "IMAGE"
-    ],
-    [
-      211,
-      65,
-      2,
-      22,
-      0,
-      "IMAGE"
-    ],
-    [
-      212,
-      65,
-      3,
-      64,
-      0,
-      "IMAGE"
-    ],
-    [
       213,
       60,
       0,
       48,
       5,
       "CONDITIONING"
+    ],
+    [
+      214,
+      34,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      215,
+      57,
+      0,
+      67,
+      1,
+      "SEGS"
+    ],
+    [
+      216,
+      48,
+      0,
+      67,
+      2,
+      "BASIC_PIPE"
+    ],
+    [
+      219,
+      67,
+      4,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      220,
+      67,
+      5,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      221,
+      67,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      222,
+      67,
+      3,
+      21,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -1581,7 +1611,8 @@
         1589,
         614
       ],
-      "color": "#3f789e"
+      "color": "#3f789e",
+      "locked": false
     },
     {
       "title": "Prompt",
@@ -1591,7 +1622,8 @@
         933,
         561
       ],
-      "color": "#3f789e"
+      "color": "#3f789e",
+      "locked": false
     },
     {
       "title": "Change Object",
@@ -1601,7 +1633,8 @@
         1695,
         909
       ],
-      "color": "#3f789e"
+      "color": "#3f789e",
+      "locked": false
     }
   ],
   "config": {},

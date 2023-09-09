@@ -1,6 +1,6 @@
 {
   "last_node_id": 31,
-  "last_link_id": 42,
+  "last_link_id": 43,
   "nodes": [
     {
       "id": 8,
@@ -92,7 +92,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        286322522129843,
+        466127834497483,
         "randomize",
         20,
         8,
@@ -154,54 +154,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 4,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        -210,
-        180
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            1
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            3,
-            5
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            8
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "SD1.5/darkSushi25D25D_v40.safetensors"
-      ]
-    },
-    {
       "id": 26,
       "type": "PreviewImage",
       "pos": [
@@ -213,7 +165,7 @@
         "1": 420
       },
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -318,7 +270,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -351,7 +303,7 @@
         "1": 475.765869140625
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -390,7 +342,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -422,52 +374,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 22,
-      "type": "PrimitiveNode",
-      "pos": [
-        -260,
-        1420
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            22,
-            25
-          ],
-          "widget": {
-            "name": "select",
-            "config": [
-              "INT",
-              {
-                "default": 1,
-                "min": 1,
-                "max": 999999,
-                "step": 1
-              }
-            ]
-          },
-          "slot_index": 0
-        }
-      ],
-      "title": "select",
-      "properties": {},
-      "widgets_values": [
-        3,
-        "fixed"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 17,
       "type": "ControlNetLoader",
       "pos": [
@@ -479,7 +385,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -512,7 +418,7 @@
         "1": 76
       },
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -550,7 +456,7 @@
         "1": 390
       },
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -566,47 +472,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 20,
-      "type": "Reroute",
-      "pos": [
-        960,
-        1500
-      ],
-      "size": [
-        75,
-        26
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 41,
-          "pos": [
-            37.5,
-            0
-          ]
-        }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "CONDITIONING",
-          "links": [
-            19,
-            20
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": false,
-        "horizontal": true
-      }
-    },
-    {
       "id": 31,
       "type": "Reroute",
       "pos": [
@@ -618,7 +483,7 @@
         26
       ],
       "flags": {},
-      "order": 9,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -658,7 +523,7 @@
         "1": 100
       },
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -696,7 +561,7 @@
         "1": 110
       },
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -740,7 +605,7 @@
         "1": 60
       },
       "flags": {},
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -773,7 +638,7 @@
         "1": 74
       },
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -830,10 +695,51 @@
         "Node name for S&R": "ImpactInversedSwitch"
       },
       "widgets_values": [
-        3
+        1
       ],
       "color": "#222",
       "bgcolor": "#000"
+    },
+    {
+      "id": 20,
+      "type": "Reroute",
+      "pos": [
+        960,
+        1500
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 41,
+          "pos": [
+            37.5,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "CONDITIONING",
+          "links": [
+            19,
+            20
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": true
+      }
     },
     {
       "id": 24,
@@ -842,10 +748,10 @@
         1540,
         1380
       ],
-      "size": [
-        250,
-        120
-      ],
+      "size": {
+        "0": 210,
+        "1": 118
+      },
       "flags": {},
       "order": 17,
       "mode": 0,
@@ -883,7 +789,6 @@
           "name": "input3",
           "type": "CONDITIONING",
           "link": null,
-          "slot_index": 4,
           "label": "input3"
         }
       ],
@@ -903,11 +808,105 @@
         "Node name for S&R": "ImpactSwitch"
       },
       "widgets_values": [
-        2,
-        false
+        1,
+        true
       ],
       "color": "#222",
       "bgcolor": "#000"
+    },
+    {
+      "id": 22,
+      "type": "PrimitiveNode",
+      "pos": [
+        -260,
+        1420
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            22,
+            25
+          ],
+          "widget": {
+            "name": "select",
+            "config": [
+              "INT",
+              {
+                "default": 1,
+                "min": 1,
+                "max": 999999,
+                "step": 1
+              }
+            ]
+          },
+          "slot_index": 0
+        }
+      ],
+      "title": "select",
+      "properties": {},
+      "widgets_values": [
+        1,
+        "fixed"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -210,
+        180
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3,
+            5
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SD1.5/darkSushi25D25D_v40.safetensors"
+      ]
     }
   ],
   "links": [
