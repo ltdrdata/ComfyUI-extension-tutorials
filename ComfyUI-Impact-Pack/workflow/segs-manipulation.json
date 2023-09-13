@@ -1,0 +1,641 @@
+{
+  "last_node_id": 27,
+  "last_link_id": 48,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        30,
+        110
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            1
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-5405039.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "MaskToImage",
+      "pos": [
+        1940,
+        620
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      }
+    },
+    {
+      "id": 2,
+      "type": "MaskToSEGS",
+      "pos": [
+        410,
+        620
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 1,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToSEGS"
+      },
+      "widgets_values": [
+        false,
+        3,
+        false,
+        10
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ImpactDilateMask",
+      "pos": [
+        1090,
+        1130
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            45
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactDilateMask"
+      },
+      "widgets_values": [
+        10
+      ]
+    },
+    {
+      "id": 25,
+      "type": "ImpactDecomposeSEGS",
+      "pos": [
+        770,
+        620
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS_HEADER",
+          "type": "SEGS_HEADER",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "SEG_ELT",
+          "type": "SEG_ELT",
+          "links": [
+            48
+          ],
+          "shape": 6,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactDecomposeSEGS"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 27,
+      "type": "ImpactFrom_SEG_ELT",
+      "pos": [
+        750,
+        850
+      ],
+      "size": [
+        228.39999389648438,
+        166
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seg_elt",
+          "type": "SEG_ELT",
+          "link": 48
+        }
+      ],
+      "outputs": [
+        {
+          "name": "seg_lt",
+          "type": "SEG_ELT",
+          "links": [
+            46
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "cropped_image",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "cropped_mask",
+          "type": "MASK",
+          "links": [
+            47
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "crop_region",
+          "type": "SEG_ELT_crop_region",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "bbox",
+          "type": "SEG_ELT_bbox",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "control_net_wrapper",
+          "type": "SEG_ELT_control_net_wrapper",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "confidence",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "label",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactFrom_SEG_ELT"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 14,
+      "type": "PreviewImage",
+      "pos": [
+        2240,
+        620
+      ],
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 20,
+      "type": "ImpactEdit_SEG_ELT",
+      "pos": [
+        1370,
+        850
+      ],
+      "size": {
+        "0": 262,
+        "1": 174
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seg_elt",
+          "type": "SEG_ELT",
+          "link": 46
+        },
+        {
+          "name": "cropped_image_opt",
+          "type": "IMAGE",
+          "link": null,
+          "slot_index": 1
+        },
+        {
+          "name": "cropped_mask_opt",
+          "type": "MASK",
+          "link": 45
+        },
+        {
+          "name": "crop_region_opt",
+          "type": "SEG_ELT_crop_region",
+          "link": null
+        },
+        {
+          "name": "bbox_opt",
+          "type": "SEG_ELT_bbox",
+          "link": null
+        },
+        {
+          "name": "control_net_wrapper_opt",
+          "type": "SEG_ELT_control_net_wrapper",
+          "link": null
+        },
+        {
+          "name": "confidence_opt",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "confidence_opt",
+            "config": [
+              "FLOAT",
+              {
+                "min": 0,
+                "max": 1,
+                "step": 0.1,
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        {
+          "name": "label_opt",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "label_opt",
+            "config": [
+              "STRING",
+              {
+                "multiline": false,
+                "forceInput": true
+              }
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEG_ELT",
+          "type": "SEG_ELT",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactEdit_SEG_ELT"
+      },
+      "widgets_values": [
+        0,
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 12,
+      "type": "ImpactSEGSToMaskList",
+      "pos": [
+        1680,
+        620
+      ],
+      "size": {
+        "0": 168,
+        "1": 26
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            17
+          ],
+          "shape": 6,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSEGSToMaskList"
+      }
+    },
+    {
+      "id": 18,
+      "type": "ImpactAssembleSEGS",
+      "pos": [
+        1370,
+        620
+      ],
+      "size": {
+        "0": 175.8488006591797,
+        "1": 46
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seg_header",
+          "type": "SEGS_HEADER",
+          "link": 43
+        },
+        {
+          "name": "seg_elt",
+          "type": "SEG_ELT",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            24,
+            35
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactAssembleSEGS"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 3,
+      "type": "SEGSPreview",
+      "pos": [
+        1700,
+        90
+      ],
+      "size": {
+        "0": 241.79998779296875,
+        "1": 266
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 35
+        },
+        {
+          "name": "fallback_image_opt",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SEGSPreview"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      1,
+      2,
+      0,
+      "MASK"
+    ],
+    [
+      17,
+      12,
+      0,
+      13,
+      0,
+      "MASK"
+    ],
+    [
+      18,
+      13,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      18,
+      0,
+      12,
+      0,
+      "SEGS"
+    ],
+    [
+      32,
+      20,
+      0,
+      18,
+      1,
+      "SEG_ELT"
+    ],
+    [
+      35,
+      18,
+      0,
+      3,
+      0,
+      "SEGS"
+    ],
+    [
+      37,
+      1,
+      0,
+      3,
+      1,
+      "IMAGE"
+    ],
+    [
+      42,
+      2,
+      0,
+      25,
+      0,
+      "SEGS"
+    ],
+    [
+      43,
+      25,
+      0,
+      18,
+      0,
+      "SEGS_HEADER"
+    ],
+    [
+      45,
+      16,
+      0,
+      20,
+      2,
+      "MASK"
+    ],
+    [
+      46,
+      27,
+      0,
+      20,
+      0,
+      "SEG_ELT"
+    ],
+    [
+      47,
+      27,
+      2,
+      16,
+      0,
+      "MASK"
+    ],
+    [
+      48,
+      25,
+      1,
+      27,
+      0,
+      "SEG_ELT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
