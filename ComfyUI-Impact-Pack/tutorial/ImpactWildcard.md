@@ -30,9 +30,21 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * You can set the selection probability by prefixing a number as in `{5::red|4::green|7::blue|black}`. Each item's selection probability is normalized to 100% based on the sum of all items within the {} brackets, distributing the probabilities evenly.
   - **NOTICE: The selection weight syntax has been updated. Now you should use `{5::red|4::green|7::blue|black}` instead of the previous `{5:red|4:green|7:blue|black}` syntax.**
 
+### Lora Block Weight support
+* If the [Inspire Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack) is installed, you can use Lora Block Weight in the form of `LBW=lbw spec;`. If the `Inspire Pack` is not installed, this spec will be ignored.
+* "The 'spec' within `LBW=spec` internally uses semicolons (;) as separators.". It is recommended to end the LBW spec definition with a semicolon (;). If it ends without a semicolon, specifying the weight afterward may result in a specification error.
+* Specs that come after `LBW=` without `A=` or `B=` are applicable for use in the `Inspire Pack`'s `Lora Loader (Block Weight)` node. Specs provided with `A=` or `B=` are inputted as parameters for the `A` and `B` parameters of the `Lora Loader (Block Weight)` node.
+  * For detailed information about LBW, please refer to this [link](https://github.com/ltdrdata/ComfyUI-extension-tutorials/blob/Main/ComfyUI-Inspire-Pack/tutorial/LoraBlockWeight.md).
+* EX) 
+  * `<lora:chunli:1.0:1.0:LBW=B11:0,0,0,0,0,0,0,0,0,0,A,0,0,0,0,0,0;A=0.;>`
+  * `<lora:chunli:1.0:1.0:LBW=0,0,0,0,0,0,0,0,0,0,A,B,0,0,0,0,0;A=0.5;B=0.2;>`
+  * `<lora:chunli:1.0:1.0:LBW=SD-MIDD;>`
+
+![workflow](ImpactWildcard-LBW.jpg)
+
+
 ### Application
 * If you use wildcards with files, you can save frequently used prompts in a file and load them for usage. For example, if you have a line composed of `photorealistic:1.4, best quality:1.4` and save it as `ppos.txt` in the custom_wildcards directory, you can create prompts in a concise form like `__ppos__`, beautiful nature.
-
 
 ## SETUP
 * Under the ComfyUI-Impact-Pack/ directory, there are two paths: custom_wildcards and wildcards. Both paths are created to hold wildcards files, but it is recommended to avoid adding content to the wildcards file in order to prevent potential conflicts during future updates.
