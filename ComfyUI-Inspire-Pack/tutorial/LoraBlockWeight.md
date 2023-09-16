@@ -1,5 +1,7 @@
 # Lora Block Weight
 
+This tutorial is provided as [Tutorial Video](https://www.youtube.com/watch?v=X9v0xQrInn8).
+
 # Basic
 * Lora Block Weight is used to attenuate the influence of certain features in the model when loading LoRA, allowing you to reflect specific characteristics of LoRA. By blending multiple LoRAs using this node, you can mitigate the degradation in image quality.
 
