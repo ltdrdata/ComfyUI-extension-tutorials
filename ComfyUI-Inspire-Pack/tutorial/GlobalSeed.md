@@ -2,7 +2,7 @@
 
 This tutorial is provided as [Tutorial Video](https://www.youtube.com/watch?v=gmmuToLuAO8).
 
-* The `GlobalSeed` node controls the values of all numeric widgets named 'seed' that exist within the workflow.
+* The `GlobalSeed` node controls the values of all numeric widgets named 'seed' or 'noise_seed' that exist within the workflow.
 * `GlobalSeed` does not require a connection line. (This is a **REMOTE** controller!!!)
 * When set to `control_before_generate`, it changes the seed before starting the workflow from the queue prompt.
 * When the action is set to `increment`, `decrement`, or `randomize`, it modifies the value of `GlobalSeed` and applies the same value uniformly to the seeds of all nodes.
