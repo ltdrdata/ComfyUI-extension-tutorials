@@ -25,10 +25,12 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Extreme Highresolution Upscale](ComfyUI-Impact-Pack/tutorial/extreme-upscale.md)
   * [ImpactWildcardProcessor/Encode](ComfyUI-Impact-Pack/tutorial/ImpactWildcard.md)
   * [Batching images with detailer example](ComfyUI-Impact-Pack/tutorial/batching-detailer.md)
+  * [SEGS From MediaPipe FaceMesh](ComfyUI-Impact-Pack/tutorial/mediapipe.md)
 
 
 * Workflows
   * [Hair restyling](ComfyUI-Impact-Pack/workflow/hair-restyle.json) [[Demo video](https://www.youtube.com/watch?v=fsNBASZYDuA)]
+  * [Auto Handfix](dwpose-segs-handfix.json) [[Demo Video]](https://www.youtube.com/watch?v=DoyqCjKdojY)
 
 ## [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack)
 
