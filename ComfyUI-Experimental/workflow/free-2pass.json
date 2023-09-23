@@ -1,0 +1,1471 @@
+{
+  "last_node_id": 40,
+  "last_link_id": 56,
+  "nodes": [
+    {
+      "id": 15,
+      "type": "FromBasicPipe_v2",
+      "pos": [
+        550,
+        450
+      ],
+      "size": {
+        "0": 267,
+        "1": 126
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            19
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FromBasicPipe_v2"
+      }
+    },
+    {
+      "id": 23,
+      "type": "Reroute",
+      "pos": [
+        1990,
+        110
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "BASIC_PIPE",
+          "links": [
+            28
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 24,
+      "type": "Reroute",
+      "pos": [
+        2100,
+        140
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 28,
+          "pos": [
+            37.5,
+            0
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "BASIC_PIPE",
+          "links": [
+            30
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": true
+      }
+    },
+    {
+      "id": 25,
+      "type": "Reroute",
+      "pos": [
+        2100,
+        390
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 30,
+          "pos": [
+            37.5,
+            0
+          ],
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "BASIC_PIPE",
+          "links": [
+            31
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": true
+      }
+    },
+    {
+      "id": 27,
+      "type": "VAEDecode",
+      "pos": [
+        2590,
+        470
+      ],
+      "size": {
+        "0": 140,
+        "1": 50
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 34
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 35,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            36
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 17,
+      "type": "EditBasicPipe",
+      "pos": [
+        1280,
+        450
+      ],
+      "size": {
+        "0": 267,
+        "1": 126
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 18
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 43
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            25,
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EditBasicPipe"
+      }
+    },
+    {
+      "id": 35,
+      "type": "VAEDecode",
+      "pos": [
+        2180,
+        1770
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 45
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            49
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 14,
+      "type": "FromBasicPipe_v2",
+      "pos": [
+        550,
+        110
+      ],
+      "size": {
+        "0": 267,
+        "1": 126
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FromBasicPipe_v2"
+      }
+    },
+    {
+      "id": 39,
+      "type": "VAEDecode",
+      "pos": [
+        2190,
+        2320
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 52
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            56
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 40,
+      "type": "PreviewImage",
+      "pos": [
+        3520,
+        1258
+      ],
+      "size": {
+        "0": 870,
+        "1": 1090
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 56
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 28,
+      "type": "PreviewImage",
+      "pos": [
+        2590,
+        90
+      ],
+      "size": {
+        "0": 880,
+        "1": 1090
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 36
+        }
+      ],
+      "title": "FreeU 2pass (1.1, 1.1, 0.74, 0.5) + (0.85, 0.85, 0.1, 0.1)",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 26,
+      "type": "SDXL Empty Latent Image",
+      "pos": [
+        1060,
+        1220
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            33,
+            38,
+            48,
+            55
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXL Empty Latent Image"
+      },
+      "widgets_values": [
+        "896 x 1088 (0.82)",
+        1
+      ]
+    },
+    {
+      "id": 29,
+      "type": "GlobalSeed //Inspire",
+      "pos": [
+        2144,
+        1430
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "GlobalSeed //Inspire"
+      },
+      "widgets_values": [
+        12,
+        true,
+        "fixed"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 32,
+      "type": "VAEDecode",
+      "pos": [
+        2180,
+        1220
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 39
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 13,
+      "type": "## make-basic_pipe [2c8c61]",
+      "pos": [
+        50,
+        110
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae_opt",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": [
+            15,
+            16,
+            54
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "## make-basic_pipe",
+      "properties": {
+        "Node name for S&R": "## make-basic_pipe [2c8c61]"
+      },
+      "widgets_values": [
+        "SDXL/xxmix9realisticsdxl_v10.safetensors",
+        "a photograph of a girl is looking dawn in the cafe terrace, ultral resolution, streetlight",
+        "blurry, deformed, painting, drawing, cg"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "ImpactKSamplerBasicPipe",
+      "pos": [
+        1760,
+        2300
+      ],
+      "size": {
+        "0": 315,
+        "1": 454
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 54
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 55
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            52
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            53
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactKSamplerBasicPipe"
+      },
+      "widgets_values": [
+        12,
+        "fixed",
+        30,
+        8,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "EditBasicPipe",
+      "pos": [
+        1270,
+        110
+      ],
+      "size": {
+        "0": 267,
+        "1": 126
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 17
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 44
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            26,
+            51
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EditBasicPipe"
+      }
+    },
+    {
+      "id": 31,
+      "type": "ImpactKSamplerBasicPipe",
+      "pos": [
+        1760,
+        1200
+      ],
+      "size": {
+        "0": 315,
+        "1": 454
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 37
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            39
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactKSamplerBasicPipe"
+      },
+      "widgets_values": [
+        12,
+        "fixed",
+        30,
+        8,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 34,
+      "type": "ImpactKSamplerBasicPipe",
+      "pos": [
+        1760,
+        1750
+      ],
+      "size": {
+        "0": 315,
+        "1": 454
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 51
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 48
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            45
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            46
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactKSamplerBasicPipe"
+      },
+      "widgets_values": [
+        12,
+        "fixed",
+        30,
+        8,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 18,
+      "type": "FreeU",
+      "pos": [
+        910,
+        570
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "FreeU - 1pass",
+      "properties": {
+        "Node name for S&R": "FreeU"
+      },
+      "widgets_values": [
+        1.1,
+        1.1,
+        0.74,
+        0.5
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 21,
+      "type": "ImpactKSamplerAdvancedBasicPipe",
+      "pos": [
+        1770,
+        450
+      ],
+      "size": {
+        "0": 315,
+        "1": 526
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 25
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 33,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactKSamplerAdvancedBasicPipe"
+      },
+      "widgets_values": [
+        true,
+        12,
+        "fixed",
+        30,
+        8,
+        "dpmpp_2m",
+        "sgm_uniform",
+        0,
+        10,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 33,
+      "type": "PreviewImage",
+      "pos": [
+        3520,
+        90
+      ],
+      "size": {
+        "0": 880,
+        "1": 1090
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 41
+        }
+      ],
+      "title": "FreeU 1pass (1.1, 1.1 0.74, 0.5)",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 19,
+      "type": "FreeU",
+      "pos": [
+        903,
+        220
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            44
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "FreeU - 2pass",
+      "properties": {
+        "Node name for S&R": "FreeU"
+      },
+      "widgets_values": [
+        0.8,
+        1.1,
+        0.4,
+        0.1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 22,
+      "type": "ImpactKSamplerAdvancedBasicPipe",
+      "pos": [
+        2200,
+        450
+      ],
+      "size": {
+        "0": 320,
+        "1": 530
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 31
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            34
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            35
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactKSamplerAdvancedBasicPipe"
+      },
+      "widgets_values": [
+        false,
+        12,
+        "fixed",
+        30,
+        8,
+        "dpmpp_2m",
+        "sgm_uniform",
+        10,
+        10000,
+        false
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 36,
+      "type": "PreviewImage",
+      "pos": [
+        2590,
+        1260
+      ],
+      "size": {
+        "0": 880,
+        "1": 1090
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 49
+        }
+      ],
+      "title": "FreeU 1pass (0.85, 0.85, 0.1, 0.1)",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [
+    [
+      15,
+      13,
+      0,
+      14,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      16,
+      13,
+      0,
+      15,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      17,
+      14,
+      0,
+      16,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      18,
+      15,
+      0,
+      17,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      19,
+      15,
+      1,
+      18,
+      0,
+      "MODEL"
+    ],
+    [
+      21,
+      14,
+      1,
+      19,
+      0,
+      "MODEL"
+    ],
+    [
+      25,
+      17,
+      0,
+      21,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      26,
+      16,
+      0,
+      23,
+      0,
+      "*"
+    ],
+    [
+      28,
+      23,
+      0,
+      24,
+      0,
+      "*"
+    ],
+    [
+      30,
+      24,
+      0,
+      25,
+      0,
+      "*"
+    ],
+    [
+      31,
+      25,
+      0,
+      22,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      32,
+      21,
+      1,
+      22,
+      1,
+      "LATENT"
+    ],
+    [
+      33,
+      26,
+      0,
+      21,
+      1,
+      "LATENT"
+    ],
+    [
+      34,
+      22,
+      1,
+      27,
+      0,
+      "LATENT"
+    ],
+    [
+      35,
+      22,
+      2,
+      27,
+      1,
+      "VAE"
+    ],
+    [
+      36,
+      27,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      17,
+      0,
+      31,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      38,
+      26,
+      0,
+      31,
+      1,
+      "LATENT"
+    ],
+    [
+      39,
+      31,
+      1,
+      32,
+      0,
+      "LATENT"
+    ],
+    [
+      40,
+      31,
+      2,
+      32,
+      1,
+      "VAE"
+    ],
+    [
+      41,
+      32,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      18,
+      0,
+      17,
+      1,
+      "MODEL"
+    ],
+    [
+      44,
+      19,
+      0,
+      16,
+      1,
+      "MODEL"
+    ],
+    [
+      45,
+      34,
+      1,
+      35,
+      0,
+      "LATENT"
+    ],
+    [
+      46,
+      34,
+      2,
+      35,
+      1,
+      "VAE"
+    ],
+    [
+      48,
+      26,
+      0,
+      34,
+      1,
+      "LATENT"
+    ],
+    [
+      49,
+      35,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      16,
+      0,
+      34,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      52,
+      38,
+      1,
+      39,
+      0,
+      "LATENT"
+    ],
+    [
+      53,
+      38,
+      2,
+      39,
+      1,
+      "VAE"
+    ],
+    [
+      54,
+      13,
+      0,
+      38,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      55,
+      26,
+      0,
+      38,
+      1,
+      "LATENT"
+    ],
+    [
+      56,
+      39,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
