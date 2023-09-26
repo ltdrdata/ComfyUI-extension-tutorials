@@ -1,40 +1,7 @@
 {
-  "last_node_id": 21,
-  "last_link_id": 32,
+  "last_node_id": 29,
+  "last_link_id": 44,
   "nodes": [
-    {
-      "id": 14,
-      "type": "ONNXDetectorProvider",
-      "pos": [
-        64,
-        205
-      ],
-      "size": {
-        "0": 315,
-        "1": 58
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "ONNX_DETECTOR",
-          "type": "ONNX_DETECTOR",
-          "links": [
-            16
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ONNXDetectorProvider"
-      },
-      "widgets_values": [
-        "detector_v2_base_checkpoint.onnx"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
     {
       "id": 9,
       "type": "SaveImage",
@@ -47,7 +14,7 @@
         "1": 543
       },
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -75,13 +42,13 @@
         "1": 26
       },
       "flags": {},
-      "order": 6,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
           "name": "segs",
           "type": "SEGS",
-          "link": 24
+          "link": 44
         }
       ],
       "outputs": [
@@ -112,7 +79,7 @@
         "1": 98
       },
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -162,7 +129,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -184,53 +151,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 15,
-      "type": "ONNXDetectorSEGS",
-      "pos": [
-        430,
-        330
-      ],
-      "size": {
-        "0": 315,
-        "1": 126
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "onnx_detector",
-          "type": "ONNX_DETECTOR",
-          "link": 16
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 22
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEGS",
-          "type": "SEGS",
-          "links": [
-            24
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ONNXDetectorSEGS"
-      },
-      "widgets_values": [
-        0.5,
-        10,
-        1
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 8,
       "type": "VAEDecode",
       "pos": [
@@ -242,7 +162,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -284,7 +204,7 @@
         26
       ],
       "flags": {},
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -382,26 +302,94 @@
       }
     },
     {
+      "id": 28,
+      "type": "ONNXDetectorProvider",
+      "pos": [
+        60,
+        210
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ONNXDetectorProvider"
+      },
+      "widgets_values": [
+        "detector_v2_base_checkpoint.onnx"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 25,
+      "type": "SAMLoader",
+      "pos": [
+        60,
+        750
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            37
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SAMLoader"
+      },
+      "widgets_values": [
+        "sam_vit_b_01ec64.pth",
+        "AUTO"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
       "id": 17,
       "type": "LoadImage",
       "pos": [
-        70,
+        60,
         350
       ],
-      "size": [
-        210,
-        102
-      ],
+      "size": {
+        "0": 210,
+        "1": 314
+      },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            22,
-            29
+            29,
+            38
           ],
           "slot_index": 0
         },
@@ -415,11 +403,76 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "rga6845.jpeg",
+        "0002_SDXL_upscaled.png",
         "image"
       ],
       "color": "#222",
       "bgcolor": "#000"
+    },
+    {
+      "id": 24,
+      "type": "ImpactSimpleDetectorSEGS",
+      "pos": [
+        450,
+        330
+      ],
+      "size": [
+        280,
+        290
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 43
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 38,
+          "slot_index": 1
+        },
+        {
+          "name": "sam_model_opt",
+          "type": "SAM_MODEL",
+          "link": 37,
+          "slot_index": 2
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            44
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSimpleDetectorSEGS"
+      },
+      "widgets_values": [
+        0.5,
+        -50,
+        3,
+        10,
+        0.5,
+        0,
+        0,
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
@@ -438,30 +491,6 @@
       9,
       0,
       "IMAGE"
-    ],
-    [
-      16,
-      14,
-      0,
-      15,
-      0,
-      "ONNX_DETECTOR"
-    ],
-    [
-      22,
-      17,
-      0,
-      15,
-      1,
-      "IMAGE"
-    ],
-    [
-      24,
-      15,
-      0,
-      18,
-      0,
-      "SEGS"
     ],
     [
       25,
@@ -518,6 +547,38 @@
       6,
       0,
       "IMAGE"
+    ],
+    [
+      37,
+      25,
+      0,
+      24,
+      2,
+      "SAM_MODEL"
+    ],
+    [
+      38,
+      17,
+      0,
+      24,
+      1,
+      "IMAGE"
+    ],
+    [
+      43,
+      28,
+      0,
+      24,
+      0,
+      "BBOX_DETECTOR"
+    ],
+    [
+      44,
+      24,
+      0,
+      18,
+      0,
+      "SEGS"
     ]
   ],
   "groups": [],
