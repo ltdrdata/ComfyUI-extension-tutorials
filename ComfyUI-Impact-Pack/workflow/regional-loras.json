@@ -1,0 +1,2398 @@
+{
+  "last_node_id": 65,
+  "last_link_id": 76,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -390,
+        220
+      ],
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4,
+            21
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a photograph of a seven of nine sitting in the spaceship, looking viewer, short hair, upper knee, leotard"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -390,
+        430
+      ],
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6,
+            22
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark, blury, deformed, bare leg"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ToBasicPipe",
+      "pos": [
+        47,
+        884
+      ],
+      "size": {
+        "0": 241.79998779296875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 18,
+          "label": "model"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 19,
+          "label": "clip",
+          "slot_index": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 20,
+          "label": "vae",
+          "slot_index": 2
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 21,
+          "label": "positive",
+          "slot_index": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 22,
+          "label": "negative",
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            23,
+            24
+          ],
+          "shape": 3,
+          "label": "basic_pipe",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ToBasicPipe"
+      }
+    },
+    {
+      "id": 23,
+      "type": "VAEDecode",
+      "pos": [
+        2174,
+        1223
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 30,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 31,
+          "label": "vae",
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 29,
+      "type": "CLIPTextEncode",
+      "pos": [
+        160,
+        1430
+      ],
+      "size": {
+        "0": 400,
+        "1": 100
+      },
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 45,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            47
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "monochrome, old"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 25,
+      "type": "CLIPTextEncode",
+      "pos": [
+        160,
+        1300
+      ],
+      "size": {
+        "0": 400,
+        "1": 76.00003051757812
+      },
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 33,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            48
+          ],
+          "shape": 3,
+          "label": "CONDITIONING",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "photograph of jinx, ultra resolution"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 15,
+      "type": "KSamplerAdvancedProvider",
+      "pos": [
+        530,
+        880
+      ],
+      "size": {
+        "0": 355.20001220703125,
+        "1": 106
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 23,
+          "label": "basic_pipe",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "KSAMPLER_ADVANCED",
+          "type": "KSAMPLER_ADVANCED",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "label": "KSAMPLER_ADVANCED"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvancedProvider"
+      },
+      "widgets_values": [
+        8,
+        "dpmpp_2m",
+        "sgm_uniform"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -780,
+        510
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            18,
+            44
+          ],
+          "slot_index": 0,
+          "label": "MODEL"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3,
+            5,
+            19
+          ],
+          "slot_index": 1,
+          "label": "CLIP"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8,
+            20,
+            31
+          ],
+          "slot_index": 2,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SDXL/7Of9_v20.safetensors"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -260,
+        1750
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            55
+          ],
+          "shape": 3,
+          "label": "MODEL",
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            54
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SDXL/7Of9_v20.safetensors"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "SDXL Empty Latent Image",
+      "pos": [
+        530,
+        610
+      ],
+      "size": {
+        "0": 350,
+        "1": 82
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            10,
+            16,
+            59
+          ],
+          "shape": 3,
+          "label": "LATENT",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXL Empty Latent Image"
+      },
+      "widgets_values": [
+        "896 x 1152 (0.78)",
+        1
+      ]
+    },
+    {
+      "id": 37,
+      "type": "CLIPTextEncode",
+      "pos": [
+        150,
+        2380
+      ],
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 63,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            64
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a photograph of a seven of nine sitting in the spaceship, looking viewer, short hair, upper knee, leotard, jinx face, ultra resolution"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 35,
+      "type": "VAEDecode",
+      "pos": [
+        1500,
+        2320
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 60,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 61,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            62
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 47,
+      "type": "SAMLoader",
+      "pos": [
+        2190,
+        2140
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            71
+          ],
+          "shape": 3,
+          "label": "SAM_MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SAMLoader"
+      },
+      "widgets_values": [
+        "sam_vit_b_01ec64.pth",
+        "AUTO"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 42,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        2190,
+        2000
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            69
+          ],
+          "shape": 3,
+          "label": "BBOX_DETECTOR",
+          "slot_index": 0
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": null,
+          "shape": 3,
+          "label": "SEGM_DETECTOR"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1094,
+        199
+      ],
+      "size": {
+        "0": 315,
+        "1": 474
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 44,
+          "label": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6,
+          "label": "negative"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 10,
+          "label": "latent_image",
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "label": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        55206293842518,
+        "fixed",
+        30,
+        10,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1510,
+        190
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66,
+            75
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 49,
+      "type": "PreviewImage",
+      "pos": [
+        1760,
+        200
+      ],
+      "size": {
+        "0": 660,
+        "1": 870
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 75
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 34,
+      "type": "ImpactKSamplerBasicPipe",
+      "pos": [
+        1060,
+        2300
+      ],
+      "size": {
+        "0": 315,
+        "1": 454
+      },
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 58,
+          "label": "basic_pipe"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 59,
+          "label": "latent_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": null,
+          "shape": 3,
+          "label": "BASIC_PIPE",
+          "slot_index": 0
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            60
+          ],
+          "shape": 3,
+          "label": "LATENT",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            61
+          ],
+          "shape": 3,
+          "label": "VAE",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactKSamplerBasicPipe"
+      },
+      "widgets_values": [
+        55206293842518,
+        "fixed",
+        30,
+        8,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 32,
+      "type": "EditBasicPipe",
+      "pos": [
+        626,
+        2301
+      ],
+      "size": {
+        "0": 267,
+        "1": 126
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 56,
+          "label": "basic_pipe"
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 57,
+          "label": "model",
+          "slot_index": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "label": "vae"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 64,
+          "label": "positive",
+          "slot_index": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "negative",
+          "slot_index": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            58
+          ],
+          "shape": 3,
+          "label": "basic_pipe",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EditBasicPipe"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 53,
+      "type": "Note",
+      "pos": [
+        149,
+        2196
+      ],
+      "size": {
+        "0": 425.23919677734375,
+        "1": 110.79774475097656
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "title": "3.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Now, To transform Seven of Nine's face into the game character Jinx's face, what should we do?\n\nFor the first attempt, let's simply connect Jinx's LoRA and add the text prompt \"jinx face.\""
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 52,
+      "type": "Note",
+      "pos": [
+        -388,
+        47
+      ],
+      "size": {
+        "0": 499.4570007324219,
+        "1": 119.47900390625
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "title": "2.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Let's begin by using the SDXL checkpoint named \"7 of 9\" as our base prompt to generate the character \"Seven of Nine\" from Star Trek."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 56,
+      "type": "Note",
+      "pos": [
+        2550,
+        1743
+      ],
+      "size": {
+        "0": 499.4570007324219,
+        "1": 119.47900390625
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "title": "5.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "For the second attempt, we can use the \"Face Detailer\" to remove the 'Seven of Nine' prompt and only apply the \"jinx\" prompt to inpaint the face."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 55,
+      "type": "Note",
+      "pos": [
+        3140,
+        -90
+      ],
+      "size": {
+        "0": 660,
+        "1": 190
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "title": "6.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "It seems like Jinx's face is starting to show, but due to differences in facial structure, we need to lower the denoise to 0.3 to minimize any dissonance.\n\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 57,
+      "type": "Note",
+      "pos": [
+        910,
+        1120
+      ],
+      "size": {
+        "0": 558.056396484375,
+        "1": 161.084228515625
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "title": "9.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "So, what happens when we apply \"Regional LoRA\" based on Regional Sampler?\n\nTo configure 'Regional LoRA,' we'll first edit the BASIC_PIPE sent to the Regional Sampler, just like we did with the Face Detailer. We'll insert Jinx's LoRA and create a BASIC_PIPE with only Jinx's text prompt. Then, we'll create RegionalPrompts."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 58,
+      "type": "Note",
+      "pos": [
+        -932,
+        1110
+      ],
+      "size": {
+        "0": 423.603759765625,
+        "1": 111.98893737792969
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "title": "10.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "To set the mask area based on the initial generated image, we'll use \"Copy (clipspace)\" to copy it and \"Paste (clipspace)\" to paste it into Load Image."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 61,
+      "type": "Note",
+      "pos": [
+        -936,
+        1729
+      ],
+      "size": {
+        "0": 438.66259765625,
+        "1": 64.4480972290039
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "title": "13.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Now, let's apply \"Regional LoRA\" only to the face and one shoulder area."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 48,
+      "type": "PreviewImage",
+      "pos": [
+        3740,
+        1740
+      ],
+      "size": {
+        "0": 560,
+        "1": 550
+      },
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 74,
+          "label": "images"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 60,
+      "type": "Note",
+      "pos": [
+        3840,
+        -80
+      ],
+      "size": {
+        "0": 630,
+        "1": 180
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "title": "11.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Clearly, Jinx's features stand out more strongly with \"Regional LoRA\" than with other methods.\n\nAnd there is no sense of incongruity due to the synthesis."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 54,
+      "type": "Note",
+      "pos": [
+        2460,
+        -20
+      ],
+      "size": {
+        "0": 499.4570007324219,
+        "1": 119.47900390625
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "title": "4.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "The hairstyle seems to have changed a bit, but it appears that the default 'Seven of Nine' text prompt is still dominating, and Jinx's features aren't coming through strongly."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 62,
+      "type": "Note",
+      "pos": [
+        3840,
+        1160
+      ],
+      "size": {
+        "0": 630,
+        "1": 180
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "title": "14.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "You can see that the exposed skin on the opposite arm is visible. This is due to the characteristics of the \"Regional Sampler\".\n\nInpaint techniques like Face Detailer are limited to the mask area, drawing on the original image with low denoise. On the other hand, the Regional Sampler forcefully awakens specific prompts in each region during sampling, ultimately creating a single image with denoise set to 1.0.\n\nAs a result, even in areas where the mask is not applied, transformations occur to maintain coherence and create a consistent image, incorporating the states of other regions."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 50,
+      "type": "PreviewImage",
+      "pos": [
+        3150,
+        200
+      ],
+      "size": {
+        "0": 660,
+        "1": 870
+      },
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 76,
+          "label": "images"
+        }
+      ],
+      "title": "base + jinx lora + jinx prompt",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 63,
+      "type": "Note",
+      "pos": [
+        3641,
+        2362
+      ],
+      "size": {
+        "0": 561.56494140625,
+        "1": 143.7430419921875
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "title": "7.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "To fully change the hairstyle and facial structure, we can increase the dilation to around 255 and raise the denoise to 0.6.\n\nJinx's features are more pronounced now, but there are still distortions in the periphery.\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 51,
+      "type": "Note",
+      "pos": [
+        -393,
+        -453
+      ],
+      "size": {
+        "0": 783.0473022460938,
+        "1": 132.4215087890625
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "title": "1.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "In this tutorial, we will explore how to apply Regional LoRA using Regional Sampler.\n\nRegional Sampler allows for different applications beyond just changing the text prompt, as it allows for different configurations of CFG, Sampler, Scheduler, Checkpoint, and LoRA for each region.\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 36,
+      "type": "PreviewImage",
+      "pos": [
+        2460,
+        200
+      ],
+      "size": {
+        "0": 660,
+        "1": 870
+      },
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 62,
+          "label": "images"
+        }
+      ],
+      "title": "base + jinx lora + jinx prompt",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 45,
+      "type": "BasicPipeToDetailerPipe",
+      "pos": [
+        2655,
+        1975
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 73,
+          "label": "basic_pipe"
+        },
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 69,
+          "label": "bbox_detector"
+        },
+        {
+          "name": "sam_model_opt",
+          "type": "SAM_MODEL",
+          "link": 71,
+          "label": "sam_model_opt",
+          "slot_index": 2
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "link": null,
+          "label": "segm_detector_opt",
+          "slot_index": 3
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "label": "detailer_hook"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": [
+            68
+          ],
+          "shape": 3,
+          "label": "detailer_pipe",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicPipeToDetailerPipe"
+      },
+      "widgets_values": [
+        "photograph of jinx, ultra resolution",
+        "Select the LoRA to add to the text"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "FaceDetailerPipe",
+      "pos": [
+        3150,
+        1698
+      ],
+      "size": {
+        "0": 456,
+        "1": 922
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 66,
+          "label": "image"
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "link": 68,
+          "label": "detailer_pipe",
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            76
+          ],
+          "shape": 3,
+          "label": "image",
+          "slot_index": 0
+        },
+        {
+          "name": "cropped_refined",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6,
+          "label": "cropped_refined",
+          "slot_index": 1
+        },
+        {
+          "name": "cropped_enhanced_alpha",
+          "type": "IMAGE",
+          "links": [
+            74
+          ],
+          "shape": 6,
+          "label": "cropped_enhanced_alpha",
+          "slot_index": 2
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "mask"
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": null,
+          "shape": 3,
+          "label": "detailer_pipe"
+        },
+        {
+          "name": "cnet_images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6,
+          "label": "cnet_images"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceDetailerPipe"
+      },
+      "widgets_values": [
+        360,
+        true,
+        768,
+        55206293842518,
+        "fixed",
+        20,
+        8,
+        "dpmpp_2m",
+        "sgm_uniform",
+        0.6,
+        5,
+        true,
+        false,
+        0.5,
+        255,
+        3,
+        "center-1",
+        255,
+        0.93,
+        0,
+        0.7,
+        "False",
+        10,
+        0.2
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "FromBasicPipe_v2",
+      "pos": [
+        -210,
+        1560
+      ],
+      "size": {
+        "0": 267,
+        "1": 126
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 24,
+          "label": "basic_pipe"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            25,
+            56
+          ],
+          "shape": 3,
+          "label": "basic_pipe",
+          "slot_index": 0
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "label": "model",
+          "slot_index": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            33,
+            45,
+            63
+          ],
+          "shape": 3,
+          "label": "clip",
+          "slot_index": 2
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": null,
+          "shape": 3,
+          "label": "vae"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "negative",
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FromBasicPipe_v2"
+      }
+    },
+    {
+      "id": 30,
+      "type": "LoraLoaderBlockWeight //Inspire",
+      "pos": [
+        160,
+        1650
+      ],
+      "size": {
+        "0": 400,
+        "1": 380
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 55,
+          "label": "model"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 54,
+          "label": "clip",
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            50,
+            57
+          ],
+          "shape": 3,
+          "label": "model",
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3,
+          "label": "clip"
+        },
+        {
+          "name": "populated_vector",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "populated_vector"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderBlockWeight //Inspire"
+      },
+      "widgets_values": [
+        "SDXL/person",
+        "SDXL/person/MIAOKA_JINX_1.0_SDXL.safetensors",
+        0.7000000000000001,
+        1,
+        false,
+        214617206783613,
+        "fixed",
+        2,
+        1,
+        "SD-MIDD:1,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0",
+        "1,0,0,0,1,1,A,1,1,1,1,1,0,0,0,0,0",
+        false
+      ]
+    },
+    {
+      "id": 18,
+      "type": "EditBasicPipe",
+      "pos": [
+        600,
+        1560
+      ],
+      "size": {
+        "0": 267,
+        "1": 126
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 25,
+          "label": "basic_pipe"
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 50,
+          "label": "model",
+          "slot_index": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "label": "vae"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 48,
+          "label": "positive",
+          "slot_index": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 47,
+          "label": "negative",
+          "slot_index": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            26,
+            73
+          ],
+          "shape": 3,
+          "label": "basic_pipe",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EditBasicPipe"
+      }
+    },
+    {
+      "id": 19,
+      "type": "KSamplerAdvancedProvider",
+      "pos": [
+        910,
+        1350
+      ],
+      "size": {
+        "0": 355.20001220703125,
+        "1": 106
+      },
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 26,
+          "label": "basic_pipe",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "KSAMPLER_ADVANCED",
+          "type": "KSAMPLER_ADVANCED",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "label": "KSAMPLER_ADVANCED",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvancedProvider"
+      },
+      "widgets_values": [
+        7,
+        "dpmpp_2m",
+        "sgm_uniform"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 20,
+      "type": "RegionalPrompt",
+      "pos": [
+        1360,
+        1340
+      ],
+      "size": {
+        "0": 278.79998779296875,
+        "1": 46
+      },
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 28,
+          "label": "mask"
+        },
+        {
+          "name": "advanced_sampler",
+          "type": "KSAMPLER_ADVANCED",
+          "link": 27,
+          "label": "advanced_sampler"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "REGIONAL_PROMPTS",
+          "type": "REGIONAL_PROMPTS",
+          "links": [
+            29
+          ],
+          "shape": 3,
+          "label": "REGIONAL_PROMPTS",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RegionalPrompt"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 14,
+      "type": "RegionalSampler",
+      "pos": [
+        1700,
+        1220
+      ],
+      "size": {
+        "0": 374.7419128417969,
+        "1": 766.5576782226562
+      },
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 16,
+          "label": "samples",
+          "slot_index": 0
+        },
+        {
+          "name": "base_sampler",
+          "type": "KSAMPLER_ADVANCED",
+          "link": 17,
+          "label": "base_sampler",
+          "slot_index": 1
+        },
+        {
+          "name": "regional_prompts",
+          "type": "REGIONAL_PROMPTS",
+          "link": 29,
+          "label": "regional_prompts"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "label": "LATENT",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RegionalSampler"
+      },
+      "widgets_values": [
+        55206293842518,
+        "fixed",
+        30,
+        1,
+        10,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 24,
+      "type": "PreviewImage",
+      "pos": [
+        3840,
+        200
+      ],
+      "size": {
+        "0": 660,
+        "1": 870
+      },
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32,
+          "label": "images"
+        }
+      ],
+      "title": "regional lora",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 64,
+      "type": "Note",
+      "pos": [
+        4342,
+        1740
+      ],
+      "size": [
+        490.761008522727,
+        58
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "title": "8.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Jinx's features are more pronounced now, but there are still distortions in the periphery.\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 65,
+      "type": "Note",
+      "pos": [
+        -1460,
+        1550
+      ],
+      "size": [
+        530,
+        70
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "title": "12.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Let's draw a mask on the part where \"Regional LoRA\" will be applied to the head. We'll create enough space for Jinx's hairstyle."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 59,
+      "type": "Note",
+      "pos": [
+        -1463,
+        1348
+      ],
+      "size": {
+        "0": 531.0250244140625,
+        "1": 124.91614532470703
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "title": "11.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "When working with the Regional Sampler, it's essential to know in advance how the image will be generated. You can use prompts and seeds to define the mask area, or use control nets like Openpose to specify the structure and prevent the Regional Sampler from being applied to unintended areas."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 22,
+      "type": "LoadImage",
+      "pos": [
+        -885,
+        1304
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "label": "MASK",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      3,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      10,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      16,
+      10,
+      0,
+      14,
+      0,
+      "LATENT"
+    ],
+    [
+      17,
+      15,
+      0,
+      14,
+      1,
+      "KSAMPLER_ADVANCED"
+    ],
+    [
+      18,
+      4,
+      0,
+      16,
+      0,
+      "MODEL"
+    ],
+    [
+      19,
+      4,
+      1,
+      16,
+      1,
+      "CLIP"
+    ],
+    [
+      20,
+      4,
+      2,
+      16,
+      2,
+      "VAE"
+    ],
+    [
+      21,
+      6,
+      0,
+      16,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      22,
+      7,
+      0,
+      16,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      23,
+      16,
+      0,
+      15,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      24,
+      16,
+      0,
+      17,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      25,
+      17,
+      0,
+      18,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      26,
+      18,
+      0,
+      19,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      27,
+      19,
+      0,
+      20,
+      1,
+      "KSAMPLER_ADVANCED"
+    ],
+    [
+      28,
+      22,
+      1,
+      20,
+      0,
+      "MASK"
+    ],
+    [
+      29,
+      20,
+      0,
+      14,
+      2,
+      "REGIONAL_PROMPTS"
+    ],
+    [
+      30,
+      14,
+      0,
+      23,
+      0,
+      "LATENT"
+    ],
+    [
+      31,
+      4,
+      2,
+      23,
+      1,
+      "VAE"
+    ],
+    [
+      32,
+      23,
+      0,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      17,
+      2,
+      25,
+      0,
+      "CLIP"
+    ],
+    [
+      44,
+      4,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      45,
+      17,
+      2,
+      29,
+      0,
+      "CLIP"
+    ],
+    [
+      47,
+      29,
+      0,
+      18,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      48,
+      25,
+      0,
+      18,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      50,
+      30,
+      0,
+      18,
+      1,
+      "MODEL"
+    ],
+    [
+      54,
+      28,
+      1,
+      30,
+      1,
+      "CLIP"
+    ],
+    [
+      55,
+      28,
+      0,
+      30,
+      0,
+      "MODEL"
+    ],
+    [
+      56,
+      17,
+      0,
+      32,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      57,
+      30,
+      0,
+      32,
+      1,
+      "MODEL"
+    ],
+    [
+      58,
+      32,
+      0,
+      34,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      59,
+      10,
+      0,
+      34,
+      1,
+      "LATENT"
+    ],
+    [
+      60,
+      34,
+      1,
+      35,
+      0,
+      "LATENT"
+    ],
+    [
+      61,
+      34,
+      2,
+      35,
+      1,
+      "VAE"
+    ],
+    [
+      62,
+      35,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      63,
+      17,
+      2,
+      37,
+      0,
+      "CLIP"
+    ],
+    [
+      64,
+      37,
+      0,
+      32,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      66,
+      8,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      68,
+      45,
+      0,
+      41,
+      1,
+      "DETAILER_PIPE"
+    ],
+    [
+      69,
+      42,
+      0,
+      45,
+      1,
+      "BBOX_DETECTOR"
+    ],
+    [
+      71,
+      47,
+      0,
+      45,
+      2,
+      "SAM_MODEL"
+    ],
+    [
+      73,
+      18,
+      0,
+      45,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      74,
+      41,
+      2,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      75,
+      8,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      76,
+      41,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
