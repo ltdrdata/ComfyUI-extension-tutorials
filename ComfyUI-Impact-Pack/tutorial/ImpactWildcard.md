@@ -29,6 +29,9 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * You can also use compound grammar like `1{girl is holding {blue pencil|red __safruit__|colorful __flower__}|boy is riding __vehicle__}`.
 * You can set the selection probability by prefixing a number as in `{5::red|4::green|7::blue|black}`. Each item's selection probability is normalized to 100% based on the sum of all items within the {} brackets, distributing the probabilities evenly.
   - **NOTICE: The selection weight syntax has been updated. Now you should use `{5::red|4::green|7::blue|black}` instead of the previous `{5:red|4:green|7:blue|black}` syntax.**
+* The pattern inside `__` is case-insensitive. In other words, `__Jewel__` and `__jewel__` are treated as identical.
+* `*` serves as an aggregation pattern, allowing you to group all items from the person path and its wildcard files into one collection, from which you can make selections.
+  * Supported in V4.15.1 or above
 
 ### Lora Block Weight support
 * If the [Inspire Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack) is installed, you can use Lora Block Weight in the form of `LBW=lbw spec;`. If the `Inspire Pack` is not installed, this spec will be ignored.
