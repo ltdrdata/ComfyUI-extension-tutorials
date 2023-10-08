@@ -10,6 +10,10 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 * You can download various [workflows](ComfyUI-Impact-Pack/workflow) for ComfyUI-Impact-Pack.
 * Various tutorial videos are available on the [youtube playlist](https://www.youtube.com/playlist?list=PL_Ej2RDzjQLGfEeizq4GISeY3FtVyFmGP).  
 
+* Basic Tutorials
+  * [Detectors](ComfyUI-Impact-Pack/tutorial/detectors.md)
+  * Detailer
+
 * Tutorials
   * [Basic auto face detection and refine example](ComfyUI-Impact-Pack/tutorial/advanced.md)
   * [Combination with CLIPSeg](ComfyUI-Impact-Pack/tutorial/clipseg.md)
@@ -30,7 +34,8 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 
 * Workflows
   * [Hair restyling](ComfyUI-Impact-Pack/workflow/hair-restyle.json) [[Demo video](https://www.youtube.com/watch?v=fsNBASZYDuA)]
-  * [Auto Handfix](dwpose-segs-handfix.json) [[Demo Video]](https://www.youtube.com/watch?v=DoyqCjKdojY)
+  * [Auto Handfix](ComfyUI-Impact-Pack/workflow/dwpose-segs-handfix.json) [[Demo Video]](https://www.youtube.com/watch?v=DoyqCjKdojY)
+  * [Crowd Control](ComfyUI-Impact-Pack/workflow/crowd-face.json) [[Demo Video](https://www.youtube.com/watch?v=9GSQlxZFrLI)]
 
 ## [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack)
 
@@ -42,6 +47,9 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Lora Block Weight](ComfyUI-Inspire-Pack/tutorial/LoraBlockWeight.md)
   * [SEGS ControlNet](ComfyUI-Inspire-Pack/tutorial/SEGSControlNet.md)
   * [GlobalSeed](ComfyUI-Inspire-Pack/tutorial/GlobalSeed.md)
+  * Load From Dir/File
+  * Regional Prompt Support
+  * KSampler Progress
 
 
 ## [ComfyUI-Workflow-Component](https://github.com/ltdrdata/ComfyUI-Workflow-Component)
