@@ -22,6 +22,6 @@
 
 ## Image List to Image Batch
 
-* When you need to convert post-processed images, which have been converted into a list, back into a batch for handling, you can use the `Image List to Image Batch`` node to convert them back into batch images and work with them using tools like the detailer.
+* When you need to convert post-processed images, which have been converted into a list, back into a batch for handling, you can use the `Image List to Image Batch` node to convert them back into batch images and work with them using tools like the detailer.
 
 ![workflow3](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/imagelist_to_imagebatch.jpg)
