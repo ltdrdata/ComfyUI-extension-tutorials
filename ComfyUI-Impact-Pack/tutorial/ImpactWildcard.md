@@ -57,7 +57,10 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * The wildcard supports subfolder feature.
   * For example, if there is a wildcard file named `custom_wildcards/obj/person.txt`, it should be used as `__obj/person__` instead of `__person__`.
   * NOTICE: The subfolder feature was not supported in older versions. The subfolder feature is a newly updated functionality.
-* `.yaml` wildcards supports.
+
+![file](wildcard-file.png)
+
+* `.yaml` wildcards file supports.
   * You can download and use [Wildcard YAML](https://civitai.com/models/138970/billions-of-wildcards-all-in-one) files in this format.
   * For example, if a YAML file is structured like the following, you can use `__astronomy.Celestial-Bodies__` and `__surface-swap__` as wildcards, and one of the item inside can be chosen.
   ```
@@ -71,9 +74,6 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
       - replace the surfaces with        
       ...
   ```
-  * 
-
-![file](wildcard-file.png)
 
 * Within the wildcard, the items to be randomly selected should be placed one per line.
 * If items are entered on a single line separated by commas, the entire line will be considered as one item.
