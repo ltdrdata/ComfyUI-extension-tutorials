@@ -32,6 +32,14 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * The pattern inside `__` is case-insensitive. In other words, `__Jewel__` and `__jewel__` are treated as identical.
 * `*` serves as an aggregation pattern, allowing you to group all items from the person path and its wildcard files into one collection, from which you can make selections.
   * Supported in V4.15.1 or above
+* Multi-select '$$': Select multiple items from the available choices.
+  * {n1-n2$$sel1|sel2|...} - Select between n1 and n2 items from the available choices. If the range exceeds the number of available options, the excess will be ignore d.
+  * {-n$$sel1|sel2|...} - Select between 1 and n items.
+  * {n$$sel1|sel2|...} - Select n items.
+  * custom seperator
+    * {n$$ and $$sel1|sel2|...} - Select n items using ' and ' as a separator.
+    * {n1-n2$$ or $$sel1|sel2|...} - Select between n1 and n2 items using ' or ' as a separator.
+
 
 ### Lora Block Weight support
 * If the [Inspire Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack) is installed, you can use Lora Block Weight in the form of `LBW=lbw spec;`. If the `Inspire Pack` is not installed, this spec will be ignored.
@@ -60,9 +68,9 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 
 ![file](wildcard-file.png)
 
-* `.yaml` wildcards file supports.
+* `.yaml` wildcards file supports. (V4.18.4)
   * You can download and use [Wildcard YAML](https://civitai.com/models/138970/billions-of-wildcards-all-in-one) files in this format.
-  * For example, if a YAML file is structured like the following, you can use `__astronomy.Celestial-Bodies__` and `__surface-swap__` as wildcards, and one of the item inside can be chosen.
+  * For example, if a YAML file is structured like the following, you can use `__astronomy/Celestial-Bodies__` and `__surface-swap__` as wildcards, and one of the item inside can be chosen.
   ```
   astronomy:
     Celestial-Bodies:
