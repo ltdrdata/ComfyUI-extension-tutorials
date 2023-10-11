@@ -55,8 +55,23 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 ![folder](wildcard-folder.png)
 
 * The wildcard supports subfolder feature.
-* For example, if there is a wildcard file named `custom_wildcards/obj/person.txt`, it should be used as `__obj/person__` instead of `__person__`.
+  * For example, if there is a wildcard file named `custom_wildcards/obj/person.txt`, it should be used as `__obj/person__` instead of `__person__`.
   * NOTICE: The subfolder feature was not supported in older versions. The subfolder feature is a newly updated functionality.
+* `.yaml` wildcards supports.
+  * You can download and use [Wildcard YAML](https://civitai.com/models/138970/billions-of-wildcards-all-in-one) files in this format.
+  * For example, if a YAML file is structured like the following, you can use `__astronomy.Celestial-Bodies__` and `__surface-swap__` as wildcards, and one of the item inside can be chosen.
+  ```
+  astronomy:
+    Celestial-Bodies:
+        - Star
+        - Planet
+        ...
+  surface-swap:
+      - swap the surfaces for
+      - replace the surfaces with        
+      ...
+  ```
+  * 
 
 ![file](wildcard-file.png)
 
@@ -65,3 +80,5 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * Below is the content of the file flower.txt. If written as follows, using `__flower__` in the prompt text will randomly select one from `rose, orchid, iris, carnation, lily, daisy, chrysanthemum, daffodil, and dahlia`.
 
 ![content](wildcard-content.png)
+
+
