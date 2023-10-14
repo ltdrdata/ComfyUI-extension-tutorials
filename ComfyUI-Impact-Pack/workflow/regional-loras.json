@@ -1074,7 +1074,7 @@
         "1": 64.4480972290039
       },
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "title": "13.Note",
       "properties": {
@@ -1124,7 +1124,7 @@
         "1": 180
       },
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "title": "11.Note",
       "properties": {
@@ -1148,7 +1148,7 @@
         "1": 119.47900390625
       },
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "title": "4.Note",
       "properties": {
@@ -1172,7 +1172,7 @@
         "1": 180
       },
       "flags": {},
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "title": "14.Note",
       "properties": {
@@ -1225,7 +1225,7 @@
         "1": 143.7430419921875
       },
       "flags": {},
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "title": "7.Note",
       "properties": {
@@ -1249,7 +1249,7 @@
         "1": 132.4215087890625
       },
       "flags": {},
-      "order": 18,
+      "order": 16,
       "mode": 0,
       "title": "1.Note",
       "properties": {
@@ -1299,7 +1299,7 @@
       ],
       "size": {
         "0": 400,
-        "1": 200
+        "1": 204
       },
       "flags": {},
       "order": 36,
@@ -1355,7 +1355,8 @@
       },
       "widgets_values": [
         "photograph of jinx, ultra resolution",
-        "Select the LoRA to add to the text"
+        "Select the LoRA to add to the text",
+        "Select the Wildcard to add to the text"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -1746,6 +1747,107 @@
       "bgcolor": "#533"
     },
     {
+      "id": 24,
+      "type": "PreviewImage",
+      "pos": [
+        3840,
+        200
+      ],
+      "size": {
+        "0": 660,
+        "1": 870
+      },
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32,
+          "label": "images"
+        }
+      ],
+      "title": "regional lora",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 64,
+      "type": "Note",
+      "pos": [
+        4342,
+        1740
+      ],
+      "size": {
+        "0": 490.7610168457031,
+        "1": 58
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "title": "8.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Jinx's features are more pronounced now, but there are still distortions in the periphery.\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 65,
+      "type": "Note",
+      "pos": [
+        -1460,
+        1550
+      ],
+      "size": {
+        "0": 530,
+        "1": 70
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "title": "12.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Let's draw a mask on the part where \"Regional LoRA\" will be applied to the head. We'll create enough space for Jinx's hairstyle."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 59,
+      "type": "Note",
+      "pos": [
+        -1463,
+        1348
+      ],
+      "size": {
+        "0": 531.0250244140625,
+        "1": 124.91614532470703
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "title": "11.Note",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "When working with the Regional Sampler, it's essential to know in advance how the image will be generated. You can use prompts and seeds to define the mask area, or use control nets like Openpose to specify the structure and prevent the Regional Sampler from being applied to unintended areas."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
       "id": 20,
       "type": "RegionalPrompt",
       "pos": [
@@ -1790,6 +1892,48 @@
       },
       "color": "#322",
       "bgcolor": "#533"
+    },
+    {
+      "id": 22,
+      "type": "LoadImage",
+      "pos": [
+        -885,
+        1304
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "label": "MASK",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-7161705.300000001.png [input]",
+        "image"
+      ]
     },
     {
       "id": 14,
@@ -1846,155 +1990,15 @@
         55206293842518,
         "fixed",
         30,
+        "ignore",
+        30,
+        2,
         1,
         10,
         true
       ],
       "color": "#322",
       "bgcolor": "#533"
-    },
-    {
-      "id": 24,
-      "type": "PreviewImage",
-      "pos": [
-        3840,
-        200
-      ],
-      "size": {
-        "0": 660,
-        "1": 870
-      },
-      "flags": {},
-      "order": 46,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 32,
-          "label": "images"
-        }
-      ],
-      "title": "regional lora",
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 64,
-      "type": "Note",
-      "pos": [
-        4342,
-        1740
-      ],
-      "size": [
-        490.761008522727,
-        58
-      ],
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "title": "8.Note",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Jinx's features are more pronounced now, but there are still distortions in the periphery.\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 65,
-      "type": "Note",
-      "pos": [
-        -1460,
-        1550
-      ],
-      "size": [
-        530,
-        70
-      ],
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "title": "12.Note",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Let's draw a mask on the part where \"Regional LoRA\" will be applied to the head. We'll create enough space for Jinx's hairstyle."
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 59,
-      "type": "Note",
-      "pos": [
-        -1463,
-        1348
-      ],
-      "size": {
-        "0": 531.0250244140625,
-        "1": 124.91614532470703
-      },
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "title": "11.Note",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "When working with the Regional Sampler, it's essential to know in advance how the image will be generated. You can use prompts and seeds to define the mask area, or use control nets like Openpose to specify the structure and prevent the Regional Sampler from being applied to unintended areas."
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 22,
-      "type": "LoadImage",
-      "pos": [
-        -885,
-        1304
-      ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": null,
-          "shape": 3,
-          "label": "IMAGE",
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [
-            28
-          ],
-          "shape": 3,
-          "label": "MASK",
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "example.png",
-        "image"
-      ]
     }
   ],
   "links": [

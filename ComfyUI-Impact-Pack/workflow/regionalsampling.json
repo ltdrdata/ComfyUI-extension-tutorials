@@ -1,5 +1,5 @@
 {
-  "last_node_id": 52,
+  "last_node_id": 53,
   "last_link_id": 169,
   "nodes": [
     {
@@ -1545,63 +1545,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 2,
-      "type": "RegionalSampler",
-      "pos": [
-        3320,
-        1480
-      ],
-      "size": {
-        "0": 323.1692810058594,
-        "1": 597.25439453125
-      },
-      "flags": {},
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 81,
-          "slot_index": 0
-        },
-        {
-          "name": "base_sampler",
-          "type": "KSAMPLER_ADVANCED",
-          "link": 82
-        },
-        {
-          "name": "regional_prompts",
-          "type": "REGIONAL_PROMPTS",
-          "link": 83
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            141
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "RegionalSampler"
-      },
-      "widgets_values": [
-        602241078971877,
-        "fixed",
-        25,
-        1,
-        5,
-        true
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930"
-    },
-    {
       "id": 37,
       "type": "RegionalSamplerAdvanced",
       "pos": [
@@ -1729,6 +1672,66 @@
       ],
       "color": "#2a363b",
       "bgcolor": "#3f5159"
+    },
+    {
+      "id": 2,
+      "type": "RegionalSampler",
+      "pos": [
+        3320,
+        1480
+      ],
+      "size": {
+        "0": 323.1692810058594,
+        "1": 597.25439453125
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 81,
+          "slot_index": 0
+        },
+        {
+          "name": "base_sampler",
+          "type": "KSAMPLER_ADVANCED",
+          "link": 82
+        },
+        {
+          "name": "regional_prompts",
+          "type": "REGIONAL_PROMPTS",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            141
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RegionalSampler"
+      },
+      "widgets_values": [
+        602241078971877,
+        "fixed",
+        25,
+        "ignore",
+        25,
+        2,
+        1,
+        10,
+        true
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
     }
   ],
   "links": [
