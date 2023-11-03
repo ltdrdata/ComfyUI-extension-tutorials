@@ -3,7 +3,7 @@ Nudenet uses an ONNX model to detect NSFW content. This example is an applicatio
 
 * [detector_v2_base_checkpoint.onnx](https://github.com/notAI-tech/NudeNet/releases/download/v0/detector_v2_base_checkpoint.onnx) is a model for nudenet. Download and placed into **ComfyUI/models/onnx**
 
-* [onnx.json](../misc/onnx.json) is a workflow of this example.
+* [onnx.json](../workflow/onnx.json) is a workflow of this example.
 
 ![nudenet](nudenet.png)
 
