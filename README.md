@@ -36,7 +36,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Hair restyling](ComfyUI-Impact-Pack/workflow/hair-restyle.json) [[Demo video](https://www.youtube.com/watch?v=fsNBASZYDuA)]
   * [Auto Handfix](ComfyUI-Impact-Pack/workflow/dwpose-segs-handfix.png) [[Demo Video]](https://www.youtube.com/watch?v=DoyqCjKdojY)
   * [Crowd Control](ComfyUI-Impact-Pack/workflow/crowd-face.json) [[Demo Video](https://www.youtube.com/watch?v=9GSQlxZFrLI)]
-  * [Gender Senstivie Detailer](ComfyUI-Impact-Pack/workflow/gender-senstivie-detailer.png) 
+  * [Gender Senstivie Detailer](ComfyUI-Impact-Pack/workflow/gender-senstivie-detailer.png) [[Demo Video](https://www.youtube.com/watch?v=Vs2r-MErJZw)]
 
 
 ## [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack)
