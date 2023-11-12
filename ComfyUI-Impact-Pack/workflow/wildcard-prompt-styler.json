@@ -42,10 +42,10 @@
         1650,
         390
       ],
-      "size": [
-        315,
-        474.00001525878906
-      ],
+      "size": {
+        "0": 315,
+        "1": 474
+      },
       "flags": {},
       "order": 7,
       "mode": 0,
@@ -89,63 +89,13 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        128830127065185,
+        600714431410203,
         "randomize",
         20,
         8,
         "dpmpp_2m",
         "sgm_uniform",
         1
-      ]
-    },
-    {
-      "id": 6,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        -70,
-        160
-      ],
-      "size": [
-        406.7059383863211,
-        148.91273092651375
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            28
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            29
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            13
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "SDXL/pixelwave_v10.safetensors"
       ]
     },
     {
@@ -197,10 +147,10 @@
         2160,
         180
       ],
-      "size": [
-        813.1705681152348,
-        1217.2071478881837
-      ],
+      "size": {
+        "0": 813.1705932617188,
+        "1": 1217.2071533203125
+      },
       "flags": {},
       "order": 9,
       "mode": 0,
@@ -216,93 +166,16 @@
       }
     },
     {
-      "id": 21,
-      "type": "ImpactWildcardEncode",
-      "pos": [
-        390,
-        390
-      ],
-      "size": [
-        440.8299241499467,
-        438.7129225297407
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 28
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 29,
-          "slot_index": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "links": [
-            36
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "links": [
-            32
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "links": null,
-          "shape": 3,
-          "slot_index": 2
-        },
-        {
-          "name": "populated_text",
-          "type": "STRING",
-          "links": [
-            38
-          ],
-          "shape": 3,
-          "slot_index": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImpactWildcardEncode"
-      },
-      "widgets_values": [
-        "{D.VA <lora:SDXL/person/d.va_xl_v1>|chunli <lora:SDXL/person/chun-li_xl_v1>|ahri, 1girl, long hair, animal ears, whisker markings, korean clothes, cleavage, detached sleeves <lora:SDXL/person/ahri_sdxl_lowlearningrate-000024>\n|arcane jinx <lora:SDXL/person/jinx>|Dark Magician Girl <lora:SDXL/person/dark_magician_girl_xl_v4>|SailorJupiter <lora:SDXL/person/SailorJupiter>|wearing supergirl outfit with cape <lora:SDXL/cloth/SDXL1.0-LoRa_Zeitgeist-Supergirl-Outfit_by-AI_Characters-v2.0>}",
-        "arcane jinx <lora:SDXL/person/jinx>",
-        true,
-        "SD1.5/person/ChunLi_v1.safetensors",
-        580571183024932,
-        "randomize"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 17,
       "type": "CLIPTextEncode",
       "pos": [
         1347,
         328
       ],
-      "size": [
-        210,
-        54
-      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
       "flags": {
         "collapsed": false
       },
@@ -319,13 +192,7 @@
           "type": "STRING",
           "link": 18,
           "widget": {
-            "name": "text",
-            "config": [
-              "STRING",
-              {
-                "multiline": true
-              }
-            ]
+            "name": "text"
           }
         }
       ],
@@ -391,10 +258,10 @@
         1344,
         531
       ],
-      "size": [
-        210,
-        54
-      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
       "flags": {
         "collapsed": false
       },
@@ -412,13 +279,7 @@
           "type": "STRING",
           "link": 19,
           "widget": {
-            "name": "text",
-            "config": [
-              "STRING",
-              {
-                "multiline": true
-              }
-            ]
+            "name": "text"
           }
         }
       ],
@@ -447,10 +308,10 @@
         890,
         530
       ],
-      "size": [
-        328.7660602645875,
-        164
-      ],
+      "size": {
+        "0": 328.76605224609375,
+        "1": 164
+      },
       "flags": {},
       "order": 4,
       "mode": 0,
@@ -460,14 +321,7 @@
           "type": "STRING",
           "link": 38,
           "widget": {
-            "name": "text_positive",
-            "config": [
-              "STRING",
-              {
-                "default": "",
-                "multiline": true
-              }
-            ]
+            "name": "text_positive"
           }
         }
       ],
@@ -502,6 +356,134 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
+    },
+    {
+      "id": 6,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -70,
+        160
+      ],
+      "size": {
+        "0": 406.7059326171875,
+        "1": 148.91273498535156
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            29
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SDXL/pixelwave_04.safetensors"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "ImpactWildcardEncode",
+      "pos": [
+        390,
+        390
+      ],
+      "size": {
+        "0": 440.8299255371094,
+        "1": 438.7129211425781
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 28
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 29,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            36
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "populated_text",
+          "type": "STRING",
+          "links": [
+            38
+          ],
+          "shape": 3,
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactWildcardEncode"
+      },
+      "widgets_values": [
+        "{D.VA <lora:SDXL/person/d.va_xl_v1>|chunli <lora:SDXL/person/chun-li_xl_v1>|ahri, 1girl, long hair, animal ears, whisker markings, korean clothes, cleavage, detached sleeves <lora:SDXL/person/ahri_sdxl_lowlearningrate-000024>\n|arcane jinx <lora:SDXL/person/jinx>|Dark Magician Girl <lora:SDXL/person/dark_magician_girl_xl_v4>|SailorJupiter <lora:SDXL/person/SailorJupiter>|wearing supergirl outfit with cape <lora:SDXL/cloth/SDXL1.0-LoRa_Zeitgeist-Supergirl-Outfit_by-AI_Characters-v2.0>}",
+        "chunli <lora:SDXL/person/chun-li_xl_v1>",
+        false,
+        "SD1.5/person/ChunLi_v1.safetensors",
+        "Select the Wildcard to add to the text",
+        1039509971329644,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [

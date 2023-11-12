@@ -130,10 +130,10 @@
         880,
         -200
       ],
-      "size": {
-        "0": 315,
-        "1": 262
-      },
+      "size": [
+        315,
+        474
+      ],
       "flags": {},
       "order": 4,
       "mode": 0,
@@ -183,16 +183,54 @@
       ]
     },
     {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        250,
+        230
+      ],
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
+      ]
+    },
+    {
       "id": 10,
       "type": "ImpactWildcardEncode",
       "pos": [
         234,
         -204
       ],
-      "size": [
-        492.9038037109376,
-        350.1620599365235
-      ],
+      "size": {
+        "0": 492.90380859375,
+        "1": 350.16204833984375
+      },
       "flags": {},
       "order": 3,
       "mode": 0,
@@ -247,63 +285,26 @@
       "widgets_values": [
         "<lora:SD1.5/cloth/2b leotardV2:1.0:1.0:LBW=0,0,0,0,0,0,0,A,A,B,B,0,0,0,0,0,0;A=2.0;B=1.5>, 2b leotard, (covered eyes:1.1), hair over eyes",
         "<lora:SD1.5/cloth/2b leotardV2:1.0:1.0:LBW=0,0,0,0,0,0,0,A,A,B,B,0,0,0,0,0,0;A=2.0;B=1.5>, 2b leotard, (covered eyes:1.1), hair over eyes",
-        true,
+        false,
         "SD1.5/cloth/bikesuit.safetensors",
-        609031848817291,
-        "fixed"
+        "Select the Wildcard to add to the text",
+        194540050549019,
+        "randomize"
       ],
       "color": "#322",
       "bgcolor": "#533"
     },
     {
-      "id": 7,
-      "type": "CLIPTextEncode",
-      "pos": [
-        250,
-        230
-      ],
-      "size": {
-        "0": 425.27801513671875,
-        "1": 180.6060791015625
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 5
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            6
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "text, watermark"
-      ]
-    },
-    {
       "id": 9,
       "type": "SaveImage",
       "pos": [
-        880,
-        110
+        1220,
+        -110
       ],
-      "size": [
-        344.9357556152345,
-        577.8340728759766
-      ],
+      "size": {
+        "0": 344.9357604980469,
+        "1": 577.8340454101562
+      },
       "flags": {},
       "order": 6,
       "mode": 0,
