@@ -40,6 +40,30 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
     * {n$$ and $$sel1|sel2|...} - Select n items using ' and ' as a separator.
     * {n1-n2$$ or $$sel1|sel2|...} - Select between n1 and n2 items using ' or ' as a separator.
 
+### Special Syntax for Detailer Wildcard
+* Start the prompt by placing `[ASC]`, `[DSC]`, `[RND]`, `[LAB]` at the very beginning.
+  - ASC: Ascending order
+  - DSC: Descending order
+  - RND: Random
+  - LAB: label
+  - `[ASC]`, `[DSC]`, `[RND]` denotes the order of SEGS' bboxes. The left of the bbox takes precedence as the primary criterion, and the top is the secondary criterion.
+
+  e.g.
+  ```
+  [ASC]
+  1girl, blue eyes, smile [SEP]
+  1boy, brown eyes [SEP]
+  ```
+
+  - `[LAB]` is based on the application according to labels. Each label can appear only once, and `[ALL]` functions as a prefix.
+
+  e.g.
+  ```
+  [LAB]
+  [ALL] laugh, detailed eyes
+  [Female] blue eyes
+  [Male] brown eyes
+  ```
 
 ### Lora Block Weight support
 * If the [Inspire Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack) is installed, you can use Lora Block Weight in the form of `LBW=lbw spec;`. If the `Inspire Pack` is not installed, this spec will be ignored.
