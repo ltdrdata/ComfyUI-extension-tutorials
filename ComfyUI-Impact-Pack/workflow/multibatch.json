@@ -1,95 +1,7 @@
 {
-  "last_node_id": 30,
-  "last_link_id": 40,
+  "last_node_id": 33,
+  "last_link_id": 43,
   "nodes": [
-    {
-      "id": 1,
-      "type": "## make-basic_pipe [2c8c61]",
-      "pos": [
-        150,
-        20
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae_opt",
-          "type": "VAE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "BASIC_PIPE",
-          "type": "BASIC_PIPE",
-          "links": [
-            1
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "## make-basic_pipe",
-      "properties": {
-        "Node name for S&R": "## make-basic_pipe [2c8c61]"
-      },
-      "widgets_values": [
-        "SD1.5/V07_v07.safetensors",
-        "photorealistic:1.4, best quality:1.4, 1girl is walking through street ",
-        "low quality:1.4, worst quality:1.4"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 2,
-      "type": "## make-basic_pipe [2c8c61]",
-      "pos": [
-        140,
-        660
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae_opt",
-          "type": "VAE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "BASIC_PIPE",
-          "type": "BASIC_PIPE",
-          "links": [
-            2
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "## make-basic_pipe",
-      "properties": {
-        "Node name for S&R": "## make-basic_pipe [2c8c61]"
-      },
-      "widgets_values": [
-        "SDXL/crystalClearXL_ccxl.safetensors",
-        "photorealistic:1.4, best quality:1.4, young man and young woman is sitting side by side",
-        "low quality:1.4, worst quality:1.4"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
     {
       "id": 20,
       "type": "UltralyticsDetectorProvider",
@@ -102,7 +14,7 @@
         "1": 78
       },
       "flags": {},
-      "order": 2,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -141,7 +53,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 3,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -172,10 +84,10 @@
       ],
       "size": {
         "0": 400,
-        "1": 200
+        "1": 204
       },
       "flags": {},
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -199,6 +111,11 @@
           "name": "segm_detector_opt",
           "type": "SEGM_DETECTOR",
           "link": null
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null
         }
       ],
       "outputs": [
@@ -216,7 +133,9 @@
         "Node name for S&R": "BasicPipeToDetailerPipe"
       },
       "widgets_values": [
-        "best quality:1.4, detailed eyes, natural faint smile"
+        "best quality:1.4, detailed eyes, natural faint smile",
+        "Select the LoRA to add to the text",
+        "Select the Wildcard to add to the text"
       ],
       "color": "#222",
       "bgcolor": "#000"
@@ -233,13 +152,13 @@
         "1": 454
       },
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
           "name": "basic_pipe",
           "type": "BASIC_PIPE",
-          "link": 1
+          "link": 41
         },
         {
           "name": "latent_image",
@@ -302,13 +221,13 @@
         "1": 454
       },
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
           "name": "basic_pipe",
           "type": "BASIC_PIPE",
-          "link": 2
+          "link": 42
         },
         {
           "name": "latent_image",
@@ -419,7 +338,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 8,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -458,10 +377,10 @@
         3200,
         30
       ],
-      "size": [
-        763.191674804687,
-        892.2341033935543
-      ],
+      "size": {
+        "0": 763.191650390625,
+        "1": 892.234130859375
+      },
       "flags": {},
       "order": 17,
       "mode": 0,
@@ -479,126 +398,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 23,
-      "type": "FaceDetailerPipe",
-      "pos": [
-        2450,
-        30
-      ],
-      "size": {
-        "0": 456,
-        "1": 878
-      },
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 31
-        },
-        {
-          "name": "detailer_pipe",
-          "type": "DETAILER_PIPE",
-          "link": 21
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            25
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "cropped_refined",
-          "type": "IMAGE",
-          "links": [
-            34
-          ],
-          "shape": 6,
-          "slot_index": 1
-        },
-        {
-          "name": "cropped_enhanced_alpha",
-          "type": "IMAGE",
-          "links": null,
-          "shape": 6
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        },
-        {
-          "name": "detailer_pipe",
-          "type": "DETAILER_PIPE",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "FaceDetailerPipe"
-      },
-      "widgets_values": [
-        360,
-        true,
-        768,
-        1057423129922082,
-        "randomize",
-        20,
-        8,
-        "euler",
-        "normal",
-        0.5,
-        5,
-        true,
-        false,
-        0.85,
-        10,
-        3,
-        "center-1",
-        0,
-        0.93,
-        0,
-        0.7,
-        "False",
-        10
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 28,
-      "type": "PreviewImage",
-      "pos": [
-        3211,
-        -462
-      ],
-      "size": [
-        578.1295207910143,
-        357.8024127929686
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 34
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
       "id": 9,
       "type": "VAEDecode",
       "pos": [
@@ -610,7 +409,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -644,43 +443,6 @@
       "bgcolor": "#335"
     },
     {
-      "id": 29,
-      "type": "ImpactImageBatchToImageList",
-      "pos": [
-        1842,
-        34
-      ],
-      "size": {
-        "0": 210,
-        "1": 26
-      },
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 36,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            39
-          ],
-          "shape": 6,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImpactImageBatchToImageList"
-      }
-    },
-    {
       "id": 30,
       "type": "ImpactImageBatchToImageList",
       "pos": [
@@ -692,7 +454,7 @@
         "1": 26
       },
       "flags": {},
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -730,7 +492,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -765,7 +527,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -796,12 +558,12 @@
         1557,
         114
       ],
-      "size": [
-        283.3822898828123,
-        442.8003830468749
-      ],
+      "size": {
+        "0": 283.3822937011719,
+        "1": 442.8003845214844
+      },
       "flags": {},
-      "order": 11,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -823,12 +585,12 @@
         1550,
         670
       ],
-      "size": [
-        390,
-        320
-      ],
+      "size": {
+        "0": 390,
+        "1": 320
+      },
       "flags": {},
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -842,25 +604,247 @@
       },
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 32,
+      "type": "workflow/MAKE_BASIC_PIPE",
+      "pos": [
+        300,
+        660
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow/MAKE_BASIC_PIPE"
+      },
+      "widgets_values": [
+        "SD1.5/V07_v07.safetensors",
+        "photorealistic:1.4, best quality:1.4, 1girl is walking through street",
+        "low quality:1.4, worst quality:1.4"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 31,
+      "type": "workflow/MAKE_BASIC_PIPE",
+      "pos": [
+        300,
+        20
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            41
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow/MAKE_BASIC_PIPE"
+      },
+      "widgets_values": [
+        "SDXL/MOHAWK_v18VAEBaked.safetensors",
+        "photorealistic:1.4, best quality:1.4, young man and young woman is sitting side by side",
+        "low quality:1.4, worst quality:1.4"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 29,
+      "type": "ImpactImageBatchToImageList",
+      "pos": [
+        1880,
+        40
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 36,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            39
+          ],
+          "shape": 6,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactImageBatchToImageList"
+      }
+    },
+    {
+      "id": 28,
+      "type": "PreviewImage",
+      "pos": [
+        3211,
+        -462
+      ],
+      "size": {
+        "0": 578.1295166015625,
+        "1": 357.8023986816406
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 23,
+      "type": "FaceDetailerPipe",
+      "pos": [
+        2450,
+        30
+      ],
+      "size": [
+        456,
+        946
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 31
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            25
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "cropped_refined",
+          "type": "IMAGE",
+          "links": [
+            34
+          ],
+          "shape": 6,
+          "slot_index": 1
+        },
+        {
+          "name": "cropped_enhanced_alpha",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 6,
+          "slot_index": 2
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "cnet_images",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceDetailerPipe"
+      },
+      "widgets_values": [
+        360,
+        true,
+        768,
+        399833097308970,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        0.5,
+        5,
+        true,
+        false,
+        0.85,
+        10,
+        3,
+        "center-1",
+        0,
+        0.93,
+        0,
+        0.7,
+        "False",
+        10,
+        0.2,
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
     }
   ],
   "links": [
-    [
-      1,
-      1,
-      0,
-      3,
-      0,
-      "BASIC_PIPE"
-    ],
-    [
-      2,
-      2,
-      0,
-      4,
-      0,
-      "BASIC_PIPE"
-    ],
     [
       3,
       5,
@@ -1020,6 +1004,22 @@
       27,
       1,
       "IMAGE"
+    ],
+    [
+      41,
+      31,
+      0,
+      3,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      42,
+      32,
+      0,
+      4,
+      0,
+      "BASIC_PIPE"
     ]
   ],
   "groups": [],
