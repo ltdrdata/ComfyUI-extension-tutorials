@@ -1,5 +1,10 @@
 ## Batching with Detailer
 
+All Detailer nodes, except for `FaceDetailer` and `Detailer For AnimateDiff`, do not allow image batch inputs. Because `SEGS` is already representing multiple parts within a single image, turning images into batches can lead to confusion. Therefore, we recommend handling this explicitly through List conversion.
+* FaceDetailer internally handles SEGS only, so it has allowed batches since V4.50.
+
+This tutorial explains how to convert Batch to List and List to Batch.
+
 ### Rebatch Latents
 
 * Batch processing can only be applied to the latent space and cannot be applied to the pixel image targeted by the detailer.
