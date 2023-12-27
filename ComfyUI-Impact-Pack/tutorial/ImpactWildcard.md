@@ -41,14 +41,15 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
     * {n1-n2$$ or $$sel1|sel2|...} - Select between n1 and n2 items using ' or ' as a separator.
 
 ### Special Syntax for Detailer Wildcard
-* Start the prompt by placing `[ASC]`, `[DSC]`, `[RND]`, `[LAB]` at the very beginning.
+* Start the prompt by placing `[ASC]`, `[DSC]`, `[RND]`, `[LAB]`, `[CONCAT]` at the very beginning.
   - ASC: Ascending order
   - DSC: Descending order
   - RND: Random
   - LAB: label
-  - `[ASC]`, `[DSC]`, `[RND]` denotes the order of SEGS' bboxes. The left of the bbox takes precedence as the primary criterion, and the top is the secondary criterion.
+    - `[ASC]`, `[DSC]`, `[RND]` denotes the order of SEGS' bboxes. The left of the bbox takes precedence as the primary criterion, and the top is the secondary criterion.
+  - CONCAT: Instead of replacing the **positive conditioning** with the **wildcard_opt**, Concatenate the wildcard conditioning with the positive conditioning using the `Conditioning Concat`.
 
-  e.g.
+  **e.g.**
   ```
   [ASC]
   1girl, blue eyes, smile [SEP]
@@ -57,12 +58,17 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 
   - `[LAB]` is based on the application according to labels. Each label can appear only once, and `[ALL]` functions as a prefix.
 
-  e.g.
+  **e.g.**
   ```
   [LAB]
   [ALL] laugh, detailed eyes
   [Female] blue eyes
   [Male] brown eyes
+  ```
+
+  **e.g.**
+  ```
+  [CONCAT]detailed eyes, faint smile face
   ```
 
 ### Lora Block Weight support
