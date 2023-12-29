@@ -40,6 +40,11 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
     * {n$$ and $$sel1|sel2|...} - Select n items using ' and ' as a separator.
     * {n1-n2$$ or $$sel1|sel2|...} - Select between n1 and n2 items using ' or ' as a separator.
 
+
+### Special Syntax for ImpactWildcardEncode/Detailer Wildcard/Inspire Wildcard
+* `<lora:loraname:model_weight:clip_weight>`: In a wildcard prompt, you can directly specify LoRA to load. If you omit the `clip_weight`, it is treated the same as `model_weight`.
+* `BREAK`: Separately encode the prompts and connect them using `Conditioning (Concat)`.
+
 ### Special Syntax for Detailer Wildcard
 * Start the prompt by placing `[ASC]`, `[DSC]`, `[RND]`, `[LAB]`, `[CONCAT]` at the very beginning.
   - ASC: Ascending order

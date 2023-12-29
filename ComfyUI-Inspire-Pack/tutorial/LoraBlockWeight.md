@@ -48,3 +48,9 @@ This tutorial is provided as [Tutorial Video](https://www.youtube.com/watch?v=X9
 
 ![test](lora-block-weight-test.jpg)
 
+
+# Wildcard support
+* If the Inspire Pack is installed, the wildcard functionality in the Impact Pack provides the ability to set Lora Block Weight using the syntax `LBW=`.
+    * This functionality is not available in places where the output is a string, such as `ImpactWildcardProcessor`. It can only be used in `ImpactWildcardEncode`, `Detailer Wildcard`, and `Inspire Wildcard`.
+* For detailed information about LBW, please refer to this [link](https://github.com/ltdrdata/ComfyUI-extension-tutorials/blob/Main/ComfyUI-Impact-Pack/tutorial/ImpactWildcard.md).
+
