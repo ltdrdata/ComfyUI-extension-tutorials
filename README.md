@@ -12,7 +12,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 
 * Basic Tutorials
   * [Detectors](ComfyUI-Impact-Pack/tutorial/detectors.md)
-  * Detailer
+  * [Detailers](ComfyUI-Impact-Pack/tutorial/detailers.md)
 
 * Tutorials
   * [Basic auto face detection and refine example](ComfyUI-Impact-Pack/tutorial/advanced.md)
