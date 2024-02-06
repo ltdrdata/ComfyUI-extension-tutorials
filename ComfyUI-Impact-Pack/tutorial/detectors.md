@@ -69,4 +69,4 @@ The `Simple Detector` first performs primary detection using `BBOX_DETECTOR` and
   * `1st frame mask`: Identifies separate masks for each SEGS based on the mask of the first frame.
   * Each option has its advantages and disadvantages. For instance, when `1st frame mask` is selected, if the target object moves rapidly, the SEGS created based on the mask of the first frame might extend beyond its initial boundaries in later frames. Conversely, when using the `Combined mask`, if moving objects overlap, they may be recognized as a single object.
 
-![node](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/simple-detector-for-ad.jpg)
+  ![node](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/simple-detector-for-ad.jpg)

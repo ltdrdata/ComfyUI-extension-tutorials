@@ -41,6 +41,11 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
     * {n1-n2$$ or $$sel1|sel2|...} - Select between n1 and n2 items using ' or ' as a separator.
 
 
+### Limitation
+* When converting Seed to input, only `ImpactInt` and `Seed (rgthree)` are allowed as input.
+  * The wildcard feature of Impact/Inspire needs to be determined before the workflow is executed since it requires storing information populated in the workflow.
+  * It is not possible to receive the execution results of other nodes as input. Even if you use `ImpactInt` or `Seed (rgthree)`, the current prompt only reads the superficial input provided in the prompt and does not utilize the execution results of other nodes.
+
 ### Special Syntax for ImpactWildcardEncode/Detailer Wildcard/Inspire Wildcard
 * `<lora:loraname:model_weight:clip_weight>`: In a wildcard prompt, you can directly specify LoRA to load. If you omit the `clip_weight`, it is treated the same as `model_weight`.
 * `BREAK`: Separately encode the prompts and connect them using `Conditioning (Concat)`.
@@ -114,7 +119,7 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
         ...
   surface-swap:
       - swap the surfaces for
-      - replace the surfaces with        
+      - replace the surfaces with
       ...
   ```
 
