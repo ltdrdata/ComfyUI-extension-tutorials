@@ -60,6 +60,7 @@ Each widget is configured as follows:
     * Others: Manually set the recovery sampler.
 * `additional_sigma_ratio`: It is the ratio of denoise amount to be applied according to `additional_mode`.
 
+
 ## regional prompts
 
 The basic composition of regional prompts in the Impact Pack is as follows:
@@ -70,6 +71,7 @@ The basic composition of regional prompts in the Impact Pack is as follows:
 The Inspire Pack provides a node that integrates various stages of regional prompts creation, making it easy to set up regions.
 
 ![sample!-inspire][https://github.com/ltdrdata/ComfyUI-extension-tutorials/blob/Main/ComfyUI-Inspire-Pack/workflow/regional-sampling.png]
+
 
 ## img2img
 
@@ -88,4 +90,18 @@ denoise, steps, and scheduler determine what is called a noise schedule, sigma. 
 * More than 1.0: Increases denoise, resulting in higher denoise than the Regional Sampler
 
 ![sample3](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/workflow/regional-sampler-img2img-sigma_factor.png)
+
+
+## regional lora
+
+If you apply lora separately to the model of the basic_pipe that is applied to each Regional Prompt, you can use a separate lora for each region.
+
+![sample4](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/workflow/regional-loras.png)
+
+
+## regional prompt with ControlNet
+
+The ControlNet for the entire structure can be applied uniformly to all Regional Prompt.
+
+WIP...
 
