@@ -37,8 +37,12 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
   * {-n$$sel1|sel2|...} - Select between 1 and n items.
   * {n$$sel1|sel2|...} - Select n items.
   * custom seperator
-    * {n$$ and $$sel1|sel2|...} - Select n items using ' and ' as a separator.
-    * {n1-n2$$ or $$sel1|sel2|...} - Select between n1 and n2 items using ' or ' as a separator.
+    * `{n$$ and $$sel1|sel2|...}` - Select n items using ' and ' as a separator.
+    * `{n1-n2$$ or $$sel1|sel2|...}` - Select between n1 and n2 items using ' or ' as a separator.
+* Qunatifying wildcard: `$$count#wildcards` repeats wildcards many as count
+  * `{2$$, $$5#__wildcards__}` 
+    turns into
+    `{2$$, $$__wildcards__|__wildcards__|__wildcards__|__wildcards__|__wildcards__}`
 
 
 ### Limitation
