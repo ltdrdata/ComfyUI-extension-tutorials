@@ -43,6 +43,21 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
   * `{2$$, $$5#__wildcards__}` 
     turns into
     `{2$$, $$__wildcards__|__wildcards__|__wildcards__|__wildcards__|__wildcards__}`
+* comment-out: Lines starting with `#` are treated as comments and removed. The text following a comment is considered to be separated by a single blank space from the text before the comment.
+
+  input:
+    ```
+    first {a|b|c} second # not a comment,
+    # this is a comment
+    trailing text
+    newline text
+    ```
+  
+  populated:
+    ```
+    first a second # not a comment, trailing text
+    newline text
+    ```
 
 
 ### Limitation
