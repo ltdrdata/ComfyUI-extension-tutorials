@@ -12,7 +12,7 @@ Please install before running the workflow, otherwise it won't work.
 
 ## Workflow
 
-![prompt-per-tile](https://github.com/jkrauss82/ComfyUI-extension-tutorials/assets/3026023/28695cb0-85bc-4d22-8dfd-a235755ccdf2)
+![prompt-per-tile](prompt-per-tile.png)
 
 The idea is to automatically create a wildcard prompt for the SEGS detailer. The purpose is to have a single prompt per tile/SEG which guides the denoising process for each tile.
 
