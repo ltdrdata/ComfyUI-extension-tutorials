@@ -31,6 +31,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [ImpactWildcardProcessor/Encode](ComfyUI-Impact-Pack/tutorial/ImpactWildcard.md)
   * [Batching images with detailer example](ComfyUI-Impact-Pack/tutorial/batching-detailer.md)
   * [SEGS From MediaPipe FaceMesh](ComfyUI-Impact-Pack/tutorial/mediapipe.md)
+  * [Prompt per Tile Upscale](ComfyUI-Impact-Pack/tutorial/PromptPerTileUpscale.md)
 
 
 * Workflows
@@ -38,6 +39,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Auto Handfix](ComfyUI-Impact-Pack/workflow/dwpose-segs-handfix.png) [[Demo Video]](https://www.youtube.com/watch?v=DoyqCjKdojY)
   * [Crowd Control](ComfyUI-Impact-Pack/workflow/crowd-face.json) [[Demo Video](https://www.youtube.com/watch?v=9GSQlxZFrLI)]
   * [Gender Senstivie Detailer](ComfyUI-Impact-Pack/workflow/gender-senstivie-detailer.png) [[Demo Video](https://www.youtube.com/watch?v=Vs2r-MErJZw)]
+  * [Prompt per Tile Upscale](ComfyUI-Impact-Pack/workflow/prompt-per-tile.png)
 
 
 ## [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack)
