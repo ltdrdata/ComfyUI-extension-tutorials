@@ -10,28 +10,33 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 * You can download various [workflows](ComfyUI-Impact-Pack/workflow) for ComfyUI-Impact-Pack.
 * Various tutorial videos are available on the [youtube playlist](https://www.youtube.com/playlist?list=PL_Ej2RDzjQLGfEeizq4GISeY3FtVyFmGP).  
 
+
 * Basic Tutorials
   * [Detectors](ComfyUI-Impact-Pack/tutorial/detectors.md)
   * [Detailers (WIP)](ComfyUI-Impact-Pack/tutorial/detailers.md)
   * [Regional Sampler (WIP)](ComfyUI-Impact-Pack/tutorial/regional_sampler.md)
-
-* Tutorials
-  * [Basic auto face detection and refine example](ComfyUI-Impact-Pack/tutorial/advanced.md)
-  * [Combination with CLIPSeg](ComfyUI-Impact-Pack/tutorial/clipseg.md)
-  * [Mask Pointer: Using the position prompt of SAM to mask](ComfyUI-Impact-Pack/tutorial/maskpointer.md)
-  * [PreviewBridge: Nodes for supporting 'Clipspace' utilization](ComfyUI-Impact-Pack/tutorial/previewbridge.md)
-  * [SAMDetection Application](ComfyUI-Impact-Pack/tutorial/sam.md)
+  * [ImpactWildcardProcessor/Encode](ComfyUI-Impact-Pack/tutorial/ImpactWildcard.md)
+  * [PreviewBridge: Nodes for supporting 'Clipspace' utilization (WIP)](ComfyUI-Impact-Pack/tutorial/previewbridge.md)
   * [Interactive SAM + PreviewBridge](ComfyUI-Impact-Pack/tutorial/sam_with_preview_bridge.md)
+  * [SEGS From MediaPipe FaceMesh](ComfyUI-Impact-Pack/tutorial/mediapipe.md)
+
+
+* Advanced Tutorials
+  * [Prompt per Tile Upscale](ComfyUI-Impact-Pack/tutorial/PromptPerTileUpscale.md)
+  * [Combination with CLIPSeg](ComfyUI-Impact-Pack/tutorial/clipseg.md)
+  * [Extreme Highresolution Upscale](ComfyUI-Impact-Pack/tutorial/extreme-upscale.md)
+
+
+* Tutorials (LEGACY)
+  * [Basic auto face detection and refine example](ComfyUI-Impact-Pack/tutorial/advanced.md)
+  * [Mask Pointer: Using the position prompt of SAM to mask](ComfyUI-Impact-Pack/tutorial/maskpointer.md)
+  * [SAMDetection Application](ComfyUI-Impact-Pack/tutorial/sam.md)
   * [Image Sender, Image Receiver, Latent Sender Latent Receiver](ComfyUI-Impact-Pack/tutorial/sender_receiver.md)
   * [TwoSamplersForMask](ComfyUI-Impact-Pack/tutorial/TwoSamplers.md)
   * [Advanced Iterative Upscale (TwoSamplersUpscaleProvider, KSampleProvider, TiledKSampleProvider)](ComfyUI-Impact-Pack/tutorial/TwoSamplersUpscale.md)
   * [PK_HOOK (Pixel KSample Hook)](ComfyUI-Impact-Pack/tutorial/pk_hook.md)
   * [TwoAdvancedSamplersForMask](ComfyUI-Impact-Pack/tutorial/TwoAdvancedSamplers.md)
-  * [Extreme Highresolution Upscale](ComfyUI-Impact-Pack/tutorial/extreme-upscale.md)
-  * [ImpactWildcardProcessor/Encode](ComfyUI-Impact-Pack/tutorial/ImpactWildcard.md)
   * [Batching images with detailer example](ComfyUI-Impact-Pack/tutorial/batching-detailer.md)
-  * [SEGS From MediaPipe FaceMesh](ComfyUI-Impact-Pack/tutorial/mediapipe.md)
-  * [Prompt per Tile Upscale](ComfyUI-Impact-Pack/tutorial/PromptPerTileUpscale.md)
 
 
 * Workflows
