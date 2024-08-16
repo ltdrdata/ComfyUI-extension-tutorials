@@ -25,7 +25,7 @@ This node is used to select and execute different types of sub-workflows for a s
 ![static](select_on_prompt.png)
 
 * `select_on_execution`: Determines the selection by `select` dynamically during workflow execution.
-    * This works properly only in ComfyUI versions after Oct. 16, 2024 (v0.0.9). Earlier versions will generate errors due to execution structure limitations.
+    * This works properly only in ComfyUI versions after Aug. 16, 2024 (v0.0.9). Earlier versions will generate errors due to execution structure limitations.
     * In this mode, you can connect any integer output node to the `select` input.
     * Note: Normal operation is not guaranteed if the sub-workflow goes beyond the control range of the switch.
         * In the workflow below, issues arise if the outputs of Canny and OpenPose Pose nodes are connected to Preview Image.
