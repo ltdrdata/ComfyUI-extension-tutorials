@@ -19,6 +19,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [PreviewBridge: Nodes for supporting 'Clipspace' utilization (WIP)](ComfyUI-Impact-Pack/tutorial/previewbridge.md)
   * [Interactive SAM + PreviewBridge](ComfyUI-Impact-Pack/tutorial/sam_with_preview_bridge.md)
   * [SEGS From MediaPipe FaceMesh](ComfyUI-Impact-Pack/tutorial/mediapipe.md)
+  * [Switch/Inversed Switch](ComfyUI-Impact-Pack/tutorial/switch.md)
 
 
 * Advanced Tutorials
