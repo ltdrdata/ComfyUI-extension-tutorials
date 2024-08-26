@@ -70,13 +70,18 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * `BREAK`: Separately encode the prompts and connect them using `Conditioning (Concat)`.
 
 ### Special Syntax for Detailer Wildcard
-* Start the prompt by placing `[ASC]`, `[DSC]`, `[RND]`, `[LAB]`, `[CONCAT]` at the very beginning.
-  - ASC: Ascending order
-  - DSC: Descending order
+* Start the prompt by placing `[ASC]`, `[DSC]`, `[ASC-SIZE]`, `[DSC-SIZE]`, `[RND]`, `[LAB]`, `[CONCAT]` at the very beginning.
+  - ASC: Ascending order (x, y)
+  - DSC: Descending order (x, y)
+  - ASC-SIZE: Ascending order (area size)
+  - DSC-SIZE: Descending order (area size)
   - RND: Random
   - LAB: label
-    - `[ASC]`, `[DSC]`, `[RND]` denotes the order of SEGS' bboxes. The left of the bbox takes precedence as the primary criterion, and the top is the secondary criterion.
+    - `[ASC]`, `[DSC]`, `[ASC-SIZE]`, `[DSC-SIZE]`, `[RND]` denotes the order of SEGS' bboxes. The left of the bbox takes precedence as the primary criterion, and the top is the secondary criterion.
   - CONCAT: Instead of replacing the **positive conditioning** with the **wildcard_opt**, Concatenate the wildcard conditioning with the positive conditioning using the `Conditioning Concat`.
+* `[SEP]` is used to separate prompts for each detection area (SEG).
+* When `[SKIP]` is used in the prompt, the Detailing for that SEG is skipped.
+* When `[STOP]` is used in the prompt, the Detailing is stopped, including the SEG where it appears.
 
   **e.g.**
   ```
@@ -85,7 +90,22 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
   1boy, brown eyes [SEP]
   ```
 
-  - `[LAB]` is based on the application according to labels. Each label can appear only once, and `[ALL]` functions as a prefix.
+  - Detection regions are sorted in ascending order based on x, y coordinates, and Detailing is performed sequentially from left to right using the prompts `1girl, blue eyes, smile` and `1boy, brown eyes`.
+
+  **e.g.**
+  ```
+  [DSC-SIZE]
+  sun glasses[SEP]
+  [SKIP][SEP]
+  blue glasses[SEP]
+  [STOP]
+  ```
+
+  - Multiple faces are sorted in descending order based on the area of their detection regions. The second largest face is skipped. The largest face and the third largest face are Detailed using the prompts `sun glasses` and `blue glasses` respectively. The remaining faces are not Detailed.
+
+ ![multiface](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/multiface-control.png)
+
+ * `[LAB]` is based on the application according to labels. Each label can appear only once, and `[ALL]` functions as a prefix.
 
   **e.g.**
   ```
@@ -99,6 +119,7 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
   ```
   [CONCAT]detailed eyes, faint smile face
   ```
+  
 
 ### Lora Block Weight support
 * If the [Inspire Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack) is installed, you can use Lora Block Weight in the form of `LBW=lbw spec;`. If the `Inspire Pack` is not installed, this spec will be ignored.
