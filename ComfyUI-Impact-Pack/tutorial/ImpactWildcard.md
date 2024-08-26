@@ -103,7 +103,7 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 
   - Multiple faces are sorted in descending order based on the area of their detection regions. The second largest face is skipped. The largest face and the third largest face are Detailed using the prompts `sun glasses` and `blue glasses` respectively. The remaining faces are not Detailed.
 
- ![multiface](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/multiface-control.png)
+ ![multiface](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/workflow/multiface-control.png)
 
  * `[LAB]` is based on the application according to labels. Each label can appear only once, and `[ALL]` functions as a prefix.
 
