@@ -56,7 +56,7 @@ This tutorial is provided as [Tutorial Video](https://www.youtube.com/watch?v=X9
     * Items with numbers outside the range are ignored.
     * Example: 
         ```
-        $default=0, base=0.5, in=0.3, in1-3=1.0
+        %default=0, base=0.5, in=0.3, in1-3=1.0
         ```
         This sets the base block weight to 0.5, the first to third input blocks to 1.0, the rest of the input blocks to 0.3, and all other blocks to 0.
 
