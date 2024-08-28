@@ -39,6 +39,30 @@ This tutorial is provided as [Tutorial Video](https://www.youtube.com/watch?v=X9
     - The setting value for the 7th block, which was previously `1.0`, has now been changed to `0 0 0 0 0 0 A 0 0 0 0 0`.
     - Sub-block settings are listed with spaces to separate them at their respective block positions.
 
+
+# Named weight syntax
+
+* Named weight syntax must start with `%`, and each named weight item is separated by `,`.
+* Supported name items are `default, base, in, mid, out, double, single`.
+* `default` and `base` items are always processed first, regardless of their order.
+    * `default` and `base` items support the following syntax:
+    * `default=<value>`: Sets the default value for all weights not explicitly set. If omitted, it's implicitly considered as 1.0.
+    * `base=<value>`: Sets the weight for the base block.
+* `in, mid, out, double, single` items can be set multiple times, with the last one overriding previous settings.
+    * For `in, mid, out, double, single`, the following syntax is supported:
+    * `<name>=<value>`: Sets the weight for the entire named block.
+    * `<name><number>=<value>`: Sets the weight for the nth item of the named block. (Note: This is the order, not the block number.)
+    * `<name><start number>-<end number>=<value`>: Sets the weight for blocks between start number and end number in the named block.
+    * Items with numbers outside the range are ignored.
+    * Example: 
+        ```
+        $default=0, base=0.5, in=0.3, in1-3=1.0
+        ```
+        This sets the base block weight to 0.5, the first to third input blocks to 1.0, the rest of the input blocks to 0.3, and all other blocks to 0.
+
+![test](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Inspire-Pack/workflow/named-lbw.png)
+
+
 # Test Preset
 
 * The test preset begins with an '@' symbol and is structured as `@name:block length`.
