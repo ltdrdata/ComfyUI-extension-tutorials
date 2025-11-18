@@ -138,9 +138,57 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 * If you use wildcards with files, you can save frequently used prompts in a file and load them for usage. For example, if you have a line composed of `photorealistic:1.4, best quality:1.4` and save it as `ppos.txt` in the custom_wildcards directory, you can create prompts in a concise form like `__ppos__`, beautiful nature.
 
 ## SETUP
+
+### Wildcard Directories
 * Under the ComfyUI-Impact-Pack/ directory, there are two paths: custom_wildcards and wildcards. Both paths are created to hold wildcards files, but it is recommended to avoid adding content to the wildcards file in order to prevent potential conflicts during future updates.
 
 ![folder](wildcard-folder.png)
+
+### Progressive On-Demand Loading
+* The wildcard system now features **intelligent automatic loading** based on your wildcard collection size:
+  - **Full Cache Mode**: If total wildcard size < 50MB → All wildcards are loaded into memory at startup for instant access
+  - **On-Demand Mode**: If total wildcard size ≥ 50MB → Only metadata is scanned at startup, actual wildcard data is loaded progressively as you use them
+
+* **Benefits of On-Demand Mode** (for large wildcard collections):
+  - **Fast Startup**: < 1 minute even with 10GB+ of wildcards (vs 20-60 minutes in older versions)
+  - **Low Memory**: < 100MB initial memory usage, grows only as you use wildcards
+  - **Scalable**: Supports tens of gigabytes of wildcard data efficiently
+
+* **Configuration** (in `impact-pack.ini`):
+  ```ini
+  [default]
+  wildcard_cache_limit_mb = 50  # Adjust based on your needs
+  ```
+  - Lower limit → More likely to use on-demand mode
+  - Higher limit → More likely to use full cache mode
+
+* **How to Check Current Mode**:
+
+  **Method 1 - UI Indicator**: Check the wildcard selector dropdown in ComfyUI interface:
+  - 🟢 **Full Cache**: `Select Wildcard 🟢 Full Cache` - All wildcards loaded
+  - 🔵 **On-Demand**: `Select Wildcard 🔵 On-Demand: X loaded` - Shows how many wildcards are currently loaded
+
+  **Method 2 - Startup Logs**: Check ComfyUI console output:
+  ```
+  [Impact Pack] Wildcard total size (45.32 MB) is within cache limit (50.00 MB).
+  Using full cache mode.
+  ```
+  or
+  ```
+  [Impact Pack] Wildcard total size (125.67 MB) exceeds cache limit (50.00 MB).
+  Using on-demand loading mode (metadata scan only).
+  ```
+
+* **YAML vs TXT Files**:
+  - **TXT files**: Fully support on-demand loading (loaded only when used)
+  - **YAML files**: Always pre-loaded at startup (because wildcard keys are embedded in file content)
+  - For large wildcard collections with true on-demand loading, prefer TXT file structure over YAML
+
+* **Wildcard Refresh Behavior**:
+  - Using the wildcard refresh function clears **all cached data** (both full cache and on-demand loaded wildcards)
+  - After refresh, the system re-scans wildcard directories and re-determines the loading mode
+  - In on-demand mode: Previously loaded wildcards are cleared and will be loaded again when accessed
+  - This is useful when you add/modify wildcard files and want to reload them without restarting ComfyUI
 
 * The wildcard supports subfolder feature.
   * For example, if there is a wildcard file named `custom_wildcards/obj/person.txt`, it should be used as `__obj/person__` instead of `__person__`.
@@ -162,11 +210,36 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
       - replace the surfaces with
       ...
   ```
+  * **Important Note**: YAML files are always pre-loaded at startup even in on-demand mode, because the wildcard keys exist inside the file content rather than in the file path. For truly on-demand loading with large collections, consider converting YAML wildcards to TXT file structure:
+    ```
+    # YAML structure (pre-loaded)
+    colors.yaml:
+      warm: [red, orange, yellow]
+      cold: [blue, green, purple]
+
+    # Convert to TXT structure (on-demand)
+    colors/warm.txt:
+      red
+      orange
+      yellow
+
+    colors/cold.txt:
+      blue
+      green
+      purple
+    ```
 
 * Within the wildcard, the items to be randomly selected should be placed one per line.
 * If items are entered on a single line separated by commas, the entire line will be considered as one item.
 * Below is the content of the file flower.txt. If written as follows, using `__flower__` in the prompt text will randomly select one from `rose, orchid, iris, carnation, lily, daisy, chrysanthemum, daffodil, and dahlia`.
 
 ![content](wildcard-content.png)
+
+### Performance Tips for Large Wildcard Collections
+
+* Use SSD for faster file I/O when using large wildcard collections
+* Organize wildcards into subdirectories for better file system performance
+* Consider splitting very large single files into multiple smaller files
+* Adjust `wildcard_cache_limit_mb` based on available system memory
 
 
