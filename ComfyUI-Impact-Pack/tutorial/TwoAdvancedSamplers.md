@@ -9,4 +9,6 @@
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-original.png" width=500px/>
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoAdvancedSamplers-result.png" width=500px/>
 
+* Since V9.1.1, samplers that draw their own noise, such as `euler_ancestral` or `lcm`, can be used in both sampler providers. Up to V9.1 the result with such a sampler was noise. See [Regional Sampler](regional_sampler.md#samplers-that-draw-their-own-noise).
+
 * If you watch this [video](https://www.youtube.com/watch?v=S1ksTNs5VX0), you can see the difference in the operation methods between TwoSamplersForMask and TwoAdvancedSamplersForMask.

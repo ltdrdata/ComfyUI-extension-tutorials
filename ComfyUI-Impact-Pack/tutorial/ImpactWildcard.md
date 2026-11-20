@@ -115,6 +115,9 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
   [Male] brown eyes
   ```
 
+  - A SEG with the label `Female` is detailed with `laugh, detailed eyes blue eyes`. A SEG whose label is not listed gets the prefix alone.
+  - The prefix and the prompt of the label are joined with one space (V9.1.1 or later; before, they were joined with nothing between them). No comma is added: to have one, end the `[ALL]` line with a comma.
+
   **e.g.**
   ```
   [CONCAT]detailed eyes, faint smile face
@@ -161,6 +164,7 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
   ```
   - Lower limit → More likely to use on-demand mode
   - Higher limit → More likely to use full cache mode
+  - `impact-pack.ini` is in the Impact Pack directory. The pack creates it with the default values at the first start (V9.0.1 or later).
 
 * **How to Check Current Mode**:
 

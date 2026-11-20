@@ -43,6 +43,33 @@ The `SAMDetector` node loads the `SAM` model through the `SAMLoader` node for us
 * The following workflow demonstrates the use of the `BBOX Detector` to generate `SEGS`, and then using the `SAMDetector` for creating more precise segments.
 ![workflow2](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/detectors-sam.png)
 
+### SAM, SAM2 and SAM3 models
+
+`SAMLoader (Impact)` selects the kind of model by the file name, and the nodes that take a `SAM_MODEL` work with each of them.
+
+| Model | Files | What it needs |
+| --- | --- | --- |
+| SAM | `.pth`, `.pt` or `.safetensors` files in `models/sams`. A name with `vit_h` or `vit_l` selects that model, any other name is ViT-B. | Nothing more. The `.safetensors` form, such as the files of [kornia/sam](https://huggingface.co/kornia/sam), loads since V9.0.2. |
+| SAM2 | `sam2_hiera_*.pt` and `sam2.1_hiera_*.pt` in `models/sams`, under their original names. | The `sam2` package. Since V9.1 it is not installed with `requirements.txt`: run `pip install -r requirements-sam2.txt` in the Impact Pack directory with the Python of ComfyUI. |
+| SAM3 | A file whose name starts with `sam3`, in `models/sams` or `models/checkpoints`, such as [`sam3.1_multiplex_fp16.safetensors`](https://huggingface.co/Comfy-Org/sam3.1/resolve/main/checkpoints/sam3.1_multiplex_fp16.safetensors). | Impact Pack V9.1 or later and ComfyUI v0.21.0 or later. No extra package: it runs on ComfyUI's own SAM3. |
+
+* A SAM3 model works in `SAMDetector (combined)`, `SAMDetector (segmented)`, the `Simple Detector` nodes and the `sam_model_opt` of the detailers. Since V9.1 a SAM2 model works in `SAMDetector (segmented)` too.
+* SAM3 returns one mask for a prompt, without a score. The `threshold` of a SAM detector does not apply to it.
+* The SAM editor (`Open in SAM Detector`) takes SAM models only.
+
+`device_mode` says where a SAM or SAM2 model is kept between detections.
+* `AUTO`: the model moves to the GPU for a detection and back to the CPU afterwards.
+* `Prefer GPU`: the model moves to the GPU once and stays there. When the VRAM is short it stays on the CPU, with a line in the log.
+* `CPU`: the model runs on the CPU.
+* Since V9.1.1 the three modes work for a SAM2 model as well. Before, `Prefer GPU` failed in `SAMLoader (Impact)` and `CPU` ran on the GPU.
+* `device_mode` does not apply to a SAM3 model. ComfyUI's model management places it.
+
+The workflow below gives the two faces that the `BBOX Detector` finds to a SAM3 model. `SAMDetector (combined)` returns one mask with both faces, and the `batch_masks` of `SAMDetector (segmented)` holds a mask for each face. To use another model, select it in `SAMLoader (Impact)`. The rest of the workflow stays as it is.
+
+[![SAM3 in the SAM detectors](../workflow/sam3-detectors.png)](../workflow/sam3-detectors.png)
+
+* The example image is [sam-two-people.png](../images/sam-two-people.png).
+
 
 ## Simple Detector
 
@@ -70,3 +97,35 @@ The `Simple Detector` first performs primary detection using `BBOX_DETECTOR` and
   * Each option has its advantages and disadvantages. For instance, when `1st frame mask` is selected, if the target object moves rapidly, the SEGS created based on the mask of the first frame might extend beyond its initial boundaries in later frames. Conversely, when using the `Combined mask`, if moving objects overlap, they may be recognized as a single object.
 
   ![node](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/simple-detector-for-ad.jpg)
+
+
+## SAM2 Video Detector / SAM3 Video Detector
+
+`SAM2 Video Detector (SEGS)` and `SAM3 Video Detector (SEGS)` track objects through the frames of a video.
+
+* The `bbox_detector` finds the objects in the first frame. The SAM model then follows each of them through all frames.
+  * When the first frame has no object, the last frame is tried, and the objects are followed backwards.
+* The result is a `SEGS` with one SEG for each object. The mask of a SEG is a batch that holds the mask of that object in every frame.
+* `SAM2 Video Detector (SEGS)` needs a SAM2 model, and `SAM3 Video Detector (SEGS)` (V9.1 or later) needs a SAM3 model. Each node reports the other kind of model as an error.
+* `sam2_threshold` of the SAM2 node is the value from which a pixel belongs to the mask. The SAM3 node has no such input: SAM3 returns masks.
+
+In the workflow below, the `BBOX Detector` model finds two faces in the first of 25 frames. `SEGS to Mask Batch` shows the result: 50 masks, the 25 frames of the first face and then the 25 frames of the second.
+
+[![SAM3 Video Detector (SEGS)](../workflow/sam3-video-detector.png)](../workflow/sam3-video-detector.png)
+
+* The example video is [sam-video-example.mp4](../images/sam-video-example.mp4). `Load Video` and `Get Video Components` are nodes of ComfyUI. A batch of frames from any other node works the same way.
+
+
+## MASK to SEGS
+
+`MASK to SEGS` makes `SEGS` from a mask, so that a mask from any source can be given to the Detailer.
+
+* `combined` off: every separate area of the mask becomes a SEG of its own.
+* `combined` on: the whole mask becomes one SEG. Its bbox is the box around all areas.
+* `bbox_fill`: the mask of each SEG is replaced by its bbox. With `combined` on, that is the box around all areas.
+* `crop_factor`: the size of the crop region around the bbox, as in the detectors.
+* `MASK to SEGS for Video` does the same for a batch of masks.
+
+[![MASK to SEGS with combined and bbox_fill](../workflow/mask-to-segs-combined.png)](../workflow/mask-to-segs-combined.png)
+
+* Since V9.1.1 the bbox of a `combined` SEG ends where the mask ends. Before, it was one pixel short on the right and at the bottom, and `bbox_fill` with `combined` on did not fill the box of the mask. A workflow that uses `combined` gets results that differ by these pixels.

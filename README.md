@@ -11,6 +11,9 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 * Various tutorial videos are available on the [youtube playlist](https://www.youtube.com/playlist?list=PL_Ej2RDzjQLGfEeizq4GISeY3FtVyFmGP).  
 
 
+* [Changes from V8.31 to V9.1.1](ComfyUI-Impact-Pack/tutorial/changes.md)
+
+
 * Basic Tutorials
   * [Detectors](ComfyUI-Impact-Pack/tutorial/detectors.md)
   * [Detailers (WIP)](ComfyUI-Impact-Pack/tutorial/detailers.md)
@@ -20,9 +23,14 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Interactive SAM + PreviewBridge](ComfyUI-Impact-Pack/tutorial/sam_with_preview_bridge.md)
   * [SEGS From MediaPipe FaceMesh](ComfyUI-Impact-Pack/tutorial/mediapipe.md)
   * [Switch/Inversed Switch](ComfyUI-Impact-Pack/tutorial/switch.md)
+  * [Decompose (SEGS list) / Assemble (SEGS list)](ComfyUI-Impact-Pack/tutorial/segs_list.md)
+  * [Conditional Stop Iteration](ComfyUI-Impact-Pack/tutorial/stop_iteration.md)
+  * [Language of the nodes](ComfyUI-Impact-Pack/tutorial/locale.md)
 
 
 * Advanced Tutorials
+  * [Detailer Hooks](ComfyUI-Impact-Pack/tutorial/detailer_hooks.md)
+  * [Detailer Advanced Options: cycle selection and VAE](ComfyUI-Impact-Pack/tutorial/detailer_advanced_options.md)
   * [Prompt per Tile Upscale](ComfyUI-Impact-Pack/tutorial/PromptPerTileUpscale.md)
   * [Combination with CLIPSeg](ComfyUI-Impact-Pack/tutorial/clipseg.md)
   * [Extreme Highresolution Upscale](ComfyUI-Impact-Pack/tutorial/extreme-upscale.md)
