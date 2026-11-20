@@ -35,6 +35,48 @@ The workflow below is an example that utilizes `BBOX_DETECTOR` and `SEGM_DETECTO
 ![workflow](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/detectors.png)
 
 
+## BBOX Detector (SEGS) and SEGM Detector (SEGS)
+
+`BBOX Detector (SEGS)` (`BboxDetectorSEGS`) takes a `BBOX_DETECTOR`, and `SEGM Detector (SEGS)` (`SegmDetectorSEGS`) takes a `SEGM_DETECTOR`. Both return the detections in an image as `SEGS`, and both have the same inputs.
+
+* `threshold`: a detection that the model scores lower than this is left out. Lower it when an object is missed, raise it when other things are found as well.
+* `dilation`: grows the mask of each detection, with a square kernel of this size in pixels. With a BBOX detector the mask is a box, and it stays a box, only larger.
+* `crop_factor`: the crop region is this many times as wide and as high as the bbox, and at most the size of the image.
+* `drop_size`: a detection is kept only when its bbox is wider and higher than this many pixels. Raise it to leave out small faces in the background.
+* `labels`: the labels to keep, separated by commas, such as `person, handbag`. `all` (the default) keeps every detection.
+  * The label of a detection comes from the model. `Decompose (SEGS)` and `From SEG_ELT` show the label of each SEG, as the workflow [detector-labels.png](../workflow/detector-labels.png) does.
+* `detailer_hook` (optional): a hook that filters the detections, such as the SEGS filter hooks of [Detailer hooks](detailer_hooks.md#choose-which-detections-to-refine).
+* The nodes take one image. A batch of several images stops with an error. Turn the batch into a list as [Batching with Detailer](batching-detailer.md) shows: the node then runs once for each image.
+
+
+## BBOX Detector (combined) and SEGM Detector (combined)
+
+`BBOX Detector (combined)` (`BboxDetectorCombined_v2`) and `SEGM Detector (combined)` (`SegmDetectorCombined_v2`) return a `MASK` in place of `SEGS`. It is one mask in the size of the image that holds every detection.
+
+* Take them where a plain mask is wanted, such as for inpainting or a mask operation.
+* `threshold` and `dilation` work as above. `dilation` is 4 by default for the BBOX node and 0 for the SEGM node.
+* There is no `crop_factor`, `drop_size` or `labels`. The mask holds every detection above `threshold`, whatever its label.
+* When nothing is found, the mask is empty.
+
+[![The BBOX and SEGM detectors, as SEGS and as a mask](../workflow/detectors-segs-and-mask.png)](../workflow/detectors-segs-and-mask.png)
+
+* `UltralyticsDetectorProvider` loads a face model and a person model. The SEGM nodes take the `SEGM_DETECTOR` output of the person model.
+* `BBOX Detector (SEGS)` returns a SEG for each face. `SEGSPreview` shows the crop region of each SEG, and its box as the mask.
+* `SEGM Detector (SEGS)` returns a SEG for each person, with the silhouette as the mask. Its `crop_factor` is 1.5, since a person already fills much of the picture.
+* The two combined detectors return one mask with all faces and one mask with all people.
+* The example image is [sam-two-people.png](../images/sam-two-people.png).
+
+
+## ONNX Detector (SEGS/legacy)
+
+`ONNX Detector (SEGS/legacy) - use BBOXDetector` (`ONNXDetectorSEGS`) is `BBOX Detector (SEGS)` under an old name. It has the same inputs and gives the same result, and it stays so that old workflows still load. Take `BBOX Detector (SEGS)` in a new workflow.
+
+* `ONNXDetectorProvider` loads an `.onnx` model from `models/onnx` and returns a `BBOX_DETECTOR`. Give it to `BBOX Detector (SEGS)` like any other `BBOX_DETECTOR`.
+* The ONNX detector was written for the NudeNet model `detector_v2_base_checkpoint.onnx`. [ONNX.md](ONNX.md) says where to get it and has a workflow.
+* With another ONNX model the detection can fail. The log then shows `ONNXDetector: unable to execute.`, and the detector node stops with an error.
+* The labels of its SEGS are the class numbers of the model, such as `0` or `2`. Write these numbers in `labels`.
+
+
 ## SAM Detector
 
 The `SAMDetector` node loads the `SAM` model through the `SAMLoader` node for use. 
@@ -81,16 +123,32 @@ The `Simple Detector` first performs primary detection using `BBOX_DETECTOR` and
 
 ![workflow3](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/detectors-simple.png)
 
+### Inputs of the Simple Detector
+
+* `bbox_threshold`, `bbox_dilation`, `crop_factor` and `drop_size` are the `threshold`, `dilation`, `crop_factor` and `drop_size` of the BBOX detection, as in `BBOX Detector (SEGS)`.
+* `sub_threshold` and `sub_dilation` are the `threshold` and `dilation` of the second step, SAM or the SEGM detection.
+* `sub_bbox_expansion` widens the box that SAM gets by this many pixels on every side. It applies to SAM only.
+* The mask of each SEG is the part of the SAM or SEGM mask that lies inside the mask of its BBOX detection. Raise `bbox_dilation` when the silhouette reaches out of the box.
+* `post_dilation` grows the final mask of each SEG. A negative value shrinks it.
+* There is no `labels` input. Filter the result with `SEGS Filter (label)`.
+* `Simple Detector (SEGS)` takes one image, as `BBOX Detector (SEGS)` does.
+
+### Simple Detector (SEGS/pipe)
+
+`Simple Detector (SEGS/pipe)` (`ImpactSimpleDetectorSEGSPipe`) takes `bbox_detector`, `segm_detector_opt`, `sam_model_opt` and `detailer_hook` from a `DETAILER_PIPE`, such as the one of `ToDetailerPipe` or the `detailer_pipe` output of `FaceDetailer`. The other inputs and the rules are those of `Simple Detector (SEGS)`, and the `detailer_hook` of the pipe applies to the detection as in `BBOX Detector (SEGS)`.
+
 
 ## Simple Detector For AnimateDiff
 
 `Simple Detector For AnimateDiff` is a detector designed for video processing, such as AnimateDiff, based on the Simple Detector.
 
+* In the node menu it is `Simple Detector for Video (SEGS)` (`ImpactSimpleDetectorSEGS_for_AD`). It takes the frames as a batch in `image_frames`, runs the detection of the Simple Detector on each frame, and returns one `SEGS` for all frames. It has no `post_dilation`.
 * The basic configuration is similar to the Simple Detector, but additional features such as `masking_mode` and `segs_pivot` are provided.
 * `masking_mode` configures how masks are composed:
   * `Pivot SEGS`: Utilizes only one mask from the segs specified by `segs_pivot`. When used in conjunction with the Combined mask, it employs a unified mask that encompasses all frames.
   * `Combine neighboring frames`: Constructs each frame's mask by combining three masks, including the current frame and its adjacent frames. This method occasionally compensates for detection failures in specific frames.
   * `Don't combine`: Uses the original mask for each frame without combining them.
+  * With `Combine neighboring frames` and `Don't combine`, the mask of each SEG is a batch with a mask for every frame.
 * `segs_pivot` sets the mask image that serves as the basis for identifying SEGS.
   * `Combined mask`: Combines the masks of all frames into one frame before identifying separate masks for each SEGS.
   * `1st frame mask`: Identifies separate masks for each SEGS based on the mask of the first frame.
@@ -129,3 +187,38 @@ In the workflow below, the `BBOX Detector` model finds two faces in the first of
 [![MASK to SEGS with combined and bbox_fill](../workflow/mask-to-segs-combined.png)](../workflow/mask-to-segs-combined.png)
 
 * Since V9.1.1 the bbox of a `combined` SEG ends where the mask ends. Before, it was one pixel short on the right and at the bottom, and `bbox_fill` with `combined` on did not fill the box of the mask. A workflow that uses `combined` gets results that differ by these pixels.
+
+
+## Classifying SEGS
+
+`SEGS Classify` (`ImpactSEGSClassify`) splits a `SEGS` in two by what an image classifier sees in each SEG, such as female and male faces. The classifier is a model from Hugging Face that `HF Transformers Classifier Provider` (`ImpactHFTransformersClassifierProvider`) loads.
+
+### HF Transformers Classifier Provider
+
+* `preset_repo_id`: the Hugging Face repository of an image classification model, such as `rizvandwiki/gender-classification-2`, a model for gender classification. `Manual repo id` takes the repository written in `manual_repo_id`.
+* The node downloads the model from Hugging Face the first time it runs, and reads it from the Hugging Face cache after that. The environment variable `HF_HOME` sets where the cache is.
+* `device_mode`: `CPU` runs the model on the CPU. `AUTO` and `Prefer GPU` do the same: the model runs on the device of ComfyUI, normally the GPU.
+
+### SEGS Classify
+
+* The classifier looks at the crop region of each SEG, not only at its bbox. The `crop_factor` of the detector decides how much of the surroundings it sees.
+* `preset_expr` holds the condition. `Manual expr` takes the condition written in `manual_expr`.
+* A condition is one comparison of a label with a number or with another label, such as `female > 0.5` or `#Female > #Male`. The operators are `>`, `<`, `>=`, `<=` and `=`.
+  * A label stands for the score the model gives the SEG for that label. The labels are those of the model: see the `config.json` of its repository, or the `detected_labels` output.
+  * `#Female` stands for whichever of `female`, `Female`, `Human Female`, `woman`, `women` and `girl` the model returns, and `#Male` for `male`, `Male`, `Human Male`, `man`, `men` and `boy`. One condition then works with models that name their labels differently.
+  * Text after the comparison is ignored, so `and` and `or` do not work. Write a number as `0.5`, not `.5`.
+  * A label with a space in its name cannot be written in a condition. `#Female` and `#Male` cover `Human Female` and `Human Male`.
+* `filtered_SEGS` holds the SEGs for which the condition holds, and `remained_SEGS` all others.
+  * A SEG also goes to `remained_SEGS` when a label of the condition is not among the labels the model returned for it.
+  * A condition that is not a comparison sends every SEG to `remained_SEGS`, without an error.
+* `ref_image_opt`: the image the SEGS were detected in. SEGS from `ONNXDetectorProvider` or `MASK to SEGS` carry no picture of their own, and the classifier then reads their crop region from this image. Without it, such SEGs go to `remained_SEGS`.
+* `detected_labels`: the labels the model returned for the SEGs, as a list in no fixed order. `rizvandwiki/gender-classification-2` returns `female` and `male`.
+
+[![SEGS Classify with a gender classifier](../workflow/segs-classify.png)](../workflow/segs-classify.png)
+
+* `BBOX Detector (SEGS)` finds the faces. `HF Transformers Classifier Provider` loads `rizvandwiki/gender-classification-2`, which is downloaded on the first run.
+* `SEGS Classify` with `#Female > #Male` gives the faces that the model finds more female than male to `filtered_SEGS`, and the other faces to `remained_SEGS`. A `SEGSPreview` shows each part.
+* `String List to String` joins the `detected_labels` into one text, and `Preview as Text` shows it.
+* The example image is [sam-two-people.png](../images/sam-two-people.png).
+
+The workflow [gender-senstivie-detailer.png](../workflow/gender-senstivie-detailer.png) refines the faces of a man and a woman with a prompt for each. `Simple Detector (SEGS)` finds the faces, `SEGS Classify` splits them with `#Female > 0.3`, and two Detailers take `remained_SEGS` and `filtered_SEGS`. Its classifier `NTQAI/pedestrian_gender_recognition` is downloaded on the first run as well.

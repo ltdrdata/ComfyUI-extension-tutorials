@@ -40,9 +40,9 @@ Each widget is configured as follows:
         * **fixed**: Use `seed_2nd` as it is as an additional noise seed.
         * **seed+seed_2nd**: Apply the value of `seed+seed_2nd` as an additional noise seed
         * **seed-seed_2nd**: Apply the value of `seed-seed_2nd` as an additional noise seed
-        * **increment**: Not implemented yet. Same with **fixed**.
-        * **decrement**: Not implemented yet. Same with **fixed**.
-        * **randomize**: Not implemented yet. Same with **fixed**.
+        * **increment**: Use `seed_2nd` as it is, and add 1 to the `seed_2nd` widget for the next run.
+        * **decrement**: Use `seed_2nd` as it is, and subtract 1 from the `seed_2nd` widget for the next run.
+        * **randomize**: Use `seed_2nd` as it is, and put a random value into the `seed_2nd` widget for the next run.
 * `steps`: Total sampling steps
 * `base_only_steps`: Number of steps to be applied in the base only sampling stage. It is used to set a stable initial composition without regional sampling.
 * `denoise`: Denoise amount
@@ -81,10 +81,12 @@ The basic composition of regional prompts in the Impact Pack is as follows:
 
 ![sample1](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/workflow/regionalsampling.png)
 
+* The four `Load Image` nodes of this workflow load the masks [rp-mask1.png](../images/rp-mask1.png), [rp-mask2.png](../images/rp-mask2.png), [rp-mask3.png](../images/rp-mask3.png) and [rp-mask4.png](../images/rp-mask4.png). The mask of a region is the area that was painted in the mask editor, which the file keeps as transparency. Put the files into `ComfyUI/input`, or paint your own masks.
+
 
 The Inspire Pack provides a node that integrates various stages of regional prompts creation, making it easy to set up regions.
 
-![sample!-inspire][https://github.com/ltdrdata/ComfyUI-extension-tutorials/blob/Main/ComfyUI-Inspire-Pack/workflow/regional-sampling.png]
+![sample1-inspire](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Inspire-Pack/workflow/regional-sampling.png)
 
 
 ## img2img
@@ -112,10 +114,19 @@ If you apply lora separately to the model of the basic_pipe that is applied to e
 
 ![sample4](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/workflow/regional-loras.png)
 
+* This workflow loads the mask [rp-mask5.png](../images/rp-mask5.png).
+
 
 ## regional prompt with ControlNet
 
-The ControlNet for the entire structure can be applied uniformly to all Regional Prompt.
+A ControlNet fixes the composition of the whole picture, so that each region is sampled where its prompt belongs.
 
-WIP...
+* The ControlNet is part of the conditioning. Put ComfyUI's `Apply ControlNet` between the prompt and the `ToBasicPipe` of every sampler: the base sampler and the sampler of each region.
+* Give all of them the same ControlNet image, made for the whole picture. Each sampler works on the whole latent and keeps the part inside its mask.
+* A region whose conditioning has no ControlNet is sampled without one, also when the base sampler has it.
+
+[![Regional prompts with one ControlNet for the whole picture](../workflow/regional-sampler-controlnet.png)](../workflow/regional-sampler-controlnet.png)
+
+* `Canny` makes the ControlNet image from the [example image](../images/sam-two-people.png). The three `Apply ControlNet` nodes give it to the base prompt and to the prompts of the left and the right half.
+* The two masks are the halves of the picture. `overlap_factor` lets the base sampler work across their border.
 

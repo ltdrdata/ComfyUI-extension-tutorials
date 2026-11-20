@@ -491,7 +491,7 @@
         "Node name for S&R": "BNK_CutoffBasePrompt"
       },
       "widgets_values": [
-        "photorealistic:1.4, best quality, realistic, masterpiece, high quality, UHD, shadow, taken by Canon EOS, SIGMA Art Lens 35mm F1.4, ISO 200 Shutter Speed 2000 / 😊, light blue hair, pink hair / t-shirt with print, (torn:0.5, jeans shorts), casual fashion / 🌸, blooming all around, (limited palette), colourful, bright colors, (smile:0.5), perfect anatomy, (pink bag), sit"
+        "photorealistic:1.4, best quality, realistic, masterpiece, high quality, UHD, shadow, taken by Canon EOS, SIGMA Art Lens 35mm F1.4, ISO 200 Shutter Speed 2000 / \ud83d\ude0a, light blue hair, pink hair / t-shirt with print, (torn:0.5, jeans shorts), casual fashion / \ud83c\udf38, blooming all around, (limited palette), colourful, bright colors, (smile:0.5), perfect anatomy, (pink bag), sit"
       ],
       "color": "#222",
       "bgcolor": "#000"
@@ -658,7 +658,7 @@
         "Node name for S&R": "BNK_CutoffBasePrompt"
       },
       "widgets_values": [
-        "photorealistic:1.4, best quality, realistic, masterpiece, high quality, UHD, shadow, taken by Canon EOS, SIGMA Art Lens 35mm F1.4, ISO 200 Shutter Speed 2000 / 😊, light blue hair, pink hair / t-shirt with print, (torn:0.5, jeans shorts), casual fashion / 🌸, blooming all around, (limited palette), colourful, bright colors, (smile:0.5), perfect anatomy, (pink bag), sit, (luminous skin), (bright skin), (white skin)"
+        "photorealistic:1.4, best quality, realistic, masterpiece, high quality, UHD, shadow, taken by Canon EOS, SIGMA Art Lens 35mm F1.4, ISO 200 Shutter Speed 2000 / \ud83d\ude0a, light blue hair, pink hair / t-shirt with print, (torn:0.5, jeans shorts), casual fashion / \ud83c\udf38, blooming all around, (limited palette), colourful, bright colors, (smile:0.5), perfect anatomy, (pink bag), sit, (luminous skin), (bright skin), (white skin)"
       ],
       "color": "#322",
       "bgcolor": "#533"
@@ -1143,7 +1143,8 @@
         0.35,
         768,
         768,
-        1
+        "random",
+        1.0
       ],
       "color": "#223",
       "bgcolor": "#335"

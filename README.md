@@ -16,10 +16,15 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 
 * Basic Tutorials
   * [Detectors](ComfyUI-Impact-Pack/tutorial/detectors.md)
-  * [Detailers (WIP)](ComfyUI-Impact-Pack/tutorial/detailers.md)
-  * [Regional Sampler (WIP)](ComfyUI-Impact-Pack/tutorial/regional_sampler.md)
+  * [Detailers](ComfyUI-Impact-Pack/tutorial/detailers.md)
+  * [BASIC_PIPE and DETAILER_PIPE](ComfyUI-Impact-Pack/tutorial/pipes.md)
+  * [Working with SEGS](ComfyUI-Impact-Pack/tutorial/segs.md)
+  * [Mask nodes](ComfyUI-Impact-Pack/tutorial/masks.md)
+  * [Lists and batches](ComfyUI-Impact-Pack/tutorial/lists.md)
+  * [Logic and flow control](ComfyUI-Impact-Pack/tutorial/logic.md)
+  * [Regional Sampler](ComfyUI-Impact-Pack/tutorial/regional_sampler.md)
   * [ImpactWildcardProcessor/Encode](ComfyUI-Impact-Pack/tutorial/ImpactWildcard.md)
-  * [PreviewBridge: Nodes for supporting 'Clipspace' utilization (WIP)](ComfyUI-Impact-Pack/tutorial/previewbridge.md)
+  * [PreviewBridge: Nodes for supporting 'Clipspace' utilization](ComfyUI-Impact-Pack/tutorial/previewbridge.md)
   * [Interactive SAM + PreviewBridge](ComfyUI-Impact-Pack/tutorial/sam_with_preview_bridge.md)
   * [SEGS From MediaPipe FaceMesh](ComfyUI-Impact-Pack/tutorial/mediapipe.md)
   * [Switch/Inversed Switch](ComfyUI-Impact-Pack/tutorial/switch.md)
@@ -33,6 +38,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
   * [Detailer Advanced Options: cycle selection and VAE](ComfyUI-Impact-Pack/tutorial/detailer_advanced_options.md)
   * [Prompt per Tile Upscale](ComfyUI-Impact-Pack/tutorial/PromptPerTileUpscale.md)
   * [Combination with CLIPSeg](ComfyUI-Impact-Pack/tutorial/clipseg.md)
+  * [Iterative upscale](ComfyUI-Impact-Pack/tutorial/upscale.md)
   * [Extreme Highresolution Upscale](ComfyUI-Impact-Pack/tutorial/extreme-upscale.md)
 
 
@@ -49,9 +55,9 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 
 
 * Workflows
-  * [Hair restyling](ComfyUI-Impact-Pack/workflow/hair-restyle.json) [[Demo video](https://www.youtube.com/watch?v=fsNBASZYDuA)]
+  * [Hair restyling](ComfyUI-Impact-Pack/workflow/hair-restyle.png) [[Demo video](https://www.youtube.com/watch?v=fsNBASZYDuA)]
   * [Auto Handfix](ComfyUI-Impact-Pack/workflow/dwpose-segs-handfix.png) [[Demo Video]](https://www.youtube.com/watch?v=DoyqCjKdojY)
-  * [Crowd Control](ComfyUI-Impact-Pack/workflow/crowd-face.json) [[Demo Video](https://www.youtube.com/watch?v=9GSQlxZFrLI)]
+  * [Crowd Control](ComfyUI-Impact-Pack/workflow/crowd-face.png) [[Demo Video](https://www.youtube.com/watch?v=9GSQlxZFrLI)]
   * [Gender Senstivie Detailer](ComfyUI-Impact-Pack/workflow/gender-senstivie-detailer.png) [[Demo Video](https://www.youtube.com/watch?v=Vs2r-MErJZw)]
   * [Prompt per Tile Upscale](ComfyUI-Impact-Pack/workflow/prompt-per-tile.png)
 

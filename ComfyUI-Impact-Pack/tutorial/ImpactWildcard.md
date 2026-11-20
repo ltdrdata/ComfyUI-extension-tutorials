@@ -140,6 +140,50 @@ You can find the instructions on how to use it in the [YouTube video](https://ww
 ### Application
 * If you use wildcards with files, you can save frequently used prompts in a file and load them for usage. For example, if you have a line composed of `photorealistic:1.4, best quality:1.4` and save it as `ppos.txt` in the custom_wildcards directory, you can create prompts in a concise form like `__ppos__`, beautiful nature.
 
+## Lora Wildcard Source / Modes
+
+`Lora Wildcard Source / Modes` (`LoraWildcardSource`, V8.30 or later) takes a line with a LoRA tag from a wildcard file, applies the LoRA to `model` and `clip`, and encodes the prompt.
+
+* `category` lists the `.txt` files directly in the `custom_wildcards` directory, the path that `custom_wildcards` in `impact-pack.ini` names. See [Wildcard Directories](#wildcard-directories). Files in subfolders, `.yaml` files and the `wildcards` directory are not listed.
+* `lora_wildcard` lists the lines of that file that hold a `<lora:...>` tag, by the name of their LoRA. A name that comes again gets ` (1)`, ` (2)` and so on. Choosing another `category` reloads the list.
+  * For the line `90s_melancholy, retro, <lora:90s Anime Melancholy [Illustrious - Style - 1738546]:0.8>`, the entry is `90s Anime Melancholy [Illustrious - Style - 1738546]`.
+  * Lines without a LoRA tag and lines that start with `#` are left out.
+  * The pack has sample lines in `example_workflows/wildcards/styles.txt`. To use them, copy the file into the directory under a name that none of your wildcard files has.
+* `mode` selects the line:
+  * `fixed`: the line chosen in `lora_wildcard`. When that line is no longer in the file, the run stops with an error.
+  * `random`: a line chosen at random from `seed`. The same seed gives the same line.
+  * `sequential`: the line at position `seed` modulo the number of lines, counted from 0. With `control_after_generate` set to `increment`, each run takes the next line.
+  * `batch`: every line, in one run.
+  * `random`, `sequential` and `batch` take only lines whose tag has a single weight of 0 or more, such as `<lora:name:0.7>`. A line such as `<lora:name>` or `<lora:name:0.7:0.5>` works with `fixed` only. When no line qualifies, these modes encode `base_prompt` alone.
+* `strength` replaces the weight of the line's LoRA, for the model and the CLIP alike. When the line has several LoRA tags, the others keep their weights.
+* The prompt is `base_prompt` and the line, joined with a comma. The node applies its LoRA tags in order, removes them and encodes the rest. `BREAK` splits the prompt into parts that are encoded separately and concatenated.
+  * Wildcards and dynamic prompts such as `__flower__` or `{a|b}` are not processed. The encoder gets them as written. `LBW=` specs are ignored.
+  * A LoRA is looked up by its name in the LoRA folders of ComfyUI, and else by its file name in any subfolder. `.safetensors` is added to a name that does not end in `.safetensors`, `.ckpt` or `.pt`. A LoRA that is not found is skipped, with a warning in the log.
+* Outputs: `model` and `clip` with the LoRAs applied, `conditioning`, `text`, `lora_name` and `name`.
+  * `text` is the prompt without the LoRA tags. `lora_name` is the name of the LoRA, made safe for a file name. `name` is the entry of the line.
+  * Every output is a list. In `batch` mode it has an item for each line, and the nodes after it run once for each LoRA. See [Lists and batches](lists.md).
+  * `lora_name` or `name` can be the `filename_prefix` of `Save Image`.
+  * When no line is used, `lora_name` is `no_lora` and `name` is `no_` followed by the category.
+* The pack's [LORA_WILDCARD_SOURCE.md](https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/Main/docs/LORA_WILDCARD_SOURCE.md) describes the node in full, and [7-LoraWildcardSource.json](https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/Main/example_workflows/7-LoraWildcardSource.json) is an example workflow.
+
+## Wildcard Prompt from String
+
+`Wildcard Prompt from String` (`WildcardPromptFromString`) turns a text with one prompt for each SEG into a `[LAB]` prompt for the `wildcard` of a Detailer. See [Special Syntax for Detailer Wildcard](#special-syntax-for-detailer-wildcard).
+
+* `string` is an input that another node fills, not a text field. `delimiter` splits it into parts. The default `\n` splits it at each line break.
+* The parts get the labels `1`, `2`, `3` and so on, in order. The `wildcard` output is `[LAB]` and then a line `[n] prefix_all tags postfix_all` for each part.
+* `segs_labels` lists the labels, as `1, 2, 3`. Connect it to `labels` of `SEGS Assign (label)`, so that the first SEG gets the label `1` and with it the first prompt.
+* A part is read as tags separated by `, `, a comma and a space. Only the tags that `restrict_to_tags` lists stay, and the tags that `exclude_tags` lists are removed. Both take tags separated by `, `. Leave them empty to keep all tags.
+  * When either is set, the tags of a part can come out in another order, and a tag that appears twice comes out once.
+* `prefix_all` and `postfix_all` go before and after the tags of every part. Double spaces and double commas are cleaned up.
+
+[![Wildcard Prompt from String in the prompt per tile workflow](../workflow/prompt-per-tile.png)](../workflow/prompt-per-tile.png)
+
+* `Make Tile SEGS` cuts the upscaled image into tiles. `SEGSToImageList` gives a picture of each tile, and the tagger of [ComfyUI-WD14-Tagger](https://github.com/pythongosssss/ComfyUI-WD14-Tagger) tags each one. `String List to String` joins the tags into one text, a line for each tile.
+* The tags of the whole image go to `restrict_to_tags`, so that a tile gets no tag the whole image does not have. `exclude_tags` removes tags such as `1girl` and `1boy` from every tile.
+* `wildcard` goes to `Detailer (SEGS)`, and `segs_labels` to `SEGS Assign (label)` on the tiles. Each tile is detailed with its own tags.
+* [Prompt per Tile Upscale](PromptPerTileUpscale.md) explains the workflow step by step.
+
 ## SETUP
 
 ### Wildcard Directories
