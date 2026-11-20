@@ -48,6 +48,7 @@ Each widget is configured as follows:
 * `denoise`: Denoise amount
 * `overlap_factor`: The size of the base mask invading the region mask. It is calculated by eroding the region mask by the `overlap_factor`.
 * `restore_latent`: When each regional sampling is performed, noise also occurs outside the region mask. If `restore_latent` is set to **enabled**, every time each regional sampling step is completed, the area outside the mask is restored to the latent created by base sampling.
+    * With a sampler that draws its own noise, the area outside the mask is restored after every step whatever this option is set to (V9.1.1 or later). See [Samplers that draw their own noise](#samplers-that-draw-their-own-noise).
 * `additional_mode`: 
     **..._sde** or **uni_pc** and other special samplers are used, the region is not properly denoised, and it causes a phenomenon that destroys the overall harmony. To compensate for this, a recovery operation is performed using another sampler. This requires a longer time for sampling because a second sampling is performed at each step in each region using a special sampler.
     * **DISABLE**: Disable this feature.
@@ -59,6 +60,19 @@ Each widget is configured as follows:
         * If the sampler is **dpmpp_2m_sde, dpmpp_2m_sde_gpu, dpmpp_3m_sde, dpmpp_3m_sde_gpu**, the **dpmpp_2m** sampler is selected
     * Others: Manually set the recovery sampler.
 * `additional_sigma_ratio`: It is the ratio of denoise amount to be applied according to `additional_mode`.
+
+
+## Samplers that draw their own noise
+
+Samplers such as `euler_ancestral`, `dpmpp_2s_ancestral` and `lcm` add new noise in every step. The Regional Sampler samples one step at a time, first the base region and then each region, so such a sampler is called once for every step.
+
+* Up to V9.1, each of these calls drew the same noise and added it outside the mask as well. The result of `RegionalSampler`, `RegionalSamplerAdvanced` and `TwoAdvancedSamplersForMask` with such a sampler was noise.
+* Since V9.1.1, such a sampler gets a seed of its own for each step, and the latent outside its mask is put back after the step. These samplers can be used in `KSamplerAdvancedProvider` like any other.
+* Samplers without noise, such as `euler` or `dpmpp_2m`, and the `..._sde` samplers are sampled as before. Their results do not change.
+
+The workflow below is the workflow of [regional prompts](#regional-prompts) with `euler_ancestral` in every `KSamplerAdvancedProvider`.
+
+[![Regional sampling with euler_ancestral](../workflow/regionalsampling-ancestral.png)](../workflow/regionalsampling-ancestral.png)
 
 
 ## regional prompts

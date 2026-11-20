@@ -17,3 +17,5 @@
 ![orignal-mask](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSampler-original-mask.png)
 
 ![result-mask](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSampler-result-mask.png)
+
+* Before V9.0, TwoSamplersForMask left its mask on the latent it was given. Another sampler that used the same latent, such as a second sampler on the same `Empty Latent Image`, then sampled under the inverse of that mask. Since V9.0 the node sets the mask on a copy, and the latent it is given stays as it was.

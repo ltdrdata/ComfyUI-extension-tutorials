@@ -32,6 +32,7 @@
 <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-single.png" width="350"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-none-schedule.png" width="350"/> <img src="https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-i2l1-schedule.png" width="350"/>
 
 * To perform high-resolution processing, you can use the **TiledKSamplerProvider**.
+  * Since V9.0, the tiled sampler is included in the Impact Pack. The `ComfyUI_TiledKSampler` extension does not need to be installed, and the combination shown here, a tiled sampler as the base sampler of TwoSamplers, works on current ComfyUI again.
 
 ![tiled](https://github.com/ltdrdata/ComfyUI-extension-tutorials/raw/Main/ComfyUI-Impact-Pack/images/TwoSamplersUpscale-tiled.png)
 

@@ -1,0 +1,571 @@
+{
+  "date": "2026-11-10",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4080 16 GiB",
+    "comfyui": "0.44.0",
+    "comfyui_commit": "61e524bdba7a4e193b45c2697f1af83c1beb86d6",
+    "impact_pack_commit": "48f69bd0865f5684e443b584bdc2cb7ff8ca918a",
+    "tutorial_base_commit": "8beed20cf69b5faf4ad6471debf0ab6fa9743e3d",
+    "pytorch": "2.10.0+cu128",
+    "vae_dtype": "bfloat16",
+    "frontend": "1.58.5",
+    "cache": "none",
+    "memory_allocator": "cudaMallocAsync with ComfyUI dynamic VRAM"
+  },
+  "configuration": {
+    "checkpoint": "SD1.5/realcartoonPixar_v8.safetensors",
+    "crop_size": [
+      1536,
+      1536
+    ],
+    "seed": 1234,
+    "steps": 6,
+    "cfg": 6,
+    "denoise": 0.1,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "cycle": 1,
+    "batch_size": 1,
+    "return_by_cycle_step": false,
+    "post_detail_shrink": false,
+    "inpaint_model": false,
+    "tile_size": 512,
+    "tile_overlap": 64
+  },
+  "method": "Four UI executions per mode after one recording/warmup execution per mode. Real VAE methods were observed without replacing their inference. torch.cuda.synchronize and reset_peak_memory_stats surround each public VAE encode/decode call. Peak is PyTorch CUDA allocated tensor memory during the VAE call, not whole-workflow/device/process peak, reserved memory, or model weight residency managed outside PyTorch. Time covers the complete VAE call, not sampling. Untiled calls did not fall back to tiling. Same settings and results survive PNG import and native Export/reload under positional and named restoration.",
+  "summary": {
+    "encode": {
+      "samples": 4,
+      "peak_allocated_gib_median": 2.835028128698468,
+      "peak_allocated_gib_range": [
+        2.835028128698468,
+        2.835028128698468
+      ],
+      "seconds_median": 0.40865097660571337,
+      "seconds_range": [
+        0.40229119593277574,
+        0.41111381025984883
+      ]
+    },
+    "decode": {
+      "samples": 4,
+      "peak_allocated_gib_median": 4.827504651620984,
+      "peak_allocated_gib_range": [
+        4.827504651620984,
+        4.827504651620984
+      ],
+      "seconds_median": 0.5354205670300871,
+      "seconds_range": [
+        0.5342962499707937,
+        0.5358057147823274
+      ]
+    },
+    "encode_tiled": {
+      "samples": 4,
+      "peak_allocated_gib_median": 0.3233093786984682,
+      "peak_allocated_gib_range": [
+        0.3233093786984682,
+        0.3233093786984682
+      ],
+      "seconds_median": 0.9544932353310287,
+      "seconds_range": [
+        0.9491913551464677,
+        0.9583478807471693
+      ]
+    },
+    "decode_tiled": {
+      "samples": 4,
+      "peak_allocated_gib_median": 0.5457663703709841,
+      "peak_allocated_gib_range": [
+        0.5457663703709841,
+        0.5457663703709841
+      ],
+      "seconds_median": 1.7564555008430034,
+      "seconds_range": [
+        1.7541203028522432,
+        1.7597700506448746
+      ]
+    }
+  },
+  "output_comparison": {
+    "mean_absolute_rgb_difference_0_to_255": 2.126078146475333,
+    "rmse_rgb_0_to_255": 3.108989862828055,
+    "pixel_identical": false,
+    "claim": "Memory/time comparison, not a visual quality improvement."
+  },
+  "validation": {
+    "pytest": "4 passed, 8 deselected",
+    "actual_validation_executions": 8,
+    "recording_warmup_executions": 2,
+    "nodes_per_workflow": 10,
+    "links_per_workflow": 13
+  },
+  "files": [
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-vae-untiled.json",
+      "sha256": "d56bedf4f9d3d06c4ee39662b01c8db746b797881c2075b4b015993dbbbab864"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-vae-untiled.png",
+      "sha256": "2b94314b28ce2dfbff5fc73b3483d0cc2a1d90c470bd415abe72c3795ed43835"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-vae-tiled.json",
+      "sha256": "c620243e545e8135cfb2a8d3cda4030c2e23569560a312f29a2c855e72b24c38"
+    },
+    {
+      "path": "ComfyUI-Impact-Pack/workflow/detailer-vae-tiled.png",
+      "sha256": "77f5c63cff0d8fe8c6980097a75e499dc905f57fe65c852f16cace28ab049598"
+    }
+  ],
+  "observations": [
+    {
+      "label": "native-png-validation",
+      "operation": "encode",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.40229119593277574,
+      "peak_allocated_bytes": 3044088274,
+      "peak_reserved_bytes": 3087007744,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 0.5342962499707937,
+      "peak_allocated_bytes": 5183493650,
+      "peak_reserved_bytes": 5838471168,
+      "allocated_after_bytes": 10147330
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "encode",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.41111381025984883,
+      "peak_allocated_bytes": 3044088274,
+      "peak_reserved_bytes": 3087007744,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 0.5357015542685986,
+      "peak_allocated_bytes": 5183493650,
+      "peak_reserved_bytes": 5838471168,
+      "allocated_after_bytes": 10147330
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "encode",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.40811738930642605,
+      "peak_allocated_bytes": 3044088274,
+      "peak_reserved_bytes": 3087007744,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 0.5358057147823274,
+      "peak_allocated_bytes": 5183493650,
+      "peak_reserved_bytes": 5838471168,
+      "allocated_after_bytes": 10147330
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "encode",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.4091845639050007,
+      "peak_allocated_bytes": 3044088274,
+      "peak_reserved_bytes": 3087007744,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {},
+      "nested_calls": [],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 0.5351395797915757,
+      "peak_allocated_bytes": 5183493650,
+      "peak_reserved_bytes": 5838471168,
+      "allocated_after_bytes": 10147330
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "encode_tiled",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {
+        "tile_x": 512,
+        "tile_y": 512,
+        "overlap": 64,
+        "tile_t": 64,
+        "overlap_t": 8
+      },
+      "nested_calls": [
+        "encode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.9513093479909003,
+      "peak_allocated_bytes": 347150802,
+      "peak_reserved_bytes": 369098752,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode_tiled",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {
+        "tile_x": 64,
+        "tile_y": 64,
+        "overlap": 8,
+        "tile_t": null,
+        "overlap_t": null
+      },
+      "nested_calls": [
+        "decode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 1.7597700506448746,
+      "peak_allocated_bytes": 586012178,
+      "peak_reserved_bytes": 1375731712,
+      "allocated_after_bytes": 10147330
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "encode_tiled",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {
+        "tile_x": 512,
+        "tile_y": 512,
+        "overlap": 64,
+        "tile_t": 64,
+        "overlap_t": 8
+      },
+      "nested_calls": [
+        "encode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.9576771226711571,
+      "peak_allocated_bytes": 347150802,
+      "peak_reserved_bytes": 369098752,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode_tiled",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {
+        "tile_x": 64,
+        "tile_y": 64,
+        "overlap": 8,
+        "tile_t": null,
+        "overlap_t": null
+      },
+      "nested_calls": [
+        "decode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 1.757746427319944,
+      "peak_allocated_bytes": 586012178,
+      "peak_reserved_bytes": 1375731712,
+      "allocated_after_bytes": 10147330
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "encode_tiled",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {
+        "tile_x": 512,
+        "tile_y": 512,
+        "overlap": 64,
+        "tile_t": 64,
+        "overlap_t": 8
+      },
+      "nested_calls": [
+        "encode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.9583478807471693,
+      "peak_allocated_bytes": 347150802,
+      "peak_reserved_bytes": 369098752,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode_tiled",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {
+        "tile_x": 64,
+        "tile_y": 64,
+        "overlap": 8,
+        "tile_t": null,
+        "overlap_t": null
+      },
+      "nested_calls": [
+        "decode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 1.7551645743660629,
+      "peak_allocated_bytes": 586012178,
+      "peak_reserved_bytes": 1375731712,
+      "allocated_after_bytes": 10147330
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "encode_tiled",
+      "shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "kwargs": {
+        "tile_x": 512,
+        "tile_y": 512,
+        "overlap": 64,
+        "tile_t": 64,
+        "overlap_t": 8
+      },
+      "nested_calls": [
+        "encode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 9645060,
+      "output_shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "seconds": 0.9491913551464677,
+      "peak_allocated_bytes": 347150802,
+      "peak_reserved_bytes": 369098752,
+      "allocated_after_bytes": 9738690
+    },
+    {
+      "label": "native-png-validation",
+      "operation": "decode_tiled",
+      "shape": [
+        1,
+        4,
+        192,
+        192
+      ],
+      "kwargs": {
+        "tile_x": 64,
+        "tile_y": 64,
+        "overlap": 8,
+        "tile_t": null,
+        "overlap_t": null
+      },
+      "nested_calls": [
+        "decode_tiled_"
+      ],
+      "vae_dtype": "torch.bfloat16",
+      "allocated_before_bytes": 10147330,
+      "output_shape": [
+        1,
+        1536,
+        1536,
+        3
+      ],
+      "seconds": 1.7541203028522432,
+      "peak_allocated_bytes": 586012178,
+      "peak_reserved_bytes": 1375731712,
+      "allocated_after_bytes": 10147330
+    }
+  ]
+}

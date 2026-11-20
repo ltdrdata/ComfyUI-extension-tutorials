@@ -1,0 +1,642 @@
+{
+  "id": "af64e39f-ded2-4cae-b309-44d73eab43ea",
+  "revision": 0,
+  "last_node_id": 10,
+  "last_link_id": 13,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -284.999959309896,
+        9.999993218315922
+      ],
+      "size": [
+        360,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SD1.5/realcartoonPixar_v8.safetensors"
+      ],
+      "widgets_values_named": {
+        "ckpt_name": "SD1.5/realcartoonPixar_v8.safetensors"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [
+        220.0000101725259,
+        9.999993218315922
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a detailed portrait, natural skin, high quality"
+      ],
+      "widgets_values_named": {
+        "text": "a detailed portrait, natural skin, high quality"
+      }
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        220.0000101725259,
+        289.9999932183159
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry, deformed, low quality"
+      ],
+      "widgets_values_named": {
+        "text": "blurry, deformed, low quality"
+      }
+    },
+    {
+      "id": 4,
+      "type": "ToBasicPipe",
+      "pos": [
+        802.8525492350259,
+        9.999993218315922
+      ],
+      "size": [
+        154.294921875,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ToBasicPipe"
+      }
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        -141.3994038899741,
+        609.9999932183159
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "combination-original.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "combination-original.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 6,
+      "type": "ImageScale",
+      "pos": [
+        285.0000101725259,
+        609.9999932183159
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "lanczos",
+        1536,
+        1536,
+        "disabled"
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "width": 1536,
+        "height": 1536,
+        "crop": "disabled"
+      }
+    },
+    {
+      "id": 7,
+      "type": "SolidMask",
+      "pos": [
+        285.0000101725259,
+        859.9999932183159
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SolidMask"
+      },
+      "widgets_values": [
+        1,
+        1536,
+        1536
+      ],
+      "widgets_values_named": {
+        "value": 1,
+        "width": 1536,
+        "height": 1536
+      }
+    },
+    {
+      "id": 8,
+      "type": "DetailerAdvancedOptionsHook",
+      "pos": [
+        722.0763773600258,
+        609.9999932183159
+      ],
+      "size": [
+        315.847265625,
+        202
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "DETAILER_HOOK",
+          "type": "DETAILER_HOOK",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DetailerAdvancedOptionsHook"
+      },
+      "widgets_values": [
+        false,
+        "tiled",
+        "tiled",
+        512,
+        64,
+        false
+      ],
+      "widgets_values_named": {
+        "return_by_cycle_step": false,
+        "vae_encode_mode": "tiled",
+        "vae_decode_mode": "tiled",
+        "vae_tile_size": 512,
+        "vae_tile_overlap": 64,
+        "return_upscaled_crops": false
+      }
+    },
+    {
+      "id": 9,
+      "type": "MaskDetailerPipe",
+      "pos": [
+        1130.876963297526,
+        9.999993218315922
+      ],
+      "size": [
+        378.24609375,
+        638
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 10
+        },
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 11
+        },
+        {
+          "name": "refiner_basic_pipe_opt",
+          "shape": 7,
+          "type": "BASIC_PIPE",
+          "link": null
+        },
+        {
+          "name": "detailer_hook",
+          "shape": 7,
+          "type": "DETAILER_HOOK",
+          "link": 12
+        },
+        {
+          "name": "scheduler_func_opt",
+          "shape": 7,
+          "type": "SCHEDULER_FUNC",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            13
+          ]
+        },
+        {
+          "name": "cropped_refined",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "cropped_enhanced_alpha",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": null
+        },
+        {
+          "name": "refiner_basic_pipe_opt",
+          "type": "BASIC_PIPE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskDetailerPipe"
+      },
+      "widgets_values": [
+        1536,
+        true,
+        1536,
+        true,
+        1234,
+        "fixed",
+        6,
+        6,
+        "euler",
+        "normal",
+        0.1,
+        0,
+        1,
+        10,
+        0.2,
+        1,
+        1,
+        false,
+        20,
+        false,
+        true
+      ],
+      "widgets_values_named": {
+        "guide_size": 1536,
+        "guide_size_for": true,
+        "max_size": 1536,
+        "mask_mode": true,
+        "seed": 1234,
+        "control_after_generate": "fixed",
+        "steps": 6,
+        "cfg": 6,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 0.1,
+        "feather": 0,
+        "crop_factor": 1,
+        "drop_size": 10,
+        "refiner_ratio": 0.2,
+        "batch_size": 1,
+        "cycle": 1,
+        "inpaint_model": false,
+        "noise_mask_feather": 20,
+        "bbox_fill": false,
+        "contour_fill": true
+      }
+    },
+    {
+      "id": 10,
+      "type": "PreviewImage",
+      "pos": [
+        1730.000010172526,
+        9.999993218315922
+      ],
+      "size": [
+        500,
+        560
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      1,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      1,
+      1,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      1,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      1,
+      1,
+      4,
+      1,
+      "CLIP"
+    ],
+    [
+      5,
+      1,
+      2,
+      4,
+      2,
+      "VAE"
+    ],
+    [
+      6,
+      2,
+      0,
+      4,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      4,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      6,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      7,
+      0,
+      9,
+      1,
+      "MASK"
+    ],
+    [
+      11,
+      4,
+      0,
+      9,
+      2,
+      "BASIC_PIPE"
+    ],
+    [
+      12,
+      8,
+      0,
+      9,
+      4,
+      "DETAILER_HOOK"
+    ],
+    [
+      13,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        -472.0763804117835,
+        -479.9999932183159
+      ]
+    },
+    "frontendVersion": "1.58.5"
+  },
+  "version": 0.4
+}
