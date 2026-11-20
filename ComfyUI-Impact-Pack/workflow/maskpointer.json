@@ -1037,15 +1037,7 @@
         "Node name for S&R": "PreviewBridge"
       },
       "widgets_values": [
-        {
-          "filename": "clipspace-mask-470361.200000003.png",
-          "subfolder": "clipspace",
-          "type": "input",
-          "image_hash": -9057483542318295000,
-          "forward_filename": "ComfyUI_temp_oimqn_00002_.png",
-          "forward_subfolder": "",
-          "forward_type": "temp"
-        }
+        ""
       ],
       "color": "#233",
       "bgcolor": "#355"

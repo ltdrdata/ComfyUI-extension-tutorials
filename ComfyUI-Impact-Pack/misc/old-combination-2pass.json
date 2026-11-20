@@ -1,6 +1,6 @@
 {
   "last_node_id": 143,
-  "last_link_id": 384,
+  "last_link_id": 386,
   "nodes": [
     {
       "id": 109,
@@ -206,7 +206,7 @@
     },
     {
       "id": 82,
-      "type": "MMDetLoader",
+      "type": "UltralyticsDetectorProvider",
       "pos": [
         712.5367020996093,
         135.30448647521965
@@ -220,8 +220,8 @@
       "mode": 0,
       "outputs": [
         {
-          "name": "BBOX_MODEL",
-          "type": "BBOX_MODEL",
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
           "links": [
             204,
             362
@@ -229,17 +229,17 @@
           "slot_index": 0
         },
         {
-          "name": "SEGM_MODEL",
-          "type": "SEGM_MODEL",
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
           "links": [],
           "slot_index": 1
         }
       ],
       "properties": {
-        "Node name for S&R": "MMDetLoader"
+        "Node name for S&R": "UltralyticsDetectorProvider"
       },
       "widgets_values": [
-        "bbox/mmdet_anime-face_yolov3.pth"
+        "bbox/face_yolov8m.pt"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -371,7 +371,7 @@
     },
     {
       "id": 134,
-      "type": "Segs & Mask",
+      "type": "ImpactSegsAndMask",
       "pos": [
         1870,
         1470
@@ -406,7 +406,7 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "Segs & Mask"
+        "Node name for S&R": "ImpactSegsAndMask"
       },
       "color": "#323",
       "bgcolor": "#535"
@@ -821,7 +821,9 @@
           "type": "CLIP",
           "links": [
             331,
-            356
+            356,
+            385,
+            386
           ],
           "slot_index": 1
         }
@@ -968,15 +970,18 @@
       },
       "widgets_values": [
         "horizontal-2",
+        0,
         0.93,
-        0.93
+        0,
+        0.7,
+        "False"
       ],
       "color": "#232",
       "bgcolor": "#353"
     },
     {
       "id": 104,
-      "type": "Segs & Mask",
+      "type": "ImpactSegsAndMask",
       "pos": [
         1529.9366837890627,
         285.3044807531738
@@ -1012,7 +1017,7 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "Segs & Mask"
+        "Node name for S&R": "ImpactSegsAndMask"
       },
       "color": "#323",
       "bgcolor": "#535"
@@ -1045,7 +1050,6 @@
           "links": [
             218,
             335,
-            378,
             381
           ],
           "slot_index": 0
@@ -1141,15 +1145,18 @@
       },
       "widgets_values": [
         "horizontal-2",
-        1,
-        0.93
+        0,
+        0.93,
+        0,
+        0.7,
+        "False"
       ],
       "color": "#232",
       "bgcolor": "#353"
     },
     {
       "id": 90,
-      "type": "BboxDetectorForEach",
+      "type": "BboxDetectorSEGS",
       "pos": [
         716,
         313
@@ -1163,8 +1170,8 @@
       "mode": 0,
       "inputs": [
         {
-          "name": "bbox_model",
-          "type": "BBOX_MODEL",
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
           "link": 204
         },
         {
@@ -1186,12 +1193,14 @@
       ],
       "title": "BboxDetectorFE !! DON'T MUTE !!",
       "properties": {
-        "Node name for S&R": "BboxDetectorForEach"
+        "Node name for S&R": "BboxDetectorSEGS"
       },
       "widgets_values": [
         0.5,
         10,
-        3.9999999999999996
+        3.9999999999999996,
+        10,
+        "all"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -1314,7 +1323,7 @@
     },
     {
       "id": 140,
-      "type": "SegsMaskCombine",
+      "type": "SegsToCombinedMask",
       "pos": [
         1761,
         -898
@@ -1331,11 +1340,6 @@
           "name": "segs",
           "type": "SEGS",
           "link": 377
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 378
         }
       ],
       "outputs": [
@@ -1349,7 +1353,7 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "SegsMaskCombine"
+        "Node name for S&R": "SegsToCombinedMask"
       },
       "color": "#2a363b",
       "bgcolor": "#3f5159"
@@ -1405,6 +1409,11 @@
           "name": "external_seed",
           "type": "SEED",
           "link": null
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 385
         }
       ],
       "outputs": [
@@ -1422,7 +1431,8 @@
       },
       "widgets_values": [
         320,
-        "bbox",
+        true,
+        1024,
         557701735627255,
         "fixed",
         20,
@@ -1431,7 +1441,9 @@
         "karras",
         0.5,
         5,
-        "disabled"
+        false,
+        false,
+        ""
       ]
     },
     {
@@ -1483,6 +1495,11 @@
           "name": "external_seed",
           "type": "SEED",
           "link": null
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 386
         }
       ],
       "outputs": [
@@ -1517,7 +1534,8 @@
       },
       "widgets_values": [
         256,
-        "bbox",
+        true,
+        1024,
         525638383782973,
         "fixed",
         10,
@@ -1526,12 +1544,14 @@
         "karras",
         0.6,
         5,
-        "disabled"
+        false,
+        false,
+        ""
       ]
     },
     {
       "id": 132,
-      "type": "BboxDetectorForEach",
+      "type": "BboxDetectorSEGS",
       "pos": [
         2195,
         1554
@@ -1545,8 +1565,8 @@
       "mode": 0,
       "inputs": [
         {
-          "name": "bbox_model",
-          "type": "BBOX_MODEL",
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
           "link": 362
         },
         {
@@ -1568,12 +1588,14 @@
       ],
       "title": "BboxDetectorFE !! DON'T MUTE !!",
       "properties": {
-        "Node name for S&R": "BboxDetectorForEach"
+        "Node name for S&R": "BboxDetectorSEGS"
       },
       "widgets_values": [
         0.5,
         20,
-        3.9999999999999996
+        3.9999999999999996,
+        10,
+        "all"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -1586,7 +1608,7 @@
       0,
       90,
       0,
-      "BBOX_MODEL"
+      "BBOX_DETECTOR"
     ],
     [
       218,
@@ -1898,7 +1920,7 @@
       0,
       132,
       0,
-      "BBOX_MODEL"
+      "BBOX_DETECTOR"
     ],
     [
       363,
@@ -2013,14 +2035,6 @@
       "SEGS"
     ],
     [
-      378,
-      94,
-      0,
-      140,
-      1,
-      "IMAGE"
-    ],
-    [
       379,
       140,
       0,
@@ -2067,6 +2081,22 @@
       143,
       0,
       "IMAGE"
+    ],
+    [
+      385,
+      126,
+      1,
+      135,
+      7,
+      "CLIP"
+    ],
+    [
+      386,
+      126,
+      1,
+      116,
+      7,
+      "CLIP"
     ]
   ],
   "groups": [

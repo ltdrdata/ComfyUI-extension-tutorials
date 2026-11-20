@@ -711,15 +711,7 @@
         "Node name for S&R": "PreviewBridge"
       },
       "widgets_values": [
-        {
-          "filename": "ComfyUI_00002_.png",
-          "subfolder": "",
-          "type": "temp",
-          "image_hash": 3263516239173591000,
-          "forward_filename": "ComfyUI_00002_.png",
-          "forward_subfolder": "",
-          "forward_type": "temp"
-        }
+        ""
       ],
       "color": "#222",
       "bgcolor": "#000"
