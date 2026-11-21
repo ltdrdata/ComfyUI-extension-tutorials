@@ -1,6 +1,6 @@
-# Changes from V8.31 to V9.1.1
+# Changes from V8.31 to V9.3
 
-What changed in the Impact Pack from V8.31 to V9.1.1, with the tutorial that describes each change.
+What changed in the Impact Pack from V8.31 to V9.3, with the tutorial that describes each change.
 
 ## New
 
@@ -13,6 +13,9 @@ What changed in the Impact Pack from V8.31 to V9.1.1, with the tutorial that des
 | SAM models from `.safetensors` files | V9.0.2 | [Detectors](detectors.md#sam-sam2-and-sam3-models) |
 | SAM3 models in `SAMLoader (Impact)` and the SAM detectors, `SAM3 Video Detector (SEGS)` | V9.1 | [Detectors](detectors.md#sam-sam2-and-sam3-models), [video detectors](detectors.md#sam2-video-detector--sam3-video-detector) |
 | SAM2 models in `SAMDetector (segmented)` | V9.1 | [Detectors](detectors.md#sam-sam2-and-sam3-models) |
+| With the Nodes 2.0 renderer, a `Switch (Any)` that returned `None` is marked in the page when a run ends with an error at a node that got that `None`. The log of the switch says why it returned `None`. | V9.2 | |
+| `SEGS to Bounding Boxes`: the boxes of SEGS for nodes of ComfyUI that take a `BOUNDING_BOX` | V9.3 | [Working with SEGS](segs.md#segs-to-bounding-boxes) |
+| `Bounding Boxes to SEGS`: SEGS from the `BOUNDING_BOX` that nodes of ComfyUI give | V9.3 | [Detectors](detectors.md#bounding-boxes-to-segs) |
 
 ## Changed
 
@@ -21,6 +24,7 @@ What changed in the Impact Pack from V8.31 to V9.1.1, with the tutorial that des
 | The tiled sampler of `TiledKSamplerProvider` and `PixelTiledKSampleUpscalerProvider` is included. The `ComfyUI_TiledKSampler` extension is not needed. | V9.0 | [Advanced Iterative Upscale](TwoSamplersUpscale.md) |
 | 51 nodes are defined on the V3 schema of ComfyUI. Names, inputs, outputs and results are the same. | V9.0 | [Language of the nodes](locale.md) |
 | `sam2` is installed from `requirements-sam2.txt`, not with `requirements.txt`. | V9.1 | [Detectors](detectors.md#sam-sam2-and-sam3-models) |
+| 19 more nodes are defined on the V3 schema of ComfyUI. Names, inputs, outputs and results are the same. | V9.2 | [Language of the nodes](locale.md) |
 
 ## Fixed
 
@@ -42,3 +46,5 @@ What changed in the Impact Pack from V8.31 to V9.1.1, with the tutorial that des
 | The Regional Samplers and `TwoAdvancedSamplersForMask` returned noise with a sampler that draws its own noise, such as `euler_ancestral`. | V9.1.1 | [Regional Sampler](regional_sampler.md#samplers-that-draw-their-own-noise) |
 | The `device_mode` of `SAMLoader (Impact)` did not work for a SAM2 model. | V9.1.1 | [Detectors](detectors.md#sam-sam2-and-sam3-models) |
 | A `POST /prompt` without a `prompt`, such as a prompt posted as the body itself, logged `Error on prompt - several features will not work` with a traceback. ComfyUI answers such a request with `400 no_prompt` as before. | V9.1.1 | |
+| `Preview Bridge` refused to queue a workflow of its first versions, which holds the image of the bridge as an object, with `Preview Bridge: no image to register`. The run gives such a bridge its image again. | V9.2 | |
+| `Impact Scheduler Adapter` was refused with `Return type mismatch between linked nodes` when a nodepack that ComfyUI imports after the Impact Pack adds a scheduler. | V9.2 | [Impact Scheduler Adapter](upscale.md#impact-scheduler-adapter) |

@@ -16,4 +16,4 @@ The picture below is the [SAM3 example](detectors.md#sam-sam2-and-sam3-models) w
 [![The SAM3 example in Korean](../workflow/sam3-detectors-ko.png)](../workflow/sam3-detectors-ko.png)
 
 * In V8.31 and V9.0 the English descriptions and tooltips of several nodes were corrected where they named an option that does not exist or described something the node does not do, and the Korean labels that sat on the wrong socket were moved. The texts are the source of the translations.
-* Since V9.0, 51 nodes are defined on the V3 schema of ComfyUI. Their names, inputs, outputs and results are the same as before. A tool that reads `/object_info` itself sees the V3 form for these nodes: a combo input is `["COMBO", {"options": [...]}]` in place of `[[...], {...}]`.
+* Since V9.0, 51 nodes are defined on the V3 schema of ComfyUI, and since V9.2, 19 more. Their names, inputs, outputs and results are the same as before. A tool that reads `/object_info` itself sees the V3 form for these nodes: a combo input is `["COMBO", {"options": [...]}]` in place of `[[...], {...}]`.

@@ -172,6 +172,7 @@ In the workflow below, the `BBOX Detector` model finds two faces in the first of
 [![SAM3 Video Detector (SEGS)](../workflow/sam3-video-detector.png)](../workflow/sam3-video-detector.png)
 
 * The example video is [sam-video-example.mp4](../images/sam-video-example.mp4). `Load Video` and `Get Video Components` are nodes of ComfyUI. A batch of frames from any other node works the same way.
+* To give the boxes of the tracked objects to nodes of ComfyUI such as `Draw BBoxes` and `Crop By Bounding Boxes`, see [The boxes of a video](segs.md#the-boxes-of-a-video).
 
 
 ## MASK to SEGS
@@ -187,6 +188,25 @@ In the workflow below, the `BBOX Detector` model finds two faces in the first of
 [![MASK to SEGS with combined and bbox_fill](../workflow/mask-to-segs-combined.png)](../workflow/mask-to-segs-combined.png)
 
 * Since V9.1.1 the bbox of a `combined` SEG ends where the mask ends. Before, it was one pixel short on the right and at the bottom, and `bbox_fill` with `combined` on did not fill the box of the mask. A workflow that uses `combined` gets results that differ by these pixels.
+
+## Bounding Boxes to SEGS
+
+`Bounding Boxes to SEGS` (`ImpactBoundingBoxesToSEGS`, V9.3 or later) makes `SEGS` from the `BOUNDING_BOX` that nodes of ComfyUI give, so that what they find can be given to the Detailer. `SAM3 Detect`, `Run Real-Time Detection (RT-DETR)`, `Detect Face Landmarks (MediaPipe)`, `Create Bounding Boxes` and `Bounding Box` give such boxes.
+
+* Each box becomes a SEG, as `BBOX Detector (SEGS)` gives it: the mask of the SEG is the box.
+* `image`: the image that the boxes belong to. It gives the `SEGS` their size, and each SEG the picture of its crop region.
+* `crop_factor`: the size of the crop region around the bbox, as in the detectors.
+* The `label` and the `score` of a box become the label and the confidence of its SEG. A box without them gets an empty label and a confidence of 1.
+* A box that reaches over the border of the image is cut to the image. A box outside the image gives no SEG. When no box is left, the result is a `SEGS` without SEGs.
+* The node takes the boxes of one image. The boxes of several frames and a batch of several images stop with an error, as in the detectors.
+
+In the workflow below, `SAM3 Detect` of ComfyUI finds the faces that the text `face:4` names, at most four of them. `Bounding Boxes to SEGS` turns its `bboxes` into `SEGS`. `SEGSPreview` shows the two SEGs, and `Detailer (SEGS)` refines them.
+
+[![Bounding Boxes to SEGS](../workflow/bounding-boxes-to-segs.png)](../workflow/bounding-boxes-to-segs.png)
+
+* `Load Checkpoint` loads the SAM3 model for `SAM3 Detect`. It is the file that `SAMLoader (Impact)` loads, see [SAM, SAM2 and SAM3 models](#sam-sam2-and-sam3-models).
+* To get the shape of each object instead of its box, give the `SEGS` to a [SAM Detector](#sam-detector), as after a BBOX detector. The `masks` of `SAM3 Detect` become `SEGS` through [MASK to SEGS](#mask-to-segs).
+* For the other direction, see [SEGS to bounding boxes](segs.md#segs-to-bounding-boxes).
 
 
 ## Classifying SEGS

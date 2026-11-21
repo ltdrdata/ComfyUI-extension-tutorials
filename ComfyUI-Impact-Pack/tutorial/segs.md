@@ -2,7 +2,7 @@
 
 A detector returns what it found as `SEGS`. A `SEGS` holds one SEG for each area, with its mask, bbox, crop region, label and confidence, as [Detectors](detectors.md) explains. The nodes on this page sit between the detector and the Detailer. They show SEGS, choose the SEGs to refine, combine and change SEGS, and give them a ControlNet or an IPAdapter.
 
-To make SEGS from a mask, see [MASK to SEGS](detectors.md#mask-to-segs).
+To make SEGS from a mask, see [MASK to SEGS](detectors.md#mask-to-segs). To make them from the bounding boxes of ComfyUI, see [Bounding Boxes to SEGS](detectors.md#bounding-boxes-to-segs).
 
 
 ## Look at SEGS
@@ -31,6 +31,41 @@ Three nodes turn SEGS into masks of the size of the image. The mask of each SEG 
 * `SEGS to Mask Batch` (`ImpactSEGSToMaskBatch`) returns the same masks as one batch.
 * A SEG that holds the masks of video frames gives a mask for each frame in the list and in the batch.
 * A SEGS without SEGs gives one empty mask in the list and in the batch.
+
+### SEGS to bounding boxes
+
+`SEGS to Bounding Boxes` (`ImpactSEGSToBoundingBoxes`, V9.3 or later) returns the bbox of each SEG as the `BOUNDING_BOX` that nodes of ComfyUI take, such as `SAM3 Detect`, `Draw BBoxes` and `Crop By Bounding Boxes`.
+
+* The output is a list of boxes for each frame. A box has `x`, `y`, `width` and `height`, the label of the SEG as `label` and its confidence as `score`.
+* The SEGS of an image give one list. A node of ComfyUI that gets one list with a batch of images uses it for every image.
+* A SEGS without SEGs gives one list without a box.
+* The node takes any SEGS, so the nodes of [Choose SEGs](#choose-segs) work before it.
+
+In the workflow below, `BBOX Detector (SEGS)` finds two faces. `SAM3 Detect` of ComfyUI makes a mask inside each box, and `Draw BBoxes` draws the boxes.
+
+[![SEGS to Bounding Boxes](../workflow/segs-to-bounding-boxes.png)](../workflow/segs-to-bounding-boxes.png)
+
+* `SAM3 Detect` segments inside the boxes only when its `conditioning` is not connected. With a text, it takes the boxes as examples of what the text names.
+* `Load Checkpoint` loads the SAM3 model for `SAM3 Detect`. It is the file that `SAMLoader (Impact)` loads, see [SAM, SAM2 and SAM3 models](detectors.md#sam-sam2-and-sam3-models).
+* `Crop Image` of ComfyUI takes a single box, not this list.
+* For the other direction, see [Bounding Boxes to SEGS](detectors.md#bounding-boxes-to-segs).
+
+#### The boxes of a video
+
+When a SEG holds a mask for each frame of a video, every frame gets a list of its own. The box of a SEG in a frame is the box around its mask in that frame, and a frame without a mask of the SEG gets no box for it.
+
+* `SAM2 Video Detector (SEGS)`, `SAM3 Video Detector (SEGS)` and `MASK to SEGS for Video` give such SEGS. So does `Simple Detector for Video (SEGS)` with `masking_mode` set to `Combine neighboring frames` or `Don't combine`.
+* `Simple Detector for Video (SEGS)` with `Pivot SEGS` gives SEGs with one mask for all frames. Their boxes are one list, with the box around the object in all frames, and a node of ComfyUI uses that list for every frame.
+
+In the workflow below, `SAM3 Video Detector (SEGS)` tracks two faces through the 25 frames of [sam-video-example.mp4](../images/sam-video-example.mp4). `Draw BBoxes` draws the box of each face in every frame, and `Crop By Bounding Boxes` crops every frame to the faces.
+
+[![SEGS to Bounding Boxes with a video](../workflow/segs-to-bounding-boxes-video.png)](../workflow/segs-to-bounding-boxes-video.png)
+
+* `Crop By Bounding Boxes` makes one crop for each frame, around all boxes of that frame.
+
+To follow one object, choose its SEG first. In the workflow below, `SEGS Filter (ordered)` with `target` `x1`, `order` `ascending` and `take_count` 1 keeps the left face, and `Crop By Bounding Boxes` follows that face through the 25 frames.
+
+[![SEGS to Bounding Boxes after SEGS Filter (ordered)](../workflow/segs-to-bounding-boxes-video-one-face.png)](../workflow/segs-to-bounding-boxes-video-one-face.png)
 
 ### SEGSToImageList
 
@@ -182,7 +217,7 @@ To choose one of several SEGS, use `Switch (Any)`. `Switch (SEGS/legacy)` (`SEGS
 
 ### The image a SEG carries
 
-A SEG can carry an image of its crop region. `BBOX Detector (SEGS)` and `SEGM Detector (SEGS)` put the crop of their image there, and `SEGSDetailer` puts its result there. `MASK to SEGS` and `SEGS Merge` make SEGs without an image.
+A SEG can carry an image of its crop region. `BBOX Detector (SEGS)`, `SEGM Detector (SEGS)` and `Bounding Boxes to SEGS` put the crop of their image there, and `SEGSDetailer` puts its result there. `MASK to SEGS` and `SEGS Merge` make SEGs without an image.
 
 * `SEGSPreview`, `SEGSToImageList` and `Picker (SEGS)` show that image. They use `fallback_image_opt` only for a SEG without an image.
 * `SEGSDetailer` refines that image in place of a crop of its `image` input.
