@@ -1,6 +1,6 @@
-# Changes from V8.31 to V9.3
+# Changes from V8.31 to V9.4
 
-What changed in the Impact Pack from V8.31 to V9.3, with the tutorial that describes each change.
+What changed in the Impact Pack from V8.31 to V9.4, with the tutorial that describes each change.
 
 ## New
 
@@ -16,6 +16,7 @@ What changed in the Impact Pack from V8.31 to V9.3, with the tutorial that descr
 | With the Nodes 2.0 renderer, a `Switch (Any)` that returned `None` is marked in the page when a run ends with an error at a node that got that `None`. The log of the switch says why it returned `None`. | V9.2 | |
 | `SEGS to Bounding Boxes`: the boxes of SEGS for nodes of ComfyUI that take a `BOUNDING_BOX` | V9.3 | [Working with SEGS](segs.md#segs-to-bounding-boxes) |
 | `Bounding Boxes to SEGS`: SEGS from the `BOUNDING_BOX` that nodes of ComfyUI give | V9.3 | [Detectors](detectors.md#bounding-boxes-to-segs) |
+| `ONNXDetectorProvider` takes a detection model that Ultralytics YOLO exported to ONNX. The labels of its SEGS are the class names of the model. | V9.4 | [ONNX](ONNX.md#models-exported-by-ultralytics-yolo) |
 
 ## Changed
 
@@ -48,3 +49,6 @@ What changed in the Impact Pack from V8.31 to V9.3, with the tutorial that descr
 | A `POST /prompt` without a `prompt`, such as a prompt posted as the body itself, logged `Error on prompt - several features will not work` with a traceback. ComfyUI answers such a request with `400 no_prompt` as before. | V9.1.1 | |
 | `Preview Bridge` refused to queue a workflow of its first versions, which holds the image of the bridge as an object, with `Preview Bridge: no image to register`. The run gives such a bridge its image again. | V9.2 | |
 | `Impact Scheduler Adapter` was refused with `Return type mismatch between linked nodes` when a nodepack that ComfyUI imports after the Impact Pack adds a scheduler. | V9.2 | [Impact Scheduler Adapter](upscale.md#impact-scheduler-adapter) |
+| The ONNX detector stopped with `index 0 is out of bounds for axis 0 with size 0` when the NudeNet model `detector_v2_base_checkpoint.onnx` found 300 objects, as many as it can return. | V9.4 | [ONNX](ONNX.md) |
+| `BBOX Detector (SEGS)` with an ONNX detector stopped with `'NoneType' object is not subscriptable` when a `detailer_hook` was linked and the model found something. An error of the ONNX detector is now shown at the node, not only in the log. | V9.4 | [Detectors](detectors.md#onnx-detector-segslegacy) |
+| `CoreMLDetailerHookProvider` cut the crop region of a detection to the shape of its `mode` from one side. A box in the middle of its crop region lay at the edge of the region or partly outside it. The box now stays where it was in the region. | V9.4 | [Detailer Hooks](detailer_hooks.md#match-a-coreml-models-resolution) |

@@ -11,7 +11,7 @@ ComfyUI-Impact-Pack provides various features such as detection, detailler, send
 * Various tutorial videos are available on the [youtube playlist](https://www.youtube.com/playlist?list=PL_Ej2RDzjQLGfEeizq4GISeY3FtVyFmGP).  
 
 
-* [Changes from V8.31 to V9.3](ComfyUI-Impact-Pack/tutorial/changes.md)
+* [Changes from V8.31 to V9.4](ComfyUI-Impact-Pack/tutorial/changes.md)
 
 
 * Basic Tutorials

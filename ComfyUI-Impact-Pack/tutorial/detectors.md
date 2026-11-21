@@ -72,9 +72,11 @@ The workflow below is an example that utilizes `BBOX_DETECTOR` and `SEGM_DETECTO
 `ONNX Detector (SEGS/legacy) - use BBOXDetector` (`ONNXDetectorSEGS`) is `BBOX Detector (SEGS)` under an old name. It has the same inputs and gives the same result, and it stays so that old workflows still load. Take `BBOX Detector (SEGS)` in a new workflow.
 
 * `ONNXDetectorProvider` loads an `.onnx` model from `models/onnx` and returns a `BBOX_DETECTOR`. Give it to `BBOX Detector (SEGS)` like any other `BBOX_DETECTOR`.
-* The ONNX detector was written for the NudeNet model `detector_v2_base_checkpoint.onnx`. [ONNX.md](ONNX.md) says where to get it and has a workflow.
-* With another ONNX model the detection can fail. The log then shows `ONNXDetector: unable to execute.`, and the detector node stops with an error.
-* The labels of its SEGS are the class numbers of the model, such as `0` or `2`. Write these numbers in `labels`.
+* It takes a model in one of two formats. [ONNX.md](ONNX.md) says where to get such models and has a workflow for each format.
+  * A detection model that Ultralytics YOLO exported to ONNX, in V9.4 or later. The labels of its SEGS are the class names of the model, such as `face`.
+  * The NudeNet model `detector_v2_base_checkpoint.onnx`, which the ONNX detector was written for. The labels of its SEGS are the class numbers of the model, such as `0` or `2`. Write these numbers in `labels`.
+* A model in another format stops the detector node with an error. In V9.4 or later the error names the two formats.
+* The model runs on the CPU.
 
 
 ## SAM Detector
