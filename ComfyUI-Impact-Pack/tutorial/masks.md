@@ -46,7 +46,6 @@ The mask nodes of the Impact Pack draw, combine and clean up masks, and cut the 
   * By default it runs on the CPU. With `gpu_gaussian_blur = True` in `impact-pack.ini` it runs on ComfyUI's compute device after a restart of ComfyUI. Keep it off when VRAM is short.
 * `Flatten Mask Batch` (`ImpactFlattenMask`) joins all masks of a batch into one mask. A pixel is set when it is set in any mask of the batch.
   * It is meant for binary masks. Values in between are joined bit by bit, so the result is not always the larger value.
-  * The result holds 255, not 1, where it is set.
 * `Dilate Mask (SEGS)` and `Gaussian Blur Mask (SEGS)` do what `Dilate Mask` and `Gaussian Blur Mask` do, to the mask of every SEG in a `SEGS`. See [Working with SEGS](segs.md#masks).
 * `Remove Noise Mask` takes a `LATENT`, not a mask. It returns the latent without the noise mask that `Set Latent Noise Mask` or `Preview Bridge (Latent)` put on it, so that a sampler after it is not limited to the mask.
 
